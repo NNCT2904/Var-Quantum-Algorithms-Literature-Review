@@ -10,9 +10,22 @@
 Hypothesis for Feature maps and QCNN circuit training: A feature is an individual measurable property (characteristic in short) of a class of objects. A \textit{Feature map} is related to dimensionality reduction, it re-represent data in different space.
 For a object $\alpha_1$ of coordinate $\alpha_1 = (x, y)$ in 2D space, map to $\alpha_2 = (x, y, z)$ in 3D space, the distance to the \textit{origin point} $O$ can be calculated with Pythagorean theorem:
 
-\begin{align}
-    s(\alpha_1, O) = \sqrt{x^2 + y^2}, \\
-    s(\alpha_2, O) = \sqrt{x^2 + y^2 + z^2}
-\end{align}
-
-
+\begin{equation}
+    \begin{split}
+        &s(\alpha_1, O) = \sqrt{x^2 + y^2}, \\
+        &s(\alpha_2, O) = \sqrt{x^2 + y^2 + z^2}
+    \end{split}
+\end{equation}
+As can be seen:
+\begin{equation}
+    \begin{split}
+        0 &\leq x^2\\
+        \iff x^2 + y^2 &\leq x^2 + y^2 + z^2 \\
+        \iff \sqrt{x^2 + y^2} &\leq \sqrt{x^2 + y^2 + z^2}
+    \end{split}
+\end{equation}
+Then
+\begin{equation}
+    s(\alpha_1, O) \leq s(\alpha_2, O)
+\end{equation}
+Observation: distance in 3D is greater or equal to 2D, higher dimension can lead to greater distance 
