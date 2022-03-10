@@ -1,29 +1,29 @@
 \subsection{Background}
 
-\todo{you really need to fix your English throughout}Regardless of \todo[prepend]{vast?}\underline{far-fetched} power of supercomputers, there are problems that \todo{just "remain"}\underline{are remaining} unsolved, as their complexity scales too quickly even for some top-of-the-line computing systems to handle. 
-We are in needed to research and develop new tools with enough processing power to process those tasks, which can be taken forms of molecular behaviors analyzing in chemistry, factoring large integer for cryptography, or machine learning.
+\todo{you really need to fix your English throughout}Regardless of \todo[prepend]{vast?} far-fetched power of supercomputers, some problems \todo{just "remain"}remain unsolved, as their complexity scales too quickly even for some top-of-the-line computing systems to handle. 
+We need to research and develop new tools with enough processing power to process those tasks, which can take the forms of molecular behaviours analysing in chemistry, factoring large integers for cryptography, or machine learning.
 
-Quantum computers were developed based on Quantum mechanics to deliver a greater processing scaling compare to Classical computers.
-It can be considered as the relic of the collaboration between modern physics, engineering, and computer science.
-To demonstrate the advantages of Quantum computers, Google claimed "Quantum supremacy" in 2019, by solving a problem that take about 10000 years for supercomputers, in 200 seconds \cite{hsuGoogleQuantumTech2019}.
-New records for this Quantum race are established over and over, such as Jiuzhang Quantum computer from China with 56 Qbits configuration, reported to have 10 billion times in performance compare to Google's \cite{zhongQuantumComputationalAdvantage2020}, or the most recent 127 Qbits system "Eagle" from IBM \cite{chow2021ibm}.
+Quantum computers were developed based on Quantum mechanics to deliver a more excellent processing scaling than classical ones.
+It is the relic of the collaboration between modern physics, engineering, and computer science.
+To demonstrate the advantages of Quantum computers, Google claimed "Quantum supremacy" in 2019 by solving a problem that takes about 10000 years for supercomputers in 200 seconds \cite{hsuGoogleQuantumTech2019}.
+New records for this Quantum race are established repeatedly, such as Jiuzhang Quantum computer from China with 56 Qbits configuration, reported having 10 billion times in performance compared to Google's \cite{zhongQuantumComputationalAdvantage2020}, or the most recent 127 Qbits system "Eagle" from IBM \cite{chow2021ibm}.
 
-Both Classical and Quantum computer suffer the same fundamental issue of data corruption.
-For Classical computers, the cause of this fault would be magnetism, electricity and radiations.
-However, in the case of Quantum computers, there are even more things to concern, not only from magnetism or electricity and radiations, they require separation from heat, light, vibration, etc. In other words, an absolute isolation from the outside world.
+Both Classical and Quantum computers suffer the same fundamental issue of data corruption.
+For Classical computers, the cause of this fault would be magnetism, electricity and radiation.
+However, there are even more things to be concerned about in the case of Quantum computers, not only from magnetism or electricity and radiation. They require separation from heat, light, and vibration. In other words, absolute isolation from the outside world.
 
-Such close systems are of course only exist in fiction. 
-All Quantum computers must be designed to be controlled by interaction with the outside world at some extent, or else we cannot input or retrieve data.
-It also means there are possibility that some disturbances that we have no control of can interrupt the system, or the system itself interacting with the outside world.
-These interruptions, called "decoherence", are the major factor that destroy the Quantum evolution needed for large scale algorithms on Quantum computers.
+Such close systems are, of course, only exist in fiction. 
+To some extent, all Quantum computers are designed to be controlled by interaction with the outside world, or else we cannot input or retrieve data.
+It also means that some disturbances that we have no control of can interrupt the system or interact with the outside world.
+These interruptions, called "decoherence", are the primary factor that destroys the Quantum evolution needed for large scale algorithms on Quantum computers.
 
 A way to counter decoherence is using Quantum Error Correction codes \cite{lidar2013quantum} to protect quantum information, by using multiple physical Qbits to represent a logical Qbit, such as the 9-Qbit Shor code \cite{shor1995scheme}.
-Considering the high cost of fault-tolerant Quantum computers and their maintenance, Qbits must be used as efficient as possible. 
-The limited in amount of Qbits per processor and circuit depth due to noise at this time also narrowing down on the scale of algorithms that can be executed.
+Considering the high cost of fault-tolerant Quantum computers and their maintenance, Qbits must be used as efficiently as possible. 
+The limited amount of Qbits per processor and circuit depth due to noise at this time also narrow down on the scale of algorithms that Quantum computers can execute.
 
-The availability of those fault-tolerant Quantum computer is not likely to happen in the near future. 
+The availability of those fault-tolerant Quantum computers is not likely to happen soon. 
 While waiting for those devices, scientists had discovered a new approach for the current early and noisy Qbit registers.
-Variational Quantum algorithms (VQAs) \cite{cerezo2021variational} attempted to address this constrains, by made used of machine learning methods to train a parameterised quantum circuit.
+Variational Quantum algorithms (VQAs) \cite{cerezo2021variational} attempted to address these constraints by using machine learning methods to train a parameterised quantum circuit.
 \todo{the preceding discussion does not address the issue of Variational Quantum Algorithms, the fact that QNN is an example of VQA, the reason for investigating these, etc. }
 \begin{center}
     \vspace{10pt}
