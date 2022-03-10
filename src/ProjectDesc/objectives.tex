@@ -1,4 +1,5 @@
 \subsection{Objectives}
+\todo{I assume these are immediate objectives for the next few days / weeks, you will need to specify objectives which will help you solve the problem}
 \begin{enumerate}
     \item Pick a name (Due this weekend),
     \item Run through Classical Machine Learning (briefly),
@@ -6,14 +7,18 @@
     \item Practice QNN: Image classification in python (Qiskit), maybe classifying animals, cats and mouses, using "Supervised learning" or any other settings. This step test the model if not work then need to alter the hypothesis.
     \item Conclude the research with summary, motivation and applications.
 \end{enumerate}
+\todo{Not sure how are these hypotheses derived, what are they going to achieve}
+\subsubsection{Observation for Binary Image classifier}
 
-Hypothesis for Feature maps and QCNN circuit training: A feature is an individual measurable property (characteristic in short) of a class of objects. A \textit{Feature map} is related to dimensionality reduction, it re-represent data in different space.
-For a object $\alpha_1$ of coordinate $\alpha_1 = (x, y)$ in 2D space, map to $\alpha_2 = (x, y, z)$ in 3D space, the distance to the \textit{origin point} $O$ can be calculated with Pythagorean theorem:
+
+\subsubsection{Observation for Feature maps and circuit training}
+A feature is an individual measurable property (characteristic in short) of a class of objects. A \textit{Feature map} is related to dimensionality reduction, it re-represent data in different space.
+For a point $\alpha_1$ of coordinate $\alpha_1 = (x, y)$ in 2D space, map to $\alpha_2 = (x, y, z)$ in 3D space, the distance to the \textit{origin point} $O$ can be calculated with Pythagorean theorem:
 
 \begin{equation}
     \begin{split}
-        &s(\alpha_1, O) = \sqrt{x^2 + y^2}, \\
-        &s(\alpha_2, O) = \sqrt{x^2 + y^2 + z^2}
+        &d(\alpha_1, O) = \sqrt{x^2 + y^2}, \\
+        &d(\alpha_2, O) = \sqrt{x^2 + y^2 + z^2}
     \end{split}
 \end{equation}
 As can be seen:
@@ -26,8 +31,8 @@ As can be seen:
 \end{equation}
 Then
 \begin{equation}
-    s(\alpha_1, O) \leq s(\alpha_2, O)
+    d(\alpha_1, O) \leq d(\alpha_2, O)
 \end{equation}
-Observation: distance in 3D is greater or equal to 2D, higher dimension may lead to greater distance? Perhaps more dimensions allow data point a higher chance to be different?
+Observation: distance in 3D is greater or equal to 2D, higher dimension may lead to greater distance between data points? Perhaps more dimensions allow data points higher chances to be different?
 
 A very interesting (but contains many spooky scary equations) paper since 2002: \href{https://www.researchgate.net/publication/30013021_On_the_Surprising_Behavior_of_Distance_Metric_in_High-Dimensional_Space}{On the Surprising Behavior of Distance Metric in High-Dimensional Space}
