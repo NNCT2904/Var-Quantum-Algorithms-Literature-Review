@@ -13,7 +13,7 @@ For Classical computers, the cause of this fault would be magnetism, electricity
 However, there are even more things to be concerned about in the case of Quantum computers, not only from magnetism or electricity and radiation. They require separation from heat, light, and vibration. In other words, absolute isolation from the outside world.
 
 Such close systems are, of course, only exist in fiction. 
-To some extent, all Quantum computers are designed to be controlled by interaction with the outside world, or else we cannot input or retrieve data.
+To some extent, all Quantum computers are designed to be controlled by interaction with the outside world, or we cannot input or retrieve data.
 It also means that some disturbances that we have no control of can interrupt the system or interact with the outside world.
 These interruptions, called "decoherence", are the primary factor that destroys the Quantum evolution needed for large scale algorithms on Quantum computers.
 
@@ -21,7 +21,7 @@ A way to counter decoherence is using Quantum Error Correction codes \cite{lidar
 Considering the high cost of fault-tolerant Quantum computers and their maintenance, Qbits must be used as efficiently as possible. 
 The limited amount of Qbits per processor and circuit depth due to noise at this time also narrow down on the scale of algorithms that Quantum computers can execute.
 
-Quantum algorithms also experience another issue: their circuits hard-code the input data. 
+Nowadays, to develop a quantum algorithm, high-level programming languages such as Python are used to generate quantum circuits, which can be executed by a simulator or by a quantum computer. This leads to another issue: the initial state of Qubits in registries are often being prepared statically as either value $\ket{0}$ or $\ket{1}$
 
 The availability of those fault-tolerant Quantum computers is not likely to happen soon. 
 While waiting for those devices, scientists had discovered a new approach for the current early and noisy Qbit registers.
