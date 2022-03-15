@@ -1,27 +1,38 @@
 \subsection{Background}
+\todo{Open with a general statement about quantum computing and its benefits as compared with classical computers.}
 Quantum computing is a relatively new and emerging field in Physics, Mathematics and Computer Science. 
 Algorithms for Quantum computers have been developed to solve problems that belong to the non-deterministic polynomial time complexity class for Classical computers. 
-A programming language such as Python is in charge to construct quantum circuits that run in a simulator or actual Quantum hardware. 
+A programming language such as Python is in charge of constructing quantum circuits that run in a simulator or actual Quantum hardware. 
 
+\todo{Explain how to develop quantum algorithms and the fact that they are "static".}
 Unfortunately, Quantum computers are early and noisy, comparable to the first programmable computers a century ago. 
-They all face the same issue of gate control precision and data execution, namely the absence of fault-tolerant design to counter errors due to “decoherence”, limiting the number of Qubits per processor and executable circuit depth. 
+They all face the same issue of gate control precision and data execution, namely the absence of fault-tolerant design to counter errors due to "decoherence", limiting the number of Qubits per processor and executable circuit depth. 
 Moreover, quantum circuits hard-code their data by design. In more detail, the prepared state for Qubits is static as either 0s or 1s. 
 Those initial Qubits are then applied with a NOT gate to match the classical data. This process leads to the issue of data encoding: every new data input will produce a different circuit. 
 Thus, these functions (or Quantum algorithms) are not reusable.
 
+\todo{Discuss that an alternative involved hybrid solutions, such as VQA and give some examples of VQAs, including QNNs, }
 There are hybrid approaches involving Classical and Quantum hardware to address those constraints using Machine Learning theories. 
 Variational Quantum Algorithms (VQAs) can produce Quantum circuits that receive trainable parameters, which are reusable for Quantum computers. 
-At the same time, the classical optimiser sees the variational circuits as a black box that returns results from inputs and the trainable parameter. 
+At the same time, the classical optimizer sees the variational circuits as a black box that returns results from inputs and the trainable parameter. 
 The Variational method has enabled many Classical Machine Learning algorithms to implement their alternatives for Quantum computers.
 
-Quantum Neural Networks (QNNs for short) is one implementation of VQAs.
+Quantum Neural Networks (QNNs) \cite{altaisky2001quantum} is an exciting and  promising paradigm that involves both Quantum computing and Machine learning. 
+Different constructing methods leads to different definition of QNNs \cite{paetznick2013} \cite{zhaoBuildingQuantumNeural2019} \cite{caoQuantumNeuronElementary2017}. 
+However, they share the same three conditions as pointed out by \cite{schuldQuestQuantumNeural2014}: 
+(1) The initial state can encode any binary string;
+(2) The calculation process reflects Neural Networks principles;
+(3) The evolution of the system based on, and fully consistent with Quantum theory.
+At the current stage, QNNs is seen as a subclass of VQA, consisting of variational circuits and classical optimizers \cite{abbasPowerQuantumNeural2021}.
 
+\todo{Briefly discuss/mention different types of QNNs, their advantages, and disadvantages.}
+Some known types of QNNs are: Quantum Convolutional Neural Network (QCNN)
 
 \begin{enumerate}
-    \item open with a general statement about quantum computing and its benefits as compared with classical computers, 
-    \item explain how to  develop quantum algorithms and the fact that they are "static",
+    \item open with a general statement about quantum computing and its benefits as compared with classical computers.
+    \item explain how to develop quantum algorithms and the fact that they are "static".
     \item discuss that an alternative involved hybrid solutions, such as VQA and give some examples of VQAs, including QNNs, 
-    \item briefly discuss/mention different types of QNNs, their advantages and disadvantages, 
-    \item set a claim that this project undertakes a study that aims to compare different approaches to implementing QNNs and contrasting them with classical NNs, 
+    \item briefly discuss/mention different types of QNNs, their advantages, and disadvantages.
+    \item set a claim that this project undertakes a study that aims to compare different approaches to implementing QNNs and contrasting them with classical NNs.
     \item Finally, mention that this research will focus on a classification problem (e.g. images).
 \end{enumerate}
