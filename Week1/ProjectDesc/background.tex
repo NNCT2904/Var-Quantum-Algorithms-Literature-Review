@@ -7,7 +7,7 @@ A programming language such as Python is in charge of constructing quantum circu
 \todo{Explain how to develop quantum algorithms and the fact that they are "static."}
 Unfortunately, Quantum computers we can produce are early and noisy at this stage. 
 They are all within the scope of the Noisy Intermediate-Scale Quantum (NISQ) era, comparable to the first programmable computers a century ago. 
-They all face the same issue of gate control precision and data execution: the absence of fault-tolerant design to counter errors due to decoherence, limiting the number of Qubits per processor, and executable circuit depth. 
+They all face the same gate control precision and data execution issue: the absence of fault-tolerant design to counter errors due to decoherence, limiting the number of Qubits per processor, and executable circuit depth. 
 Moreover, quantum circuits hard-code their data by design. In more detail, the prepared state for Qubits is static as either 0s or 1s. 
 Those initial Qubits are then applied with a NOT gate to match the classical data. This process leads to the issue of data encoding: every new data input will produce a different circuit. 
 Thus, these functions (or Quantum algorithms) are not reusable.
@@ -18,21 +18,21 @@ Variational Quantum Algorithms (VQAs) can produce Quantum circuits that receive 
 At the same time, the classical optimizer sees the variational circuits as a black box that returns results from inputs and the trainable parameter. 
 The Variational method has enabled many Classical Machine Learning algorithms to implement their alternatives for Quantum computers.
 
-Quantum Neural Networks (QNNs) \cite{altaisky2001quantum} is an exciting and promising paradigm that involves both Quantum computing and Machine learning. 
-Different constructing methods leads to different definition of QNNs \cite{paetznick2013} \cite{zhaoBuildingQuantumNeural2019} \cite{caoQuantumNeuronElementary2017}. 
+Quantum Neural Networks (QNNs) \cite{altaisky2001quantum} is an exciting and promising paradigm involving Quantum computing and Machine learning. 
+Different constructing methods lead to different definitions of QNNs \cite{paetznick2013} \cite{zhaoBuildingQuantumNeural2019} \cite{caoQuantumNeuronElementary2017}. 
 However, they share the same three conditions as pointed out by \cite{schuldQuestQuantumNeural2014}: 
 (1) The initial state can encode any binary string;
 (2) The calculation process reflects Neural Networks principles;
-(3) The system's evolution is based on, and fully consistent with Quantum theory.
+(3) The system's evolution is based on, and entirely consistent with Quantum theory.
 At the current stage, QNN is seen as a subclass of VQA, consisting of variational circuits and classical optimizers \cite{abbasPowerQuantumNeural2021}.
 
 \todo{Briefly discuss/mention different types of QNNs, their advantages, and disadvantages.}
 Some known types of QNN in the recent quantum stage are: 
 Quantum Tensor Neural Network (QTNN) \cite{hugginsQuantumMachineLearning2019} which achieved a balance of computational efficiency and expressive power. 
 The tensor network can reduce the required Qubits to process high-dimensional data with powerful optimization algorithms.
-Quantum Recurrent Neural Network (QRNN) is constructed as a parameterized circuit \cite{takakiLearningTemporalData2021}, with some Qubits initialized and measured at each step while a few others memorize the past data.
+Quantum Recurrent Neural Network (QRNN) is constructed as a parameterized circuit \cite{takakiLearningTemporalData2021}, with some Qubits being initialized and measured at each step while others memorize the past data.
 However, it is still an open question whether this Quantum alternative is better than the classical Recurrent Neural Network.
-The NISQ Quantum processor stage also enable some emerging models such as 
+The NISQ Quantum processor stage also enables some emerging models such as 
 Quantum Boltzmann Machine \cite{shinguBoltzmannMachineLearning2021}\cite{zoufalVariationalQuantumBoltzmann2021}, 
 Quantum Perceptron \cite{kristensenArtificialSpikingQuantum2021}, 
 Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdversarial2018}\cite{lloydQuantumGenerativeAdversarial2018}.
@@ -43,19 +43,19 @@ One of which is the difficulty of Barren Plateaus, as pointed out in \cite{abbas
 \todo{Set a claim that this project study... this research will focus on...}
 This research project undertakes a study that aims to survey and compare some countermeasure approaches to mitigate or avoid the effect of Barren Plateaus in the QNN development under VQA methods. 
 The main work of this article is summarized: 
-We provide some basic background for VQA and QNN;
+We provide some essential background for VQA and QNN;
 We define the Barren Plateaus phenomenon and the causes that would lead to this issue; 
 The composition of known methods to address the matter of concern will be introduced, as well as performance comparison to identify the best approach; 
-Finally, we conclude the paper with some open issues and future prospects for the field.
+Finally, we conclude the paper with some open issues and prospects for the field.
 
 
 \vspace{60pt}
 \textbf {Jacob's note:}
 \begin{enumerate}
-    \item Open with a general statement about quantum computing and its benefits as compared with classical computers.
+    \item Open with a general statement about quantum computing and its benefits compared with classical computers.
     \item Explain how to develop quantum algorithms and the fact that they are "static".
     \item Discuss that an alternative involved hybrid solutions, such as VQA and give some examples of VQAs, including QNNs, 
     \item Briefly discuss/mention different types of QNNs, their advantages, and disadvantages.
-    \item Set a claim that this project undertakes a study that aims to compare different approaches to implementing QNNs and contrasting them with classical NNs.
+    \item Set a claim that this project undertakes a study that compares different approaches to implementing QNNs and contrasts them with classical NNs.
     \item Finally, mention that this research will focus on a classification problem (e.g. images).
 \end{enumerate}
