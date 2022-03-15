@@ -1,38 +1,9 @@
 \subsection{Objectives}
-\todo{I assume these are immediate objectives for the next few days / weeks, you will need to specify objectives which will help you solve the problem}
+
 \begin{enumerate}
-    \item Pick a name (Due this weekend),
-    \item Run through Classical Machine Learning (briefly),
-    \item Hypothesis for QNN: From Classical Machine Learning to VQA (model, feature map, anzats, cost function, optimizers, etc.), a model that maps objects of distinct classes to binary output like: $A \to 0$ and $B \to 1$.
-    \item Practice QNN: Image classification in python (Qiskit), maybe classifying animals, cats and mouses, using "Supervised learning" or any other settings. This step test the model if not work then need to alter the hypothesis.
-    \item Conclude the research with summary, motivation and applications.
+    \item Some basic background for VQA and QNN;
+    \item Define the Barren Plateaus problem and the causes that would lead to this phenomenon: \cite{wangNoiseinducedBarrenPlateaus2021};
+    \item Investigate several methods to mitigate or avoid BP: \cite{pesahAbsenceBarrenPlateaus2021, pattiEntanglementDevisedBarren2021,liuParameterInitializationMethod2021};
+    \item Comparison of their advantage/disadvantage to identify the best approach;
+    \item Conclude the research with summary and open issues.
 \end{enumerate}
-\todo{Not sure how are these hypotheses derived, what are they going to achieve}
-\subsubsection{Observation for Binary Image classifier}
-
-
-\subsubsection{Observation for Feature maps and circuit training}
-A feature is an individual measurable property (characteristic in short) of a class of objects. A \textit{Feature map} is related to dimensionality reduction, it re-represent data in different space.
-For a point $\alpha_1$ of coordinate $\alpha_1 = (x, y)$ in 2D space, map to $\alpha_2 = (x, y, z)$ in 3D space, the distance to the \textit{origin point} $O$ can be calculated with Pythagorean theorem:
-
-\begin{equation}
-    \begin{split}
-        &d(\alpha_1, O) = \sqrt{x^2 + y^2}, \\
-        &d(\alpha_2, O) = \sqrt{x^2 + y^2 + z^2}
-    \end{split}
-\end{equation}
-As can be seen:
-\begin{equation}
-    \begin{split}
-        0 &\leq x^2\\
-        \iff x^2 + y^2 &\leq x^2 + y^2 + z^2 \\
-        \iff \sqrt{x^2 + y^2} &\leq \sqrt{x^2 + y^2 + z^2}
-    \end{split}
-\end{equation}
-Then
-\begin{equation}
-    d(\alpha_1, O) \leq d(\alpha_2, O)
-\end{equation}
-Observation: distance in 3D is greater or equal to 2D, higher dimension may lead to greater distance between data points? Perhaps more dimensions allow data points higher chances to be different?
-
-A very interesting (but contains many spooky scary equations) paper since 2002: \href{https://www.researchgate.net/publication/30013021_On_the_Surprising_Behavior_of_Distance_Metric_in_High-Dimensional_Space}{On the Surprising Behavior of Distance Metric in High-Dimensional Space}
