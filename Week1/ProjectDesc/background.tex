@@ -17,7 +17,7 @@ The Variational method has enabled many Classical Machine Learning algorithms to
 
 Quantum Neural Networks (QNNs) \cite{altaisky2001quantum} is a promising paradigm involving Quantum computing and Machine learning. 
 Different constructing methods lead to different definitions of QNNs \cite{paetznick2013} \cite{zhaoBuildingQuantumNeural2019} \cite{caoQuantumNeuronElementary2017}. 
-However, they share the same three conditions as pointed out by \cite{schuldQuestQuantumNeural2014} by Schuld, Sinayskiy, and Petruccione: 
+However, they share the same three conditions as pointed out by \cite{schuldQuestQuantumNeural2014} Schuld, Sinayskiy, and Petruccione: 
 (1) The initial state can encode any binary string;
 (2) The calculation process reflects Neural Networks principles;
 (3) The system's evolution is based on, and entirely consistent with Quantum theory.
@@ -35,16 +35,16 @@ Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdv
 
 As VQA is the mainstream method for designing QNN circuits, QNN inevitably inherited some shortcomings from VQA.
 One of which is the training difficulties, known as Barren Plateaus (BP).
-This phenomenon happens when training a QNN framework with a comparatively large number of qubits; the objective function becomes flat and leads to difficulties to estimate the gradient \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021} causing inefficiency in circuit training. 
+This phenomenon happens when training a QNN framework with a comparatively large number of qubits; the objective function becomes flat and leads to difficulties to estimate the gradient, \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021} causing inefficiency in circuit training. 
 Figure \ref{fig: Barren Plateau Example} provides an example illustration of BP.
-This problem was pointed out in \cite{abbasPowerQuantumNeural2021} by Abbas et. al, however, the author left this problem for further study. 
+This problem was pointed out in \cite{abbasPowerQuantumNeural2021} by Abbas et al. However, the author left this problem for further study. 
 Thus, the BP of QNN design under VQA is worth investigating.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{src/Appendices/example-of-a-barren-plateau.png}
     \caption{
-        Illustrative example of a barren plateau and narrow gorge.
+        An illustrative example of a barren plateau and narrow gorge.
         On both plots: the expectation value of a Hamiltonian for a single parameter in the quantum circuit.
         On the left: expectation value landscape in the absence of barren plateau. 
         On the right expectation value landscape in case of a barren plateau.
