@@ -36,7 +36,7 @@ Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdv
 
 As VQA is the mainstream method for designing QNN circuits, QNN inevitably inherited some shortcomings from VQA.
 One of which is the training difficulties, known as Barren Plateaus.
-This phenomenon happens when training a QNN framework with a comparatively large amount of qubits; the objective function becomes flat and leads to difficulties to estimate the gradient \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021}. This "vanishing gradient" effect causes inefficiency in circuit training. 
+This phenomenon happens when training a QNN framework with a comparatively large number of qubits; the objective function becomes flat and leads to difficulties to estimate the gradient \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021}. This "vanishing gradient" effect causes inefficiency in circuit training. 
 This problem was pointed out in \cite{abbasPowerQuantumNeural2021} by Abbas et. al, however, the author left this problem for further study. 
 Thus, the Barren Plateaus of QNN design under VQA is worth investigating.
 
@@ -46,15 +46,3 @@ We provide some essential background for VQA and QNN;
 We define the Barren Plateaus phenomenon and the causes that would lead to this issue; 
 The composition of known methods to address the matter of concern will be introduced, as well as performance comparison to identify the best approach; 
 Finally, we conclude the paper with some open issues and prospects for the field.
-
-
-\vspace{60pt}
-\textbf {Jacob's note:}
-\begin{enumerate}
-    \item Open with a general statement about quantum computing and its benefits compared with classical computers.
-    \item Explain how to develop quantum algorithms and the fact that they are "static".
-    \item Discuss that an alternative involved hybrid solutions, such as VQA and give some examples of VQAs, including QNNs, 
-    \item Briefly discuss/mention different types of QNNs, their advantages, and disadvantages.
-    \item Set a claim that this project undertakes a study that compares different approaches to implementing QNNs and contrasts them with classical NNs.
-    \item Finally, mention that this research will focus on a classification problem (e.g. images).
-\end{enumerate}
