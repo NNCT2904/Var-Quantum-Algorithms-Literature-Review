@@ -1,16 +1,15 @@
 \subsection{Background}\label{Background Section}
 Quantum computing is a relatively new and emerging field in Physics, Mathematics, and Computer Science. 
 Algorithms for Quantum computers have been developed to solve problems that belong to the non-deterministic polynomial time complexity class for Classical computers \cite{williamsSolvingNPCompleteProblems2011,jiangQuantumAnnealingPrime2018,farhiQuantumApproximateOptimization2014}. 
-A programming language such as Python is used to construct quantum circuits that run in a simulator or actual Quantum hardware. 
+A programming language such as Python is used to construct Quantum circuits that run in a simulator or actual Quantum hardware. 
 
 Unfortunately, Quantum computers we can produce are early and noisy at this stage. 
-They are all within the scope of the Noisy Intermediate-Scale Quantum (NISQ) \ref{} era, comparable to the first programmable computers a century ago. 
-They all face the same gate control precision and data execution issue: the absence of fault-tolerant design to counter errors due to decoherence, limiting the number of Qubits per processor, and executable circuit depth. 
-Moreover, quantum circuits are static by design. In more detail, \almarginpar{This is an incorrect statement. The previous information about hard coding data is correct!}\emph{the prepared state for Qubits is static as either 0s or 1s. 
-Those initial Qubits are then applied with a NOT gate to match the classical data}. This process leads to the issue of data encoding: every new data input will produce a different circuit. 
+They are all within the scope of the Noisy Intermediate-Scale Quantum (NISQ) \cite{brooksQuantumSupremacyHunt2019} era, comparable to the first programmable computers a century ago. 
+They all face the same gate control precision and data execution issue: the absence of fault-tolerant design to counter errors due to decoherence, limiting the number of qubits per processor, and executable circuit depth. 
+Moreover, quantum gates are static by design. 
+In more detail, every new data input to a quantum algorithm will produce a different quantum circuit. 
 Thus, these functions (or Quantum algorithms) are not reusable.
 
-\todo{"Hybrid quantum computing" is the preferred industry term for a simple idea: a quantum computer and a classical computer working together to solve a problem}
 There are hybrid approaches involving Quantum circuits and Classical optimizers to address those constraints using Machine Learning theories. 
 Variational Quantum Algorithms (VQAs) \cite{cerezo2021variational} can produce Quantum circuits that receive trainable parameters, which are reusable for Quantum computers. 
 At the same time, the classical optimizer sees the variational circuits as a black box that returns results from inputs and the trainable parameter. 
@@ -26,7 +25,7 @@ At the current stage, QNN is seen as a subclass of VQA, consisting of variationa
 
 Some known types of QNN for the recent quantum processor are: 
 Quantum Tensor Neural Network (QTNN) \cite{hugginsQuantumMachineLearning2019} which achieved a balance of computational efficiency and expressive power. 
-The tensor network can reduce the required Qubits to process high-dimensional data with powerful optimization algorithms.
+The tensor network can reduce the required qubits to process high-dimensional data with powerful optimization algorithms.
 Quantum Recurrent Neural Network (QRNN) is constructed as a parameterized circuit \cite{takakiLearningTemporalData2021}, with some qubits being initialized and measured at each step while others memorize the past data.
 However, whether this quantum alternative is better than the classical Recurrent Neural Network is still an open question.
 The NISQ processors are also capable of delivering some other QNN models such as: 
@@ -36,13 +35,29 @@ Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdv
 
 As VQA is the mainstream method for designing QNN circuits, QNN inevitably inherited some shortcomings from VQA.
 One of which is the training difficulties, known as Barren Plateaus (BP).
-This phenomenon happens when training a QNN framework with a comparatively large number of qubits; the objective function becomes flat and leads to difficulties to estimate the gradient \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021}. This "vanishing gradient" effect causes inefficiency in circuit training. 
+This phenomenon happens when training a QNN framework with a comparatively large number of qubits; the objective function becomes flat and leads to difficulties to estimate the gradient \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021} causing inefficiency in circuit training. 
+Figure \ref{fig: Barren Plateau Example} provides an example illustration of BP.
 This problem was pointed out in \cite{abbasPowerQuantumNeural2021} by Abbas et. al, however, the author left this problem for further study. 
-Thus, the Barren Plateaus of QNN design under VQA is worth investigating.
+Thus, the BP of QNN design under VQA is worth investigating.
 
-This research project undertakes a study that aims to survey and compare some countermeasure approaches to mitigate or avoid the effect of Barren Plateaus in the QNN development under VQA methods. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{src/Appendices/example-of-a-barren-plateau.png}
+    \caption{
+        Illustrative example of a barren plateau and narrow gorge.
+        On both plots: the expectation value of a Hamiltonian for a single parameter in the quantum circuit.
+        On the left: expectation value landscape in the absence of barren plateau. 
+        On the right expectation value landscape in case of a barren plateau.
+        Figure from ref \cite{tillyVariationalQuantumEigensolver2021}
+    }
+    \label{fig: Barren Plateau Example}
+\end{figure}
+
+
+
+This research project undertakes a study that aims to survey and compare some countermeasure approaches to mitigate or avoid the effect of BP in the QNN development under VQA methods. 
 The main work of this article is summarized: 
 We provide some essential background for VQA and QNN;
-We define the Barren Plateaus phenomenon and the causes that would lead to this issue; 
+We define the BP phenomenon and the causes that would lead to this issue; 
 The composition of known methods to address the matter of concern will be introduced, as well as performance comparison to identify the best approach; 
 Finally, we conclude the paper with some open issues and prospects for the field.
