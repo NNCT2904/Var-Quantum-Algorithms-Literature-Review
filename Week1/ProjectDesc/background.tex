@@ -29,7 +29,7 @@ Quantum Tensor Neural Network (QTNN) \cite{hugginsQuantumMachineLearning2019} wh
 The tensor network can reduce the required Qubits to process high-dimensional data with powerful optimization algorithms.
 Quantum Recurrent Neural Network (QRNN) is constructed as a parameterized circuit \cite{takakiLearningTemporalData2021}, with some qubits being initialized and measured at each step while others memorize the past data.
 However, whether this quantum alternative is better than the classical Recurrent Neural Network is still an open question.
-The NISQ processors also capable to deliver some emerging QNN models such as: 
+The NISQ processors are also capable of delivering some emerging QNN models such as: 
 Quantum Boltzmann Machine \cite{shinguBoltzmannMachineLearning2021}\cite{zoufalVariationalQuantumBoltzmann2021}, 
 Quantum Perceptron \cite{kristensenArtificialSpikingQuantum2021}, 
 Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdversarial2018}\cite{lloydQuantumGenerativeAdversarial2018}. Studies have shown that QNN performance and trainability can be significantly higher compared to its classical counterpart on today's hardware \cite{abbasPowerQuantumNeural2021, colesSeekingQuantumAdvantage2021}.
@@ -37,8 +37,7 @@ Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdv
 As VQA is the mainstream method for designing QNN circuits, QNN inevitably inherited some shortcomings from VQA.
 One of which is the training difficulties, known as Barren Plateaus.
 This phenomenon happens when training a QNN framework with a comparatively large amount of qubits; the objective function becomes flat and leads to difficulties to estimate the gradient \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021}, resulting in inefficiency in circuit training. 
-This problem was pointed out in \cite{abbasPowerQuantumNeural2021}. 
-However, the author left this problem for further study. 
+This problem was pointed out in \cite{abbasPowerQuantumNeural2021} by \citeauthor{abbasPowerQuantumNeural2021}, however, the author left this problem for further study. 
 Thus, the Barren Plateaus of QNN design under VQA is worth investigating.
 
 This research project undertakes a study that aims to survey and compare some countermeasure approaches to mitigate or avoid the effect of Barren Plateaus in the QNN development under VQA methods. 
