@@ -58,13 +58,13 @@ For a $L$-layered ansatsz, let the variance $\mathrm{Var}[\partial_v C]$ of the 
 
 If the total depth $L$ in range of $O(\log(n))$ of the number of qubits (a shallow configuration), then the lower bound cannot vanish faster than $\Omega(1/\mathrm{poly}(n))$. No Barren Plateau occurs in this case.
 
-There is another method that manipulates the circuit depth throughout the training period studied by Skolik et al. in \cite{skolikLayerwiseLearningQuantum2021}. 
+There is another method that manipulates the circuit depth throughout the training period studied by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021}. 
 In more detail, the algorithm consists of two phases:
 
-The first phase constructs the ansatz by adding layers one by one. (need more detail)
+The first phase constructs the ansatz by adding layers one by one, with the parameters are all initially zero. (need more detail)
 
 The second phase takes the pre-trained circuit from phase one and train larger adjacent partitions of layers at a time. (need more detail)
 
-The randomness is contained to only shallow sub-circuit in phase one during the whole routine, and the probability of meeting a plateau during the process is minimized.
-
 \subsection{Random initialization parameters}
+
+The algorithm in \cite{skolikLayerwiseLearningQuantum2021} also demonstrated that the randomness is contained to only shallow sub-circuit in phase one during the whole routine, and the probability of meeting a plateau during the process is minimized.
