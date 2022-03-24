@@ -49,6 +49,13 @@ To summary, there are factors that lead to Barren Plateaus in QNN:
 
 \todo{Addressing circuit depth}
 
-Cerezo et al. has demonstrated in \cite{cerezoCostFunctionDependent2021} that if a local cost function is used, then there is a lower bound for the variants of the gradients that depends on the number of qubits and some configurations of the circuit. For a $L$-layered ansatsz, the variance $\mathrm{Var}[]$
+Cerezo et al. has demonstrated in \cite{cerezoCostFunctionDependent2021} that if a local cost function is used, then there is a lower bound for the variants of the gradients that depends on the number of qubits and some configurations of the circuit. 
+For a $L$-layered ansatsz, let the variance $\mathrm{Var}[\partial_v C]$ of the partial derivative of the cost function $C$, the variance is bounded by
+
+\begin{equation}
+    G_n(L,l) \leq \mathrm{Var}[\partial_k C]
+\end{equation}
+
+If the total depth $L$ in range of $O(\log(n))$ of the number of qubits (a shallow configuration), then the lower bound cannot vanish faster than $\Omega(1/\mathrm{poly}(n))$
 
 \subsection{Random initialization parameters}
