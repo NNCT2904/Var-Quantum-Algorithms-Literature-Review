@@ -31,3 +31,6 @@ resulting identity blocks for the circuit:
     = \prod_{m=M}^1 I_m
     = I.
 \end{equation}
+
+This initialization strategy does not guarantee that the optimization algorithm will not cramp into a BP afterward. 
+It, however, ensure avoiding zero gradients for most parameters in the first parameters and allows the parameterized circuit to be trained more efficiently.
