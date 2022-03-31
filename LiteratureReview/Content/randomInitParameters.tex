@@ -15,14 +15,13 @@ The method is as follows: partition the circuit into $M$ blocks of depth $L$; fo
 The depth $L$ is chosen to be shallow enough so that each block cannot reach 2-designs. For any $m = 1, \cdots, M$, the parameters $\theta$, the block is presented as:
 \begin{equation}
     U_m(\theta_m)
-    = \prod_{l=L}^1 U_l(\theta_{l,1}^m)
-    = \prod_{l=1}^L U_l(\theta_{l,2}^m).
+    = \prod_{l=L}^1 U_l(\theta_{l,1}^m) \prod_{l=1}^L U_l(\theta_{l,2}^m).
 \end{equation}
 The starting parameter $\theta_{l,1}$ can be chosen randomly, while the values for $\theta_{l,2}$ are chosen such that $U_l(\theta_{l,2}) = U_l(\theta_{l,1})^\dagger$:
 \begin{equation}
     U_m(\theta_m)
     = \prod_{l=L}^1 U_l(\theta_{l,1}^m)
-    = \prod_{l=1}^L U_l(\theta_{l,1}^m)^\dagger
+    \prod_{l=1}^L U_l(\theta_{l,1}^m)^\dagger
     = I_m,
 \end{equation}
 resulting identity blocks for the circuit:
