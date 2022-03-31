@@ -1,0 +1,44 @@
+\subsection{Addressing Parameterized circuit depth}
+
+\subsubsection{Cost Function Dependent Barren Plateaus in Shallow Parametrized Quantum Circuits \texorpdfstring{\cite{cerezo2021variational}}{} }
+
+Cerezo et al. has demonstrated in \cite{cerezoCostFunctionDependent2021} that if a local cost function is used, then there is a lower bound for the variants of the gradients that depends on the number of qubits and some configurations of the circuit. 
+For a $L$-layered ansatz, let the variance $\mathrm{Var}[\partial_v C]$ of the partial derivative of the cost function $C$, the variance is bounded by
+
+\begin{equation}
+    G_n(L,l) \leq \mathrm{Var}[\partial_k C]
+\end{equation}
+
+If the total depth $L$ is in the range $O(\log(n))$ of the number of qubits (a shallow configuration), then the lower bound cannot vanish faster than $\Omega(1/\mathrm{poly}(n))$. Thus, no Barren Plateau occurs in this case.
+
+
+
+\subsubsection{Layerwise learning for quantum neural networks \texorpdfstring{\cite{skolikLayerwiseLearningQuantum2021}}{} }
+
+There is another method that manipulates the circuit depth throughout the training period studied by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021}. 
+In more detail, the algorithm consists of two phases:
+
+\todo{might need more investigation?}
+\textbf{The first phase} constructs the ansatz by adding layers one by one, with the parameters are all initially zero. For a small number $s$ of starting layers, the set of parameters $\vec{\theta_1}$, and $W$ operators connecting qubits, then the initial layers $l_1(\vec{\theta_1})$ is presented:
+
+\begin{equation}
+    l_1(\vec{\theta_1})
+    = \prod_{j=1}^s U_{1_j}(\vec{\theta_{1_j}}) W \;,
+\end{equation}
+
+Where each consecutive layer $l_i(\vec{\theta_i})$ of form
+\begin{equation}
+    l_i(\vec{\theta_i})
+    =U_i(\vec{\theta_i}) W \;,
+\end{equation}
+is added after a certain number of epochs and the previous layers' parameters become fixed. 
+One epoch is defined as the set of iterations for the algorithm to see each training sample, an update of all trainable parameters is called one iteration.
+
+This process can stop when a certain circuit depth is reached, or until the objective function value does not improve with additional layers.
+Eventually, we obtain the final circuit of $L$ layers:
+\begin{equation}
+    U(\vec{\theta})
+    = \prod_{i=0}^L l_i (\vec{\theta_i}) \;.
+\end{equation}
+
+\textbf{The second phase} takes the pre-trained circuit from phase one and train larger adjacent partitions of layers at a time. (need more detail)

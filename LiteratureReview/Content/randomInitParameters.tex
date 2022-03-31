@@ -1,0 +1,9 @@
+\subsection{Addressing Random initialization parameters}
+
+\subsubsection{Layerwise learning for quantum neural networks \texorpdfstring{\cite{skolikLayerwiseLearningQuantum2021}}{}}
+The algorithm in \cite{skolikLayerwiseLearningQuantum2021} starts with training a shallow circuit to its best, then extends the circuit and uses the best parameter achieved in the previous step for the newly extended circuit. 
+Note that only the new parameters are allowed to vary while the previous parameters are frozen.
+Thus, the randomness is contained to only shallow sub-circuits in phase one during the whole routine, and minimize the probability of meeting a plateau during the process.
+
+
+\subsubsection{An initialization strategy for addressing Barren Plateaus in parameterized quantum circuit \texorpdfstring{\cite{grantInitializationStrategyAddressing2019}}{}  }
