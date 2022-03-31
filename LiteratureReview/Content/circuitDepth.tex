@@ -32,13 +32,13 @@ Where each consecutive layer $l_i(\vec{\theta_i})$ of form
     =U_i(\vec{\theta_i}) W \;,
 \end{equation}
 is added after a certain number of epochs and the previous layers' parameters become fixed. 
-One epoch is defined as the set of iterations for the algorithm to see each training sample, an update of all trainable parameters is called one iteration.
+One epoch is the set of iterations for the algorithm to see each training sample; an update of all trainable parameters is called one iteration.
 
-This process can stop when a certain circuit depth is reached, or until the objective function value does not improve with additional layers.
+This process can stop when a certain circuit depth is reached, or until the objective function, value does not improve with additional layers.
 Eventually, we obtain the final circuit of $L$ layers:
 \begin{equation}
     U(\vec{\theta})
     = \prod_{i=0}^L l_i (\vec{\theta_i}) \;.
 \end{equation}
 
-\textbf{The second phase} takes the pre-trained circuit from phase one and train larger adjacent partitions of layers at a time. (need more detail)
+\textbf{The second phase} takes the pre-trained circuit from phase one and trains larger adjacent partitions of layers at a time. (need more detail)

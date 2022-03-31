@@ -2,12 +2,12 @@
 
 \subsection{Summary}
 
-Many Quantum Machine Learning models  suffer from the unsolvability Barren Plateaus \cite{zhaoReviewQuantumNeural2021} that prevent the growth of circuit depth and lead the trainable parameters to a dead end.
+Many Quantum Machine Learning models suffer from the unsolvability Barren Plateaus \cite{zhaoReviewQuantumNeural2021} that prevent the growth of circuit depth and lead the trainable parameters to a dead end.
 
-The paper \cite{wangNoiseinducedBarrenPlateaus2021} by Samson Wang et al. shows that Barren Plateaus can be noise inducted, which means that the quantum hardware assumes certain noise models, which make it difficult to train a model. 
+The paper \cite{wangNoiseinducedBarrenPlateaus2021} by Samson Wang et al. shows that Barren Plateaus can be noise inducted, which means that the quantum hardware assumes certain noise models, which makes it challenging to train a model. 
 BP also can be circuit inducted \cite{mccleanBarrenPlateausQuantum2018}, which relates to the chosen model and random initialization parameters.
 There are methods to avoid circuit inducted BP studied in \cite{pesahAbsenceBarrenPlateaus2021, cerezoCostFunctionDependent2021,skolikLayerwiseLearningQuantum2021}.
-Below sections discuss the factors that lead to BP phenomenon and attempts to resolve them.
+The below sections discuss the factors that lead to circuit inducted BP and some attempts to resolve the issue.
 
 \input{LiteratureReview/Content/bp.tex}
 

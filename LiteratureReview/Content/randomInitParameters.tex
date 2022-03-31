@@ -3,7 +3,32 @@
 \subsubsection{Layerwise learning for quantum neural networks \texorpdfstring{\cite{skolikLayerwiseLearningQuantum2021}}{}}
 The algorithm in \cite{skolikLayerwiseLearningQuantum2021} starts with training a shallow circuit to its best, then extends the circuit and uses the best parameter achieved in the previous step for the newly extended circuit. 
 Note that only the new parameters are allowed to vary while the previous parameters are frozen.
-Thus, the randomness is contained to only shallow sub-circuits in phase one during the whole routine, and minimize the probability of meeting a plateau during the process.
+Thus, the randomness is contained to only shallow sub-circuits in phase one during the whole routine and minimizes the probability of meeting a plateau during the process.
 
 
 \subsubsection{An initialization strategy for addressing Barren Plateaus in parameterized quantum circuit \texorpdfstring{\cite{grantInitializationStrategyAddressing2019}}{}  }
+
+Grant et al. have addressed the Random initialization parameter so that the early training steps do not start on a plateau region. 
+The idea is to divide the big parameterized circuit into blocks and initialize each block so that the result is a fixed unitary matrix, i.e., an identity operation. 
+The method is as follows: partition the circuit into $M$ blocks of depth $L$; for each block, initiate some parameters with random values, and fix the remaining parameters in a way that results in a fixed unitary matrix, i.e., invert the first part so that each block implements an identity operation.
+
+The depth $L$ is chosen to be shallow enough so that each block cannot reach 2-designs. For any $m = 1, \cdots, M$, the parameters $\theta$, the block is presented as:
+\begin{equation}
+    U_m(\theta_m)
+    = \prod_{l=L}^1 U_l(\theta_{l,1}^m)
+    = \prod_{l=1}^L U_l(\theta_{l,2}^m).
+\end{equation}
+The starting parameter $\theta_{l,1}$ can be chosen randomly, while the values for $\theta_{l,2}$ are chosen such that $U_l(\theta_{l,2}) = U_l(\theta_{l,1})^\dagger$:
+\begin{equation}
+    U_m(\theta_m)
+    = \prod_{l=L}^1 U_l(\theta_{l,1}^m)
+    = \prod_{l=1}^L U_l(\theta_{l,1}^m)^\dagger
+    = I_m,
+\end{equation}
+resulting identity blocks for the circuit:
+\begin{equation}
+    U(\theta^{init})
+    = \prod_{m=M}^1 U_m(\theta_m)
+    = \prod_{m=M}^1 I_m
+    = I.
+\end{equation}

@@ -1,14 +1,13 @@
 \subsection{Barren Plateaus, Gradients, Trainability Issue}
 \todo{review QNN, VQA}
 
-To solve a problem by using a Parameterized Quantum circuit, which can be an optimization task, calculating chemical system, firstly, we encode the data into a Parameterized Circuit model: some input variables. 
+To solve a problem by using a Parameterized Quantum circuit, which can be an optimization task, calculating a chemical system, firstly, we encode the data into a Parameterized Circuit model: some input variables. 
 Then design a cost function that represents the solution to the problem. We aim to minimize the cost function (the target solution to achieve) during the training process.
 
-Initially, there are some reference states (the inputs), a parameterized unitary operation (the circuit), and an observable $O$.
-A cost function can be constructed based on these three ingredients.
+Initially, there are three ingredients some reference states (the inputs), a parameterized unitary operation (the circuit), and an observable $O$ to construct a cost function.
 The next step is to use this parameterized circuit with some classical optimization algorithm on classical hardware.
 Each run of the optimization routine receives the current value of the cost function and suggests the new set of parameters for the circuit \cite{cerezo2021variational}.
-By changing the parameter, we are exploring an optimization landscape to find a global minimum .
+By changing the parameter, we are exploring an optimization landscape to find a global minimum.
 The properties of this landscape heavily depend on the structure of the parameterized circuits and the cost function.
 
 Typically, two starting ingredients for problem-solving using heuristic ansatzes are a random parameterized circuit $U$ and a set of random initialization parameters $\vec{\theta}$ \cite{mccleanBarrenPlateausQuantum2018}:
@@ -37,7 +36,7 @@ McClean et al. in \cite{mccleanBarrenPlateausQuantum2018} also pointed out that 
     \mathrm{Var}[\partial_k C] &\approx 2^{-n}  \label{Variance expo smaller}
 \end{align}
 
-This phenomenon, known as "Barren Plateaus", is an issue for optimization because the flatter the landscape is, the more challenging it is to search the location of the global minimum.
+This phenomenon, known as "Barren Plateaus", is an issue for optimization because the flatter the landscape is, the more challenging it is to search for the location of the global minimum.
 
 To summary, there are factors that lead to Barren Plateaus in QNN and VQA:
 \begin{itemize}
