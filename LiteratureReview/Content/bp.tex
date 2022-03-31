@@ -11,13 +11,11 @@ By changing the parameter, we are exploring an optimization landscape to find a 
 The properties of this landscape heavily depend on the structure of the parameterized circuits and the cost function.
 
 Typically, two starting ingredients for problem-solving using heuristic ansatzes are a random parameterized circuit $U$ and a set of random initialization parameters $\vec{\theta}$ \cite{mccleanBarrenPlateausQuantum2018}:
-
 \begin{equation}\label{Parameterized Circuit}
     U(\vec{\theta})
     = U(\theta_1, \cdots, \theta_L)
     = \prod_{l=1}^L U_l(\theta_l)W_l
 \end{equation}
-
 Consider a cost function $C(\theta)$:
 \begin{equation}\label{Cost function}
     C(\vec{\theta})
