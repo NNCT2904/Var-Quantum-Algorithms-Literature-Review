@@ -8,7 +8,7 @@ Thus, the randomness is contained to only shallow sub-circuits in phase one duri
 
 \subsubsection{An initialization strategy for addressing Barren Plateaus in parameterized quantum circuit \texorpdfstring{\cite{grantInitializationStrategyAddressing2019}}{}  }
 
-Grant et al. have addressed the Random initialization parameter so that the early training steps do not start on a plateau region. 
+Grant et al. in \cite{grantInitializationStrategyAddressing2019} have addressed the Random initialization parameter so that the early training steps do not start on a plateau region. 
 The idea is to divide the big parameterized circuit into blocks and initialize each block so that the result is a fixed unitary matrix, i.e., an identity operation. 
 The method is as follows: partition the circuit into $M$ blocks of depth $L$; for each block, initiate some parameters with random values, and fix the remaining parameters in a way that results in a fixed unitary matrix, i.e., invert the first part so that each block implements an identity operation.
 
