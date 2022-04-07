@@ -27,9 +27,10 @@ The gradients are the derivatives of the cost function respectively to the param
     \mathrm{Var}[\partial_l C] &\approx 2^{-n}  \label{Variance expo smaller}
 \end{align}
 \almarginpar{Not very clear above - improve!}This phenomenon, known as "Barren Plateaus", is an issue for optimization because the flatter the landscape is, the more challenging it is to search for the location of the global minimum.
+When an ansatz is randomly initialised, it may start distant from the solution, at a local minimum, or even on a barren plateau area.
 Compared to the gradient in a deep classical network which vanishes exponentially in the number of layers, for the QNN case, the gradient is exponentially small in the number of qubits \cite{mccleanBarrenPlateausQuantum2018}.
 
-\almarginpar{Impact of initial params was not clear, what was clear was the circuit depth and the number of qubits}To summarize, there are factors that lead to Barren Plateaus in QNN and VQA:
+\almarginpar{Impact of initial params was not clear, what was clear was the circuit depth and the number of qubits}To summarise, there are factors that lead to Barren Plateaus in QNN and VQA:
 \begin{itemize}
     \item \textbf{Parameterized circuit depth;}
     \item \textbf{Random initialization parameters;}
