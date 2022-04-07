@@ -37,7 +37,7 @@ In short, the cost function $C(\theta)$ is calculated using the Quantum computer
     \label{VQA diagram}
 \end{figure}
 
-\subsection{The Cost function}
+\subsection{The Cost Function}
 Encoding the problem into a cost function is the first step to solving a problem using VQA.
 This cost function is the same  compared to classical machine learning. It maps the values of the trainable parameters $\theta$ into real numbers.
 For a function $f$ that receives input states $\{\rho_k\}$, observables $\{O_k\}$, and a parameterized circuit $U(\theta)$, the cost is expressed as:
@@ -122,7 +122,7 @@ One example of SGD is the ADAM optimiser \cite{kingmaAdamMethodStochastic2014}, 
 
 
 \subsection{About QNN}
-\almarginpar{I thought the VQA and QNN reviews would be more extensive?}VQA is also the most widely used method for developing Quantum Neural Network (QNN) circuits. 
+VQA is also the most widely used method for developing Quantum Neural Network (QNN) circuits. 
 As a result, QNN inevitably inherited some of VQA's flaws.
 Many Quantum Machine Learning models suffer from the unsolvability Barren Plateaus \cite{zhaoReviewQuantumNeural2021} that prevent the growth of circuit depth and lead the trainable parameters to a dead end.
 When training a QNN framework with a large number of qubits, this phenomenon occurs; the objective function becomes flat, making it nearly impossible to estimate the gradient, \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021} causing inefficiency in circuit training. We will discuss this matter in later sections.
