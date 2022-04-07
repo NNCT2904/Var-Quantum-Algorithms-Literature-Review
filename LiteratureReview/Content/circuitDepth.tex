@@ -3,21 +3,21 @@
 \begin{figure} 
     \centerline{
         \Qcircuit @C=1em @R=0em {
-        & \multigate{4}{l_1(\vec{\theta_1})}    & \meter\\
-        & \ghost{l_1(\vec{\theta_1})}           & \meter\\
-        & \ghost{l_1(\vec{\theta_1})}           & \meter\\
-        & \ghost{l_1(\vec{\theta_1})}           & \meter\\
-        & \ghost{l_1(\vec{\theta_1})}           & \meter\\
+        & \multigate{4}{U(\theta)}    & \meter\\
+        & \ghost{U(\theta)}           & \meter\\
+        & \ghost{U(\theta)}           & \meter\\
+        & \ghost{U(\theta)}           & \meter\\
+        & \ghost{U(\theta)}           & \meter\\
         }
     }
     \centerline{a) Global Cost Function}
     \centerline{
         \Qcircuit @C=1em @R=0em {
-        & \multigate{4}{l_1(\vec{\theta_1})}    & \meter\\
-        & \ghost{l_1(\vec{\theta_1})}           & \qw\\
-        & \ghost{l_1(\vec{\theta_1})}           & \qw\\
-        & \ghost{l_1(\vec{\theta_1})}           & \qw\\
-        & \ghost{l_1(\vec{\theta_1})}           & \qw\\
+        & \multigate{4}{U(\theta)}    & \meter\\
+        & \ghost{U(\theta)}           & \qw\\
+        & \ghost{U(\theta)}           & \qw\\
+        & \ghost{U(\theta)}           & \qw\\
+        & \ghost{U(\theta)}           & \qw\\
         }
     }
     \centerline{b) Local Cost Function}
@@ -26,7 +26,8 @@
     }\label{cost functions}
 \end{figure}
 
-Cerezo et al. has demonstrated \cite{cerezoCostFunctionDependent2021} properties of a 'local cost function' in a parameterised circuit.
+Cerezo et al. has demonstrated \cite{cerezoCostFunctionDependent2021} properties of a 'local cost function' in a parameterised circuit. 
+Let us recall the cost function
 
 
 
