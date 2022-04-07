@@ -1,6 +1,10 @@
 \subsection{Addressing Parameterized circuit depth}
-\subsubsection{Cost Function Dependent Barren Plateaus in Shallow Parametrized Quantum Circuits}
-Cerezo et al. has demonstrated \cite{cerezoCostFunctionDependent2021} that if a \almarginpar{Explain what is "local" vs "global" cost function}\underline{local cost} function is used, then there is a lower bound for the variants of the gradients that depends on the number of qubits and some configurations of the circuit. 
+\subsubsection{Shallow Circuits, Local Cost Function}
+Cerezo et al. has demonstrated \cite{cerezoCostFunctionDependent2021} a novelty local cost function
+
+
+
+if a \almarginpar{Explain what is "local" vs "global" cost function}\underline{local cost} function is used, then there is a lower bound for the variants of the gradients that depends on the number of qubits and some configurations of the circuit. 
 For a $L$-layered ansatz, let the variance $\mathrm{Var}[\partial_v C]$ of the partial derivative of the cost function $C$, the lower bound $G_n$ for the variance is:
 \begin{equation}
     G_n(L,l) \leq \mathrm{Var}[\partial_k C]
