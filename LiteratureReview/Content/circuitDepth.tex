@@ -27,9 +27,13 @@
 \end{figure}
 
 Cerezo et al. has demonstrated \cite{cerezoCostFunctionDependent2021} properties of a 'local cost function' in a parameterised circuit. 
-Let us recall the cost function $C$ with an operator $O$, the ansatz $U$
-
-
+Let us recall the cost function $C$ with an operator $O$, the ansatz $U(\theta)$ and some input states $\rho$:
+\begin{equation}
+    C = \Tr\left[
+    OU(\theta) \rho U^\dagger(\theta)
+    \right],
+\end{equation}
+the authors called this cost function as 'Global Cost Function', the barren plateaus can be detected via the variance of its gradient
 
 if a \almarginpar{Explain what is "local" vs "global" cost function}\underline{local cost} function is used, then there is a lower bound for the variants of the gradients that depends on the number of qubits and some configurations of the circuit. 
 For a $L$-layered ansatz, let the variance $\mathrm{Var}[\partial_v C]$ of the partial derivative of the cost function $C$, the lower bound $G_n$ for the variance is:
