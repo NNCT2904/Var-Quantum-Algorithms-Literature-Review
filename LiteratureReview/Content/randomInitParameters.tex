@@ -50,6 +50,6 @@ It, however, ensure avoiding zero gradients for most parameters in the first par
     \caption{
         An example of an Identity block.
         The initial parameters $\theta_{l,1}$ for the $U_l(\theta_{l,1})$ can be chosen at random, 
-        while the values $\theta_{l,2}$ for $U_l(\theta_{l,2})$ are fixed to achieve $I$.
+        while the values $\theta_{l,2}$ for $U_l(U_l(\theta_{l,1}))$ are fixed such that  $U_l(\theta_{l,1}) U_l(\theta_{l,1}) = I$.
     }\label{identity block}
 \end{figure}
