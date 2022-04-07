@@ -1,6 +1,32 @@
 \subsection{Addressing Parameterized circuit depth}
 \subsubsection{Shallow Circuits, Local Cost Function}
-Cerezo et al. has demonstrated \cite{cerezoCostFunctionDependent2021} a novelty local cost function
+\begin{figure} 
+    \centerline{
+        \Qcircuit @C=1em @R=0em {
+        & \multigate{4}{l_1(\vec{\theta_1})}    & \meter\\
+        & \ghost{l_1(\vec{\theta_1})}           & \meter\\
+        & \ghost{l_1(\vec{\theta_1})}           & \meter\\
+        & \ghost{l_1(\vec{\theta_1})}           & \meter\\
+        & \ghost{l_1(\vec{\theta_1})}           & \meter\\
+        }
+    }
+    \centerline{a) Global Cost Function}
+    \centerline{
+        \Qcircuit @C=1em @R=0em {
+        & \multigate{4}{l_1(\vec{\theta_1})}    & \meter\\
+        & \ghost{l_1(\vec{\theta_1})}           & \qw\\
+        & \ghost{l_1(\vec{\theta_1})}           & \qw\\
+        & \ghost{l_1(\vec{\theta_1})}           & \qw\\
+        & \ghost{l_1(\vec{\theta_1})}           & \qw\\
+        }
+    }
+    \centerline{b) Local Cost Function}
+    \caption{
+        Global Cost Function and Local Cost Function.
+    }\label{cost functions}
+\end{figure}
+
+Cerezo et al. has demonstrated \cite{cerezoCostFunctionDependent2021} properties of a 'local cost function' in a parameterised circuit.
 
 
 
