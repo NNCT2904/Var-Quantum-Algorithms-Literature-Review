@@ -5,27 +5,26 @@ Each run of the optimization routine receives the current value of the cost func
 By changing the parameter, we are exploring an optimization landscape to find a global minimum.
 The properties of this landscape heavily depend on the structure of the parameterized circuits and the cost function.
 
-Typically, two starting ingredients for problem-solving using heuristic \almarginpar{Ansatze is just another name for parametrized circuit, which can be explained earlier}\underline{ansatzes} are a randomly parameterized circuit $U$ and a set of random initialization parameters $\vec{\theta}$, non-parameterized unit $W_l$ for each layer $l$ \cite{mccleanBarrenPlateausQuantum2018}:
+Typically, two starting ingredients for problem-solving using heuristic ansatzes are a randomly parameterized circuit $U$ and a set of random initialization parameters $\vec{\theta}$, non-parameterized unit $W_l$ for each layer $l$ \cite{mccleanBarrenPlateausQuantum2018}:
 \begin{equation}\label{Parameterized Circuit}
     U(\vec{\theta})
     = U(\theta_1, \cdots, \theta_L)
     = \prod_{l=1}^L U_l(\theta_l)W_l
 \end{equation}
-\almarginpar{L seems to be depth?}With $L$ is the depth of the circuit. Consider a cost function $C(\theta)$:
-\begin{equation}\label{Cost function}
+With $L$ is the depth of the circuit. Consider a cost function $C(\theta)$:
+\begin{equation}
     C(\vec{\theta})
     = \bra{0} U(\vec{\theta})^\dagger OU(\vec{\theta}) \ket{0}
 \end{equation}
 
 The gradients are the derivatives of the cost function respectively to the parameters and have a severe impact on the performance of the training model:
-
 \begin{equation}
-    \partial_k C = \frac{\partial C(\vec{\theta})}{\partial\theta_k}
+    \partial_l C = \frac{\partial C(\vec{\theta})}{\partial\theta_l}
 \end{equation}
-\almarginpar{What's W above - generic op independent of \theta?}\almarginpar{and later E() - expectation value? Please explain all symbols}McClean et al.\cite{mccleanBarrenPlateausQuantum2018} also pointed out that whenever the random parameterized circuits reach the depth $O(n^{1/L})$ on a $L$-dimensional array, the gradient of the cost function will vanish, and the variance of the gradient shrinks (\ref{Vanish Gradient}) exponentially with the number of qubits (\ref{Variance expo smaller}).
+\almarginpar{Please explain all symbols}McClean et al.\cite{mccleanBarrenPlateausQuantum2018} also pointed out that whenever the random parameterized circuits reach the depth $O(n^{1/L})$ on a $L$-dimensional array, the gradient of the cost function will vanish, and the variance of the gradient shrinks (see Eq. (\ref{Vanish Gradient})) exponentially with the number of qubits (see Eq. (\ref{Variance expo smaller})).
 \begin{align}
     \langle \partial_k C\rangle &= 0  \label{Vanish Gradient}\\
-    \mathrm{Var}[\partial_k C] &\approx 2^{-n}  \label{Variance expo smaller}
+    \mathrm{Var}[\partial_l C] &\approx 2^{-n}  \label{Variance expo smaller}
 \end{align}
 \almarginpar{Not very clear above - improve!}This phenomenon, known as "Barren Plateaus", is an issue for optimization because the flatter the landscape is, the more challenging it is to search for the location of the global minimum.
 Compared to the gradient in a deep classical network which vanishes exponentially in the number of layers, for the QNN case, the gradient is exponentially small in the number of qubits \cite{mccleanBarrenPlateausQuantum2018}.
