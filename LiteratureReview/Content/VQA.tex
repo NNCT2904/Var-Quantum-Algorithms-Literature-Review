@@ -12,7 +12,7 @@ Moreover, quantum gates are static by design, which means every new data input t
 Quantum circuits with trainable parameters can be created using Variational Quantum Algorithms (VQAs) \cite{cerezo2021variational}, which act as reusable circuit templates for quantum computers.
 On the other hand, the classical optimiser perceives variational circuits as a black box that yields outputs from inputs and the trainable parameter.
 
-Consider a simple problem that we want to solve using VQA, given the access to the training data.
+Consider a simple problem that we want to solve using VQA, given access to the training data.
 The first step is to define a \textit{cost function} $C$ to search for a solution, we aim to minimise this cost function during the training process.
 Then, we develop an \textit{ansatz}, this is the unitary operation that depends on a set of parameters $\theta$. We aim to train this ansatz to optimise $\theta$ such that the cost function $C$ reaches it minimum, thus satisfy this equation:
 \begin{equation}
