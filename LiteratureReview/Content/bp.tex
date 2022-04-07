@@ -1,9 +1,9 @@
 \section{Barren Plateaus, Gradients, Trainability Issue}
-Initially, there are three ingredients: some reference states (the inputs), a parameterized unitary operation (the circuit, or ansatz), and an observable $O$ to construct a cost function.
-The next step is to use this parameterized circuit with some classical optimization algorithm on classical hardware.
-Each run of the optimization routine receives the current value of the cost function and suggests the new set of parameters for the circuit \cite{cerezo2021variational}.
-By changing the parameter, we are exploring an optimization landscape to find a global minimum.
-The properties of this landscape heavily depend on the structure of the parameterized circuits and the cost function.
+Initially, there are three ingredients: some reference states (the inputs), a parameterised unitary operation (the circuit, or ansatz), and an observable $O$ to construct a cost function.
+The next step is to use this parameterised circuit with some classical optimisation algorithm on classical hardware.
+Each run of the optimisation routine receives the current value of the cost function and suggests the new set of parameters for the circuit \cite{cerezo2021variational}.
+By changing the parameter, we are exploring an optimisation landscape to find a global minimum.
+The properties of this landscape heavily depend on the structure of the parameterised circuits and the cost function.
 
 Typically, two starting ingredients for problem-solving using heuristic ansatzes are a randomly parameterized circuit $U$ and a set of random initialization parameters $\vec{\theta}$, non-parameterized unit $W_l$ for each layer $l$ \cite{mccleanBarrenPlateausQuantum2018}:
 \begin{equation}\label{Parameterized Circuit}
@@ -21,12 +21,12 @@ The gradients are the derivatives of the cost function respectively to the param
 \begin{equation}
     \partial_l C = \frac{\partial C(\vec{\theta})}{\partial\theta_l}
 \end{equation}
-\almarginpar{Please explain all symbols}McClean et al.\cite{mccleanBarrenPlateausQuantum2018} also pointed out that whenever the random parameterized circuits reach the depth $O(n^{1/L})$ on a $L$-dimensional array, the gradient of the cost function will vanish, and the variance of the gradient shrinks (see Eq. (\ref{Vanish Gradient})) exponentially with the number of qubits (see Eq. (\ref{Variance expo smaller})).
+McClean et al.\cite{mccleanBarrenPlateausQuantum2018} also pointed out that whenever the random parameterised circuits reach the depth $O(n^{1/L})$ on a $L$-dimensional array, the gradient of the cost function will vanish, and the variance of the gradient shrinks (see Eq. (\ref{Vanish Gradient})) exponentially with the number of qubits (see Eq. (\ref{Variance expo smaller})).
 \begin{align}
     \langle \partial_k C\rangle &= 0  \label{Vanish Gradient}\\
     \mathrm{Var}[\partial_l C] &\approx 2^{-n}  \label{Variance expo smaller}
 \end{align}
-\almarginpar{Not very clear above - improve!}This phenomenon, known as "Barren Plateaus", is an issue for optimization because the flatter the landscape is, the more challenging it is to search for the location of the global minimum.
+\almarginpar{Not very clear above - improve!}This phenomenon, known as "Barren Plateaus", is an issue for optimisation because the flatter the landscape is, the more challenging it is to search for the location of the global minimum.
 Compared to the gradient in a deep classical network which vanishes exponentially in the number of layers, for the QNN case, the gradient is exponentially small in the number of qubits \cite{mccleanBarrenPlateausQuantum2018}.
 
 Additionally, the choice of the initiate parameter $\theta$ is also an important factor. When an ansatz is randomly initialised, the algorithm may start distant from the solution, at a local minimum, or even on a barren plateau area. 
