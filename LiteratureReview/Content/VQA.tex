@@ -20,7 +20,7 @@ Then, we develop an \textit{ansatz}; this is the unitary operation that depends 
     \label{optimize theta with ansatz}
 \end{equation}
 
-In short, the cost function $C(\theta)$ is calculated using the Quantum computer, while the classical optimisers train the parameter $\theta$. The figure \ref{VQA diagram} elaborates on the VQA architecture and process in more detail.
+In short, the cost function $C(\theta)$ is calculated using the Quantum computer, while the classical optimisers train the parameter $\theta$. The Figure \ref{VQA diagram} elaborates on the VQA architecture and process in more detail.
 
 \begin{figure}
     \centering
@@ -59,12 +59,10 @@ There are some criteria in the construction of a cost function:
 \begin{figure} 
     \centerline{
         \Qcircuit @C=1em @R=0em {
-        & \multigate{4}{U_1(\theta_1)}    & \multigate{4}{U_2(\theta_2)}    & \qw &        & & \multigate{4}{U_L(\theta_L)}   & \qw\\
-        & \ghost{U_1(\theta_1)}           & \ghost{U_2(\theta_2)}           & \qw &        & & \ghost{U_L(\theta_L)}          & \qw\\
+        & \multigate{2}{U_1(\theta_1)}    & \multigate{2}{U_2(\theta_2)}    & \qw &        & & \multigate{2}{U_L(\theta_L)}   & \qw\\
         & \ghost{U_1(\theta_1)}           & \ghost{U_2(\theta_2)}           & \qw & \cdots & & \ghost{U_L(\theta_L)}          & \qw\\
-        & \ghost{U_1(\theta_1)}           & \ghost{U_2(\theta_2)}           & \qw &        & & \ghost{U_L(\theta_L)}          & \qw\\
         & \ghost{U_1(\theta_1)}           & \ghost{U_2(\theta_2)}           & \qw &        & & \ghost{U_L(\theta_L)}          & \qw
-        \gategroup{1}{2}{5}{7}{.7em}{--}
+        \gategroup{1}{2}{3}{7}{.6em}{--}
         }
     }
     \centerline{$U(\theta)$}
@@ -73,12 +71,14 @@ There are some criteria in the construction of a cost function:
         & \multigate{1}{}   & \ctrl{2}  & \gate{}           & \qw \\
         & \ghost{}          & \qw       & \multigate{1}{}   & \qw \\
         & \gate{}           & \targ     & \ghost{}          & \qw
-        \gategroup{1}{2}{}{}{}{}
+        \gategroup{1}{2}{3}{4}{.6em}{--}
         }
     }
+    \centerline{$U_l(\theta_l)$}
     \caption{
         A diagram of an ansatz.
         The unitary $U(\theta)$ receives parameters $\theta$ is expressed by $L$ layers of unitaries $U_l(\theta_l)$ for $l$ is the layer indices.
+        Each $U_l(\theta_l)$ is a circuit of parameterized or unparameterized gates.
     }\label{Ansatz diagram}
 \end{figure}
 
@@ -89,7 +89,11 @@ The cost function in Eq. (\ref{Cost function}) encodes the parameters $\theta$ i
 \begin{equation}
     U(\theta) = U_L(\theta_L) \cdots U_2(\theta_2) U_1(\theta_1)\;,
 \end{equation}
-
+with each layer:
+\begin{equation}
+    U_l(\theta_l) = \prod_m e^{-i\theta_m H_m} W_m
+\end{equation}
+for unparamaterized unitary $W_m$, Hermitian Operator $H_m$, and $\theta_l$ is the $l$-th element of $\theta$
 
 \subsection{The Gradients}
 After defining the cost function and ansatz, we train the parameter $\theta$ to solve the problem in Eq. (\ref{optimize theta with ansatz}).
@@ -112,8 +116,8 @@ Essentially, we can shift the $l$-th parameter by some amount $\alpha$, and Eq. 
 
 \subsection{The Optimisers}
 The accuracy of VQA greatly depends on the optimisation method.
-Typically, we can achieve the solution by making successive moves along directions indicated by the gradient.
-This approach of optimisation is within the scope of Stochastic Gradient Descent (SGD).
+Typically, we can achieve the solution by making successive moves along the gradient's direction.
+This optimisation approach is within the scope of Stochastic Gradient Descent (SGD).
 One example of SGD is the ADAM optimiser \cite{kingmaAdamMethodStochastic2014}, which can vary the size of the steps taken during optimisation to produce more efficient and precise results compared to the basic SGD.
 
 
@@ -124,7 +128,7 @@ Many Quantum Machine Learning models suffer from the unsolvability Barren Platea
 When training a QNN framework with a large number of qubits, this phenomenon occurs; the objective function becomes flat, making it nearly impossible to estimate the gradient, \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021} causing inefficiency in circuit training. We will discuss this matter in later sections.
 
 Some architectures of QNN has been proposed are: 
-Quantum Tensor Neural Network (QTNN) \cite{hugginsQuantumMachineLearning} achieved a balance of computational efficiency and expressive power. 
+Quantum Tensor Neural Network (QTNN) \cite{hugginsQuantumMachineLearning2019} achieved a balance of computational efficiency and expressive power. 
 The tensor network can reduce the required qubits to process high-dimensional data with powerful optimisation algorithms.
 Quantum Recurrent Neural Network (QRNN) is constructed as a parameterised circuit \cite{takakiLearningTemporalData2021}, with some qubits being initialised and measured at each step while others memorise the past data.
 The NISQ processors are also capable of delivering some other QNN models such as: 
@@ -133,4 +137,4 @@ Quantum Perceptron \cite{kristensenArtificialSpikingQuantum2021},
 Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdversarial2018, lloydQuantumGenerativeAdversarial2018}. Studies have shown that QNN performance and trainability can be significantly higher compared to its classical counterpart on today's hardware \cite{abbasPowerQuantumNeural2021, colesSeekingQuantumAdvantage2021}, and has several applications, for example, breast cancer prediction \cite{liModelAlgorithmQuantuminspired2014}, or image processing \cite{matsuiQubitNeuralNetwork2009}.
 
 It is noticeable that Quantum Convolutional Neural Network (QCNN) does not exhibit Barren Plateaus \cite{pesahAbsenceBarrenPlateaus2021}.
-Thus, trainability is guaranteed for QCNN under random initialisation
+Thus, trainability is guaranteed for QCNN under random initialisation.
