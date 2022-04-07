@@ -24,7 +24,7 @@ The gradients are the derivatives of the cost function respectively to the param
 McClean et al.\cite{mccleanBarrenPlateausQuantum2018} also pointed out that whenever the random parameterised circuits reach the depth $O(n^{1/L})$ on a $L$-dimensional array, the gradient of the cost function will vanish, and the variance of the gradient shrinks (see Eq. (\ref{Vanish Gradient})) exponentially with the number of qubits (see Eq. (\ref{Variance expo smaller})).
 \begin{align}
     \langle \partial_k C\rangle &= 0  \label{Vanish Gradient}\\
-    \mathrm{Var}[\partial_l C] &\approx 2^{-n}  \label{Variance expo smaller}
+    \mathrm{Var}[\partial_k C] &\approx 2^{-n}  \label{Variance expo smaller}
 \end{align}
 This phenomenon, known as "Barren Plateaus", is an issue for optimisation because the flatter the landscape is, the more challenging it is to search for the location of the global minimum.
 Compared to the gradient in a deep classical network which vanishes exponentially in the number of layers, for the QNN case, the gradient is exponentially small in the number of qubits \cite{mccleanBarrenPlateausQuantum2018}.
