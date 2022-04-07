@@ -14,7 +14,7 @@ On the other hand, the classical optimiser perceives variational circuits as a b
 
 Consider a simple problem that we want to solve using VQA, given access to the training data.
 The first step is to define a \textit{cost function} $C$ to search for a solution, and we aim to minimise this cost function during the training process.
-Then, we develop an \textit{ansatz}; this is the unitary operation that depends on a set of parameters $\theta$. We aim to train this ansatz to optimise $\theta$ such that the cost function $C$ reaches its minimum, thus satisfying this equation:
+Then, we develop an \textit{ansatz}; this is the unitary operation that depends on a set of parameters $\theta$. We aim to train this ansatz to optimise $\theta$ such that the cost function $C$ reaches its minimum, thus satisfying:
 \begin{equation}
     \theta^* = \underset{\theta}{\arg \min} C(\theta)
     \label{optimize theta with ansatz}
