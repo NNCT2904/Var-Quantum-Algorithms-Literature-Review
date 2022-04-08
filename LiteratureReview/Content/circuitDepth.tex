@@ -35,6 +35,7 @@ Let us recall the cost function $C$ with an operator $O$, the ansatz $U(\theta)$
     OU(\theta) \rho U^\dagger(\theta)
     \right],
 \end{equation}
+the operator
 the authors called this cost function as 'Global Cost Function' $C_G$, which can inhabit Barren Plateaus. Compared to the proposed 'Local Cost Function':
 \begin{equation}
     C_L = \Tr\left[
@@ -46,6 +47,8 @@ with
     O_L = I- \frac{1}{n} \sum^n_{j=1}\rho_j \bigotimes I_{\overline{j}},
 \end{equation}
 where $I_{\overline{j}}$ is the identity on all qubits except the qubit in $j$-th position.
+
+
 
 if a \almarginpar{Explain what is "local" vs "global" cost function}\underline{local cost} function is used, then there is a lower bound for the variants of the gradients that depends on the number of qubits and some configurations of the circuit. 
 For a $L$-layered ansatz, let the variance $\mathrm{Var}[\partial_v C]$ of the partial derivative of the cost function $C$, the lower bound $G_n$ for the variance is:
