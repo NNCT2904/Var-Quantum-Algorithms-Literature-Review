@@ -1,11 +1,4 @@
 \section{Comparison and Discussion}
-\begin{itemize}
-    \item make a table;
-    \item Characteristics, pros and cons;
-    \item Highlight which occasion for which method, the context of QNN
-    \item Comparison, compact way
-\end{itemize}
-
 We now discuss the characteristics, pros and cons of each method.
 Let's recall the main cause of the Barren Plateaus phenomenon in VQA and QNN development are the ansatz depth and the randomised starting parameter.
 For this reason, we will identify the characteristics of each method based on how they address these two factors.
@@ -29,3 +22,16 @@ We can see that this scheme is more advantageous when training the whole circuit
 Once again, the Barren Plateaus is mitigated, not eliminated, compared to the method in \cite{cerezoCostFunctionDependent2021}.
 
 Finally, it is worth mentioning that Quantum Convolutional Neural Networks (QCNNs) and QNNs with tensor network architectures do not have Barren Plateaus, as pointed out in \cite{congQuantumConvolutionalNeural2019}.
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{l|c|c|c|c}
+        Method & Local cost function &  &  &  \\
+        Ansatz choice & \\
+        Initial Parameters & \\
+        Other conditions \\
+        Barren Plateaus \\
+    \end{tabular}
+    \caption{A compact comparison of the reviewed methods}
+    \label{tab:my_label}
+\end{table}
