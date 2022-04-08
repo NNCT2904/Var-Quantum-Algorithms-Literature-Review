@@ -22,4 +22,7 @@ However this method cannot ensure the algorithm will not goes into a Barren Plat
 Overall, the authors manipulated the starting parameters to achieve trainability, but the risk of going to a plateau is still there.
 
 Interestingly, the method by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} seems to address the both factors.
-The authors started with a shallow circuit
+The first phase of the algorithm creates an ansatz by adding many shallow layers of zero parameterized circuit. 
+Then the second phase train the circuit for a portion at a time.
+As the randomness is contained to shallower sub-circuits, the chance of going to a plateaus is minimized during training.
+We can see that this scheme is more advantageous when training the full circuit is not an viable option.
