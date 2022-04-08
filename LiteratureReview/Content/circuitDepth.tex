@@ -57,6 +57,7 @@ where $I_{\overline{j}}$ is the identity on all qubits except the qubit in $j$-t
         The right (or forward) light-cone $\mathcal{L}$ contains all the gates with at least one input to $W$, $\overline{\mathcal{L}}$ is the opposite.
         $S_w$ is the subsystem of $m$ qubits which $W$ acts on, and $S_{\overline{w}}$ is the subsystem of $m$ qubits which $W$ have limited connection to.
         b) The example of operator $O_i$ acts non-trivially in the subsystem $S_{k-1}$ only, while the operator $O_{i'}$ acts non-trivially on the second half ($m/2$) qubits of $S_k$ and on the first half ($m/2$) qubits of $S_{k+1}$.
+        Figure from Ref \cite{cerezoCostFunctionDependent2021}
     }
     \label{Altering Layered Ansatz}
 \end{figure}
@@ -81,7 +82,8 @@ $k_{\mathcal{L}_B}$ is a set of indices such that the subsystem $S_k$ in the bac
     \caption{
         An illustrative example of backward and forward light-cone.
         The operator $O_i$ in the topmost is in the scope of the forward light-cone $\mathcal{L}$ of block $W$.
-        The thick-line dashes indicate the backward light-cone $\mathcal{L}_{\text{B}}$ of the operator $O_i$
+        The thick-line dashes indicate the backward light-cone $\mathcal{L}_{\text{B}}$ of the operator $O_i$.
+        Figure from Ref \cite{cerezoCostFunctionDependent2021}
     }
     \label{Forward-backward light cone}
 \end{figure}
@@ -97,7 +99,7 @@ Thus, no Barren Plateau occurs in this case.\almarginpar{You throw lots of formu
 There is another method that manipulates the circuit depth throughout the training period studied by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021}. 
 In more detail, the algorithm consists of two phases:
 
-\almarginpar{Good find "qcircuit"!}\textbf{The first phase} constructs the ansatz by adding layers one by one, with the parameters are all initially zero. For a small number $s$ of starting layers, the set of parameters $\vec{\theta_1}$, and $W$ operators connecting qubits, then the initial layers $l_1(\vec{\theta_1})$ is presented:
+\textbf{The first phase} constructs the ansatz by adding layers one by one, with the parameters are all initially zero. For a small number $s$ of starting layers, the set of parameters $\vec{\theta_1}$, and $W$ operators connecting qubits, then the initial layers $l_1(\vec{\theta_1})$ is presented:
 
 \begin{equation}
     l_1(\vec{\theta_1})
