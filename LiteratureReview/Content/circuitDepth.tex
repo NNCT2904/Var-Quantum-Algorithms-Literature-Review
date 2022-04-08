@@ -47,8 +47,6 @@ with
 \end{equation}
 where $I_{\overline{j}}$ is the identity on all qubits except the qubit in $j$-th position.
 
-The authors introduced the Altering Layered Ansatz $U(\theta)$ with $L$ layers of $m$-qubit unitaries $W_{kl}$ 
-
 \begin{figure}
     \centering
     \includegraphics{LiteratureReview/Appendices/alterlayeransatz.png}
@@ -63,7 +61,19 @@ The authors introduced the Altering Layered Ansatz $U(\theta)$ with $L$ layers o
     \label{Altering Layered Ansatz}
 \end{figure}
 
-if a \almarginpar{Explain what is "local" vs "global" cost function}\underline{local cost} function is used, then there is a lower bound for the variants of the gradients that depends on the number of qubits and some configurations of the circuit. 
+\begin{figure}
+    \centering
+    \includegraphics{LiteratureReview/Appendices/lightcone.png}
+    \caption{
+        The Operator $O_i$ in the topmost is in the scope of the forward light-cone $\mathcal{L}$ of block $W$. The thick-line dashes indicate the backward light-cone $\mathcal{L}$
+    }
+    \label{Forward-backward light cone}
+\end{figure}
+
+
+
+The authors introduced the Altering Layered Ansatz $U(\theta)$ with $L$ layers of $m$-qubit unitaries $W_{kl}(\theta_{kl})$ (see Figure \ref{Altering Layered Ansatz}).
+If a local cost function is used for this Altering Layered Ansatz, then there is a lower bound for the variants of the gradients that depends on the number of qubits and some configurations of the circuit. 
 For a $L$-layered ansatz, let the variance $\mathrm{Var}[\partial_v C]$ of the partial derivative of the cost function $C$, the lower bound $G_n$ for the variance is:
 \begin{equation}
     G_n(L,l) \leq \mathrm{Var}[\partial_k C]
