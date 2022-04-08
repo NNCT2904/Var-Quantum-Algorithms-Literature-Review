@@ -1,4 +1,4 @@
-\subsection{Addressing Parameterized circuit depth}
+\subsection{Addressing Parameterised circuit depth}
 \subsubsection{Shallow Circuits, Local Cost Function}
 \begin{figure} 
     \centerline{
@@ -24,11 +24,11 @@
     \caption{
         An illustrative example of Global Cost Function and Local Cost Function.
         a) Global Cost Function compares the states in exponentially large Hilbert space.
-        b) Local Cost Function compares the states at single qubit level.
+        b) Local Cost Function compares the states at the qubit level.
     }\label{cost functions}
 \end{figure}
 
-Cerezo et al. has demonstrated \cite{cerezoCostFunctionDependent2021} properties of a 'local cost function' in a parameterised circuit. 
+Cerezo et al. has demonstrated \cite{cerezoCostFunctionDependent2021} the properties of a 'local cost function' in a parameterised circuit. 
 Let us recall the cost function $C$ with an operator $O$, the ansatz $U(\theta)$ and some input states $\rho$:
 \begin{equation}
     C = \Tr\left[
@@ -55,7 +55,7 @@ where $I_{\overline{j}}$ is the identity on all qubits except the qubit in $j$-t
         a) Each parameterized block $W_{kl}$ acts on $m$ qubits.
         $S_k$ is the $m$ qubit subsystem on which $W_{kL}$ acts, note that L is the last layer of the ansatz $U(\theta)$.
         The right (or forward) light-cone $\mathcal{L}$ contains all the gates with at least one input to $W$, $\overline{\mathcal{L}}$ is the opposite.
-        $S_w$ is the subsystem of $m$ qubits which $W$ acts on, and $S_{\overline{w}}$ is the subsystem of $m$ qubits which $W$ have limited connection to.
+        $S_w$ is the subsystem of $m$ qubits which $W$ acts on, and $S_{\overline{w}}$ is the subsystem of $m$ qubits which $W$ have limited connection.
         b) The example of operator $O_i$ acts non-trivially in the subsystem $S_{k-1}$ only, while the operator $O_{i'}$ acts non-trivially on the second half ($m/2$) qubits of $S_k$ and on the first half ($m/2$) qubits of $S_{k+1}$.
         Figure from Ref \cite{cerezoCostFunctionDependent2021}
     }
