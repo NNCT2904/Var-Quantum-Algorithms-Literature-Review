@@ -22,7 +22,7 @@ The gradients are the derivatives of the cost function respectively to the param
 \begin{equation}
     \partial_l C = \frac{\partial C(\vec{\theta})}{\partial\theta_l}
 \end{equation}
-McClean et al.\cite{mccleanBarrenPlateausQuantum2018} also pointed out that whenever the random parameterised circuits reach the depth $O(n^{1/L})$ on a $L$-dimensional array, the gradient of the cost function will vanish, and the variance of the gradient shrinks (see Eq. (\ref{Vanish Gradient})) exponentially with the number of qubits (see Eq. (\ref{Variance expo smaller})).
+McClean et al. \cite{mccleanBarrenPlateausQuantum2018} also pointed out that whenever the random parameterised circuits reach the depth $O(n^{1/L})$ on a $L$-dimensional array, the gradient of the cost function will vanish, and the variance of the gradient shrinks (see Eq. (\ref{Vanish Gradient})) exponentially with the number of qubits (see Eq. (\ref{Variance expo smaller})).
 \begin{align}
     \langle \partial_k C\rangle &= 0  \label{Vanish Gradient}\\
     \mathrm{Var}[\partial_k C] &\approx 2^{-n}  \label{Variance expo smaller}

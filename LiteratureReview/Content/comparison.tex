@@ -14,7 +14,7 @@ The authors aimed to avoid non-zero gradients in the first training iteration, w
 However, this method cannot ensure the algorithm will not go into a Barren Plateau again because the Barren Plateaus phenomenon is cost function dependent \cite{cerezoCostFunctionDependent2021}.
 Overall, the authors manipulated the starting parameters to achieve trainability, but the risk of going to a plateau is still there.
 
-Interestingly, the method by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} seems to address the both factors.
+Interestingly, the method by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} seems to address both factors.
 The first phase of the algorithm creates an ansatz by adding many shallow layers of zero parameterised circuits. 
 Then the second phase trains the circuit for a portion at a time.
 As the randomness is contained to shallower sub-circuits, the chance of going to a plateau is minimised during training.
