@@ -47,6 +47,8 @@ with
 \end{equation}
 where $I_{\overline{j}}$ is the identity on all qubits except the qubit in $j$-th position.
 
+The authors introduced the Altering Layered Ansatz $U(\theta)$ with $L$ layers of $m$-qubit unitaries $W$ 
+
 \begin{figure}
     \centering
     \includegraphics{LiteratureReview/Appendices/alterlayeransatz.png}
@@ -56,7 +58,7 @@ where $I_{\overline{j}}$ is the identity on all qubits except the qubit in $j$-t
         $S_k$ is the $m$ qubit subsystem on which $W_{kL}$ acts, note that L is the last layer of the ansatz $U(\theta)$.
         The right (or forward) light-cone $\mathcal{L}$ contains all the gates with at least one input to $W$, $\overline{\mathcal{L}}$ is the opposite.
         $S_w$ is the subsystem of $m$ qubits which $W$ acts on, and $S_{\overline{w}}$ is the subsystem of $m$ qubits which $W$ have limited connection to.
-        b) 
+        b) The example of operator $O_i$ acts non-trivially in the subsystem $S_{k-1}$ only, while the operator $O_{i'}$ acts non-trivially on the second half ($m/2$) qubits of $S_k$ and on the first half ($m/2$) qubits of $S_{k+1}$.
     }
     \label{Altering Layered Ansatz}
 \end{figure}
