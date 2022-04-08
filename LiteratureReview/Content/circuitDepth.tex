@@ -49,7 +49,7 @@ where $I_{\overline{j}}$ is the identity on all qubits except the qubit in $j$-t
 
 \begin{figure}
     \centering
-    \includegraphics{LiteratureReview/Appendices/alterlayeransatz.png}
+    \includegraphics[scale=0.5]{LiteratureReview/Appendices/alterlayeransatz.png}
     \caption{
         Altering Layered Ansatz. 
         a) Each parameterized block $W_{kl}$ acts on $m$ qubits.
@@ -60,17 +60,6 @@ where $I_{\overline{j}}$ is the identity on all qubits except the qubit in $j$-t
     }
     \label{Altering Layered Ansatz}
 \end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics{LiteratureReview/Appendices/lightcone.png}
-    \caption{
-        The Operator $O_i$ in the topmost is in the scope of the forward light-cone $\mathcal{L}$ of block $W$. The thick-line dashes indicate the backward light-cone $\mathcal{L}$
-    }
-    \label{Forward-backward light cone}
-\end{figure}
-
-
 
 The authors introduced the Altering Layered Ansatz $U(\theta)$ with $L$ layers of $m$-qubit unitaries $W_{kl}(\theta_{kl})$ (see Figure \ref{Altering Layered Ansatz}).
 If a local cost function is used for this Altering Layered Ansatz, then there is a lower bound for the variants of the gradients that depends on the number of qubits and some configurations of the circuit. 
@@ -83,10 +72,20 @@ For a $L$-layered ansatz, let the variance $\mathrm{Var}[\partial_v C]$ of the p
     \times \mathop{\sum}\limits_{i\in {i}_{{\mathcal{L}}}}\mathop{\sum}\limits _{{(k,k^{\prime} )\in {k}_{{{\mathcal{L}}}_{\text{B}}}}\atop {k^{\prime} \geqslant k}}{c}_{i}^{2}\epsilon ({\rho }_{k,k^{\prime} })\epsilon ({\widehat{O}}_{i})\ ,
 \end{equation}
 Where the forward light-cone $\mathcal{L}$ is a set of gates with at least one input connected to the output of a block $W$; 
-The backward light-cone $\mathcal{L}_\text{B}$ is a set of gates with at least one output connected to the input of block $W$;
 $S_k$ is the $m$-qubit subsystem;
 $i_{\mathcal{L}}$ is a set of indices such that the operators $\hat{O_i}$ act on qubits in $\mathcal{L}$;
-$k_{\mathcal{L}_B}$ is a set of indices such that the subsystem $S_k$;
+$k_{\mathcal{L}_B}$ is a set of indices such that the subsystem $S_k$ in the backward light-cone $\mathcal{L}_\text{B}$ of block $W$ (see Figure \ref{Forward-backward light cone} for example);
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{LiteratureReview/Appendices/lightcone.png}
+    \caption{
+        An illustrative example of backward and forward light-cone.
+        The operator $O_i$ in the topmost is in the scope of the forward light-cone $\mathcal{L}$ of block $W$.
+        The thick-line dashes indicate the backward light-cone $\mathcal{L}_{\text{B}}$ of the operator $O_i$
+    }
+    \label{Forward-backward light cone}
+\end{figure}
+
 
 \almarginpar{What is $G_n$}If the total depth $L$ is in the range $O(\log(n))$ of the number of qubits (a shallow configuration), then the lower bound cannot vanish faster than $\Omega(1/\mathrm{poly}(n))$. 
 Thus, no Barren Plateau occurs in this case.\almarginpar{You throw lots of formulas in but do not explain much}
