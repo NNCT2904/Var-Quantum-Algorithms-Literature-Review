@@ -7,6 +7,12 @@
 \end{itemize}
 
 We now discuss the characteristics, pros and cons of each methods.
+Let's recall the main cause of the Barren Plateaus phenomenon in VQA and QNN development are the ansatz depth and the randomised starting parameter.
+For this reason, we will identify the characteristics of each method based on how they address these two factors.
 
-First of all, let's recall the main cause of the Barren Plateaus phenomenon in VQA and QNN development are the ansatz depth and the randomised starting parameter.
-The paper \cite{cerezoCostFunctionDependent2021} by Cerezo et al. address the issue by propose their own Alternating Layered Ansatz
+The paper \cite{cerezoCostFunctionDependent2021} by Cerezo et al. address the issue by propose their own Alternating Layered Ansatz with a defined upper-bound and lower-bound for circuit depth to work with their local cost function. 
+The initialise parameters can be randomly configured.
+Thus, this methods can be use to train a shallow circuit of length in the defined bound. 
+Overall, this is an ansatz design that does not exhibit a Barren Plateaus.
+
+Grant et al. \cite{grantInitializationStrategyAddressing2019} choose to mitigate the issue by addressing the initialisation parameters. In short, the authors' idea was to divide the ansatz into shallow blocks
