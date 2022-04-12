@@ -2,6 +2,7 @@
 We now discuss the characteristics, pros and cons of each method.
 Let's recall the main cause of the Barren Plateaus phenomenon in VQA and QNN development are the ansatz depth and the randomised starting parameter.
 For this reason, we will identify the characteristics of each method based on how they address these two factors.
+The Table \ref{quick comparison of methods} provide the comparison in a compact form.
 
 The paper \cite{cerezoCostFunctionDependent2021} by Cerezo et al. addressed the issue by proposing their own Alternating Layered Ansatz with a defined upper-bound and lower-bound for circuit depth to work with their local cost function. 
 The initialised parameters can be randomly configured.
@@ -33,11 +34,11 @@ Finally, it is worth mentioning that Quantum Convolutional Neural Networks (QCNN
         \hline
         Initial Parameters  & Randomised                            & Restricted        & Restricted            & Randomised \\
         \hline
-        Other conditions    & Local cost function, bounded circuit depth &              &                       & \\
+        Other conditions    & Local cost function, limited ansatz depth &               &                       & \\
         \hline
-        Barren Plateaus     & Eliminated                            & Mitigated         & Mitigated             & Eliminated \\
+        Barren Plateaus     & Eliminated                            & Avoided           & Avoided             & Eliminated \\
         \hline
     \end{tabular}
     \caption{A compact comparison of the reviewed methods}
-    \label{tab:my_label}
+    \label{quick comparison of methods}
 \end{table}

@@ -1,6 +1,6 @@
 \section{Barren Plateaus, Gradients, Trainability Issue}
-\todo{I have added the explanations for symbols, is this section clear to you?}
-Initially, there are three ingredients: some reference states (the inputs), a parameterised unitary operation (the circuit, or ansatz), and an observable $O$ to construct a cost function.
+
+When training a quantum circuit, initially there are three important elements: some reference states (the inputs), a parameterised unitary operation (the circuit, or ansatz), and an observable $O$ to construct a cost function.
 The next step is to use this parameterised circuit with some classical optimisation algorithm on classical hardware.
 Each run of the optimisation routine receives the current value of the cost function and suggests the new set of parameters for the circuit \cite{cerezo2021variational}.
 By changing the parameter, we are exploring an optimisation landscape to find a global minimum.
@@ -27,12 +27,12 @@ McClean et al. \cite{mccleanBarrenPlateausQuantum2018} also pointed out that whe
     \langle \partial_k C\rangle &= 0  \label{Vanish Gradient}\\
     \mathrm{Var}[\partial_k C] &\approx 2^{-n}  \label{Variance expo smaller}
 \end{align}
-This phenomenon, known as "Barren Plateaus", is an issue for optimisation because the flatter the landscape is, the more challenging it is to search for the location of the global minimum.
+Barren Plateaus is a serious issue for circuit optimisation because the flatter the landscape is, the more challenging it is to search for the location of the global cost minimum.
 Compared to the gradient in a deep classical network which vanishes exponentially in the number of layers, for the QNN case, the gradient is exponentially small in the number of qubits \cite{mccleanBarrenPlateausQuantum2018}.
 
 Additionally, the choice of the initiate parameter $\theta$ is also an important factor. When an ansatz is randomly initialised, the algorithm may start distant from the solution, at a local minimum, or even on a barren plateau area. 
 
-\almarginpar{Impact of initial params was not clear, what was clear was the circuit depth and the number of qubits}To summarise, there are factors that lead to Barren Plateaus in QNN and VQA:
+To summarise, there are factors that lead to Barren Plateaus in QNN and VQA:
 \begin{itemize}
     \item \textbf{The ansatz depth and number of qubit;}
     \item \textbf{Random initialization parameters;}

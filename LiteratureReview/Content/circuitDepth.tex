@@ -11,6 +11,7 @@
         }
     }
     \centerline{a) Global Cost Function}
+    \centerline{}
     \centerline{
         \Qcircuit @C=1em @R=0em {
         & \multigate{4}{U(\theta)}    & \meter\\
@@ -57,7 +58,7 @@ where $I_{\overline{j}}$ is the identity on all qubits except the qubit in $j$-t
         The right (or forward) light-cone $\mathcal{L}$ contains all the gates with at least one input to $W$, $\overline{\mathcal{L}}$ is the opposite.
         $S_w$ is the subsystem of $m$ qubits which $W$ acts on, and $S_{\overline{w}}$ is the subsystem of $m$ qubits which $W$ have limited connection.
         b) The example of operator $O_i$ acts non-trivially in the subsystem $S_{k-1}$ only, while the operator $O_{i'}$ acts non-trivially on the second half ($m/2$) qubits of $S_k$ and on the first half ($m/2$) qubits of $S_{k+1}$.
-        Figure from Ref \cite{cerezoCostFunctionDependent2021}
+        Figure from Cerezo et al. \cite{cerezoCostFunctionDependent2021}
     }
     \label{Altering Layered Ansatz}
 \end{figure}
@@ -83,7 +84,7 @@ $k_{\mathcal{L}_B}$ is a set of indices such that the subsystem $S_k$ in the bac
         An illustrative example of backward and forward light-cone.
         The operator $O_i$ in the topmost is in the scope of the forward light-cone $\mathcal{L}$ of block $W$.
         The thick-line dashes indicate the backward light-cone $\mathcal{L}_{\text{B}}$ of the operator $O_i$.
-        Figure from Ref \cite{cerezoCostFunctionDependent2021}
+        Figure from Cerezo et al. \cite{cerezoCostFunctionDependent2021}
     }
     \label{Forward-backward light cone}
 \end{figure}
@@ -93,7 +94,7 @@ Thus, no Barren Plateau occurs in this case.
 
 
 
-\subsubsection{Layerwise learning for quantum neural networks}
+\subsubsection{Layerwise learning}
 
 There is another method that manipulates the circuit depth throughout the training period studied by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021}. 
 In more detail, the algorithm consists of two phases:
@@ -105,7 +106,7 @@ In more detail, the algorithm consists of two phases:
     = \prod_{j=1}^s U_{1_j}(\vec{\theta_{1_j}}) W \;,
 \end{equation}
 
-Where each consecutive layer $l_i(\vec{\theta_i})$ of form
+Where each successive layer $l_i(\vec{\theta_i})$ of form
 \begin{equation}
     l_i(\vec{\theta_i})
     =U_i(\vec{\theta_i}) W \;,
@@ -137,5 +138,5 @@ Eventually, we obtain the final circuit of $L$ layers:
 \end{figure}
 
 
-\textbf{The second phase} takes the pre-trained circuit from phase one and trains \almarginpar{What are these?}\underline{larger adjacent partitions} of layers at a time.
-In more detail, we can set a parameter $r$ to specify the percentage of parameters to be trained in one step, e.g. one third, or a quarter of the circuit layers.
+\textbf{The second phase} takes the pre-trained circuit from phase one and trains larger adjacent partitions of layers at a time.
+In more detail, we can set a parameter $r$ to specify the proportion of parameters to be trained in one step, e.g. one sixth, or one fifth the circuit layers.
