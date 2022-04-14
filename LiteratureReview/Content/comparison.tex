@@ -2,12 +2,12 @@
 We now discuss the characteristics, pros and cons of each method.
 Let's recall the main cause of the Barren Plateaus phenomenon in VQA and QNN development are the ansatz depth and the randomised starting parameter.
 For this reason, we will identify the characteristics of each method based on how they address these two factors.
-The Table \ref{quick comparison of methods} provide the comparison in a compact form.
+The Table \ref{quick comparison of methods} provides the comparison in a compact form.
 
-The paper \cite{cerezoCostFunctionDependent2021} by Cerezo et al. addressed the issue by proposing their own Alternating Layered Ansatz with a defined upper-bound and lower-bound for circuit depth to work with their local cost function. 
+Cerezo et al  \cite{cerezoCostFunctionDependent2021} addressed the issue by proposing their own Alternating Layered Ansatz with a defined upper-bound and lower-bound for circuit depth to work with their local cost function. 
 The initialised parameters can be randomly configured.
 Thus, this method can be used to train a shallow circuit of length in the defined bound. 
-Overall, this is an ansatz design that does not exhibit a Barren Plateaus at the cost of circuit depth.
+Overall, this ansatz design does not exhibit a Barren Plateaus at the cost of circuit depth.
 
 Grant et al. \cite{grantInitializationStrategyAddressing2019} choose to mitigate the issue by addressing the initialisation parameters. 
 In short, the authors' idea was to divide the ansatz into shallow blocks and configure the parameters such that each block is implemented as an identity operation.
@@ -15,7 +15,7 @@ The authors aimed to avoid non-zero gradients in the first training iteration, w
 However, this method cannot ensure the algorithm will not go into a Barren Plateau again because the Barren Plateaus phenomenon is cost function dependent \cite{cerezoCostFunctionDependent2021}.
 Overall, the authors manipulated the starting parameters to achieve trainability, but the risk of going to a plateau is still there.
 
-Interestingly, the method by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} seems to address both factors.
+The method by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} seems to address both factors.
 The first phase of the algorithm creates an ansatz by adding many shallow layers of zero parameterised circuits. 
 Then the second phase trains the circuit for a portion at a time.
 As the randomness is contained to shallower sub-circuits, the chance of going to a plateau is minimised during training.
