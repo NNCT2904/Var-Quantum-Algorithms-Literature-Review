@@ -1,13 +1,13 @@
 \section{Comparison and Discussion}
 We now discuss the characteristics, pros and cons of each method.
-Let's recall the main cause of the Barren Plateaus phenomenon in VQA and QNN development are the ansatz depth and the randomised starting parameter.
+Let's recall the main cause of the Barren Plateaus phenomenon in VQA and QNN development are the ansatz depth, the number of qubit and the randomised starting parameter.
 For this reason, we will identify the characteristics of each method based on how they address these two factors.
 The Table \ref{quick comparison of methods} provides the comparison in a compact form.
 
-Cerezo et al. \cite{cerezoCostFunctionDependent2021} addressed the issue by proposing their own Alternating Layered Ansatz with a defined upper-bound and lower-bound for circuit depth to work with their local cost function. 
+Cerezo et al. \cite{cerezoCostFunctionDependent2021} addressed the issue by proposing their own Alternating Layered Ansatz with a defined upper-bound and lower-bound for circuit depth.
+The ansatz, in combination with a local cost function which only measure a restricted number of qubit, has proven that the Barren Plateaus can be fully eliminated. 
 The initialised parameters can be randomly configured.
 Thus, this method can be used to train a shallow circuit of length in the defined bound. 
-Overall, this ansatz design does not exhibit a Barren Plateaus at the cost of circuit depth.
 
 Grant et al. \cite{grantInitializationStrategyAddressing2019} choose to mitigate the issue by addressing the initialisation parameters. 
 In short, the authors' idea was to divide the ansatz into shallow blocks and configure the parameters such that each block is implemented as an identity operation.
@@ -30,13 +30,13 @@ Finally, it is worth mentioning that Quantum Convolutional Neural Networks (QCNN
         \hline
         Method              & Local cost function, shallow circuits & Identity Blocks   & Layerwise learning    & QCNN \\
         \hline
-        Ansatz choice       & Alternating Layered Ansatz            & Any ansatz        & Any ansatz            & MERA ansatz\\
+        Ansatz depth        & Bounded                               & Any               & Any                   & Any \\
+        \hline
+        Qubits to be measured    & Limited                          & All qubits        & All qubits            & All qubits \\
         \hline
         Initial Parameters  & Randomised                            & Restricted        & Restricted            & Randomised \\
         \hline
-        Other conditions    & Local cost function, limited ansatz depth &               &                       & \\
-        \hline
-        Barren Plateaus     & Eliminated                            & Avoided           & Avoided             & Eliminated \\
+        Barren Plateaus     & Eliminated                            & Avoided           & Avoided               & Eliminated \\
         \hline
     \end{tabular}
     \caption{A compact comparison of the reviewed methods}
