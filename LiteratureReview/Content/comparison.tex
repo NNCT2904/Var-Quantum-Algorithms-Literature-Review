@@ -1,11 +1,11 @@
 \section{Comparison and Discussion}
 We now discuss the characteristics, pros and cons of each method.
-Let's recall the main cause of the Barren Plateaus phenomenon in VQA and QNN development are the ansatz depth, the number of qubit and the randomised starting parameter.
-For this reason, we will identify the characteristics of each method based on how they address these two factors.
+Let's recall the main cause of the Barren Plateaus phenomenon in VQA and QNN development are the ansatz depth, the number of qubits and the randomised starting parameter.
+For this reason, we will identify the characteristics of each method based on how they address these factors.
 The Table \ref{quick comparison of methods} provides the comparison in a compact form.
 
-Cerezo et al. \cite{cerezoCostFunctionDependent2021} addressed the issue by proposing their own Alternating Layered Ansatz with a defined upper-bound and lower-bound for circuit depth.
-The ansatz, in combination with a local cost function which only measure a restricted number of qubit, has proven that the Barren Plateaus can be fully eliminated. 
+Cerezo et al. \cite{cerezoCostFunctionDependent2021} addressed the issue by proposing their own Alternating Layered Ansatz with a defined bound for circuit depth.
+The local cost function, which only measures a restricted number of qubits, has proven that the Barren Plateaus can be fully eliminated in combination with the ansatz. 
 The initialised parameters can be randomly configured.
 Thus, this method can be used to train a shallow circuit of length in the defined bound. 
 
@@ -26,11 +26,11 @@ Finally, it is worth mentioning that Quantum Convolutional Neural Networks (QCNN
 
 \begin{table}[]
     \centering
-    \begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+    \begin{tabular}{|p{3cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
         \hline
         Method              & Local cost function, shallow circuits & Identity Blocks   & Layerwise learning    & QCNN \\
         \hline
-        Ansatz depth        & Bounded                               & Any               & Any                   & Any \\
+        Ansatz depth        & Bounded                               & Any length        & Any length            & Any length \\
         \hline
         Qubits to be measured    & Limited                          & All qubits        & All qubits            & All qubits \\
         \hline
