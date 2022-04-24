@@ -5,7 +5,11 @@ Skolik et al. and Liu et al. \cite{skolikLayerwiseLearningQuantum2021, liuParame
 In this section, we design the methodologies to conduct the experiment to answer the research question.
 
 \subsection{Research Type Overview}
-We have examined the three theories \cite{cerezoCostFunctionDependent2021, liuParameterInitializationMethod2021, skolikLayerwiseLearningQuantum2021} in the literature review, and it is suggested that an empirical experiment can be conducted to compare the three.
+We have examined the three theories \cite{cerezoCostFunctionDependent2021, liuParameterInitializationMethod2021, skolikLayerwiseLearningQuantum2021} in the literature review, and it is suggested that a technology-oriented empirical experiment can be conducted to compare the three. 
+In more detail, we study the impact of the three methods to the gradient of a cost function in VQA development. 
+The chosen ansatz for this experiment is "Real Amplitudes" due to the vast application of this ansatz in quantum chemistry and quantum machine learning.
+
+
 Consequently, the result of this experiment is a table that records the performance of the three methods in some criteria.
 
 The main advantage of experimentation methodology is that we can fully control the experiment environment and its subjects, objects, etc.
@@ -56,8 +60,7 @@ We can compare the data with these criteria:
     \item How good the solution is;
     \item The size of the circuit;
     \item The size of the qubit registry;
-    \item The time required to execute the circuit;
-    \item The complexity of the algorithms.
+    \item The time required to execute the circuit.
 \end{itemize}
 
 \subsubsection{Hypothesis}
@@ -97,6 +100,7 @@ Most of our required resources are open-sources:
     \item Jupyter Notebook: \url{https://jupyter.org/}
     \item Qiskit: \url{https://qiskit.org/}
     \item IBM Quantum: \url{https://quantum-computing.ibm.com/}
+    \item Real Amplitude ansatz: \url{https://qiskit.org/documentation/stubs/qiskit.circuit.library.RealAmplitudes.html}
 \end{itemize}
 
 To prepare the quantum emulator on a local machine, we first install Python and Anaconda for programming language support, Jupyter Notebook as a code editing tool.
@@ -108,7 +112,7 @@ While this is a convenient choice for online presentation or remote working beca
 
 The quantum emulator from Qiskit is capable of simulating up to 32 qubits. On the other hand, the actual quantum hardware from IBM is limited to 5 qubits for open access.
 
-To construct the ansatz as discussed in Section \ref{Research Activities section}, we can use the "Real Amplitudes" circuit provided by Qiskit.
+To construct the ansatz as discussed in Section \ref{Research Activities section}, we can use the "Real Amplitudes" circuit provided by Qiskit. Real Amplitudes is a heuristic ansatz used for chemistry applications and classification problems in machine learning
 
 
 \subsection{Success Condition}
