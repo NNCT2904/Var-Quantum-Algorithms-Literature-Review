@@ -40,7 +40,7 @@ The result of the first phase is the ansatzes that possess Barren Plateaus.
 
 \textbf{In the second phase, we implement the three approaches}.
 With the QNN ansatzes from the first step, we can implement the three methods discussed in the literature review.
-Each of them configures or trains the ansatz in a different way.
+Each of them configures or trains the ansatz differently.
 The Qiskit framework also supports the mutation for the ansatz object, such as the number of qubits to measure, the depth of ansatz (repetition) and the starting parameters.
 We will track the variances of the gradient for each method to identify if the model has mitigated the Barren Plateaus phenomenon.
 The output is recorded to compare against some criteria (the size of the circuit, execution time, etc.). We expect to have six outcomes.
@@ -75,7 +75,7 @@ The experiment activities are formalised into hypotheses:
     \item \textbf{Null}: The three methods have the same performance according to the criteria, or the difference is insignificant;
     \item \textbf{Alternative}: The three methods' performance differs when reflecting the result against the criteria. If so,
     \begin{itemize}
-        \item \textbf{H1}: We can identify which method is the best in a certain criteria;
+        \item \textbf{H1}: We can identify which method is the best in certain criteria;
         \item \textbf{H2}: We can recommend the best method given a context.
     \end{itemize}
 \end{itemize}
@@ -84,15 +84,15 @@ The experiment activities are formalised into hypotheses:
 \label{Data Collecting Section}
 Here we discuss our method to collect the data from the experiment.
 
-The output of the first phase is Qiskit ansatz objects that contains the number of qubits, the depth of the circuit (rep), and the parameter configured randomly, please refer to Qiskit document for further detail.
+The output of the first phase is Qiskit ansatz objects that contain the number of qubits, the depth of the circuit (rep), and the parameter configured randomly. Please refer to the Qiskit document for further detail.
 Moreover, the ansatz object in Qiskit is mutable, which means we can modify the ansatzes properties in the second phase.
 
 For the second phase, we need to record three different outputs of the three methods accordingly, with the criteria defined in Subsection \ref{Criteria section}.
 The result is a table with the rows of criteria in the Subsection \ref{Criteria section} with each method as rows.
 With this data, we can decide whether to reject the null hypothesis or not.
 
-For the null hypothesis case, it means that the methods' performances are relatively the same and we conclude the experiment.
-For the alternative hypothesis, we will have the result as a table for comparison, which satisfy the hypothesis H1. 
+For the null hypothesis case, it means that the methods' performances are relatively the same, and we conclude the experiment.
+We will have the result as a table for comparison, which satisfies hypothesis H1. 
 Then, we need to synthesise the table to answer the research question and verify hypothesis H2. 
 For example, the method $X$ is the best for the complexity.
 
@@ -114,12 +114,12 @@ Then we follow the official instruction from Qiskit \cite{Qiskit} to install the
 We can start working with Qiskit in a Jupyter Notebook file.
 
 The other option is to use the provided Python kernel with Qiskit pre-installed provided by IBM Quantum. 
-While this is a convenient choice for online presentation or remote working because of instant access, this server has shortcomings, such as the maximum ram for open access is only 8 Gigabytes and the processing power is limited.
+While this is a convenient choice for online presentation or remote working because of instant access, this server has shortcomings. The maximum ram for open access is only 8 Gigabytes, and the processing power is limited.
 
 The quantum emulator from Qiskit is capable of simulating up to 32 qubits. On the other hand, the actual quantum hardware from IBM is limited to 5 qubits for open access.
 
-Qiskit has offered various of ansatz design, namely \textit{EfficientSU2, PauliTwoDesign, RealAmpplitudes, NLocal}, and \textit{TwoLocal}. They are popular and frequently studied in quantum chemistry, quantum machine learning, especially the investigation in Barren Plateaus. 
-However, they are based on the two ansatzes NLocal and TwoLocal.
+Qiskit has offered various ansatz designs, namely \textit{EfficientSU2, PauliTwoDesign, RealAmpplitudes, NLocal}, and \textit{TwoLocal}. They are popular and frequently studied in quantum chemistry, quantum machine learning, and especially the investigation of Barren Plateaus. 
+However, they are based on the two ansatzes, NLocal and TwoLocal.
 To construct the ansatz as discussed in Section \ref{Research Activities section}, we can use the NLocal and TwoLocal circuits provided.
 
 
