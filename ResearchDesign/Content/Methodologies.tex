@@ -6,16 +6,10 @@ In this section, we design the methodologies to conduct the experiment to answer
 
 \subsection{Research Type Overview}
 We have examined the three theories \cite{cerezoCostFunctionDependent2021, liuParameterInitializationMethod2021, skolikLayerwiseLearningQuantum2021} in the literature review, and it is suggested that a technology-oriented empirical experiment can be conducted to compare the three. 
-In more detail, we study the impact of the three methods to the gradient of a cost function in VQA development. 
-The chosen ansatz for this experiment is "Real Amplitudes" due to the vast application of this ansatz in quantum chemistry and quantum machine learning.
 
-
-Consequently, the result of this experiment is a table that records the performance of the three methods in some criteria.
-
-The main advantage of experimentation methodology is that we can fully control the experiment environment and its subjects, objects, etc.
-In this case, these are the factors that lead to Barren Plateaus, the configuration for the QNN ansatz, and the three implementations of theories on the QNN ansatz.
-Figure \ref{Research Activities} shows the experiment process in a compact form.
-We elaborate on the research process in later sections.
+The VQA approach is the answer to many constraints of the NISQ device. It allows the construction of trainable circuits that receive the trainable parameters $\theta$. VQA is known for many applications in optimisation and machine learning. However, we have observed the existence of Barren Plateaus, causing the variance of the cost function gradient to vanish exponentially with the number of qubits
+We answer the research question by conducting technology-oriented empirical research. 
+We summarise designed the process as Figure \ref{Research Activities}:
 
 \begin{figure}
     \centering
@@ -112,7 +106,9 @@ While this is a convenient choice for online presentation or remote working beca
 
 The quantum emulator from Qiskit is capable of simulating up to 32 qubits. On the other hand, the actual quantum hardware from IBM is limited to 5 qubits for open access.
 
-To construct the ansatz as discussed in Section \ref{Research Activities section}, we can use the "EfficientSU2", "PauliTwoDesign", "NLocal", and "TwoLocal" circuits provided by Qiskit circuit library due to the popularity and frequently studied in quantum machine learning, especially the investigation in Barren Plateaus for the ansatz
+Qiskit has offered various of ansatz design, namely \textit{EfficientSU2, PauliTwoDesign, RealAmpplitudes, NLocal}, and \textit{TwoLocal}, they are popular and frequently studied in quantum chemistry, quantum machine learning, especially the investigation in Barren Plateaus. 
+However, they are based on the two ansatz NLocal and TwoLocal.
+To construct the ansatz as discussed in Section \ref{Research Activities section}, we can use the NLocal and TwoLocal circuits provided.
 
 
 \subsection{Success Condition}
