@@ -30,8 +30,8 @@ We elaborate on the research process in later sections.
 
 \textbf{In the first phase, we reproduce the Barren Plateaus.} 
 We can use Qiskit \cite{Qiskit} to construct an ansatz in a quantum simulator.
-The literature review had pointed out that the two factors causing Barren Plateaus are the \textit{ansatz depth, a large number of qubits} and the \textit{randomised starting parameters}, so we configure the ansatz to have such characteristics in a quantum simulator.
-Then we calculate the gradient variance and expect the variance to shrink \textit{exponentially} with the number of qubits (see Figure \ref{Variance Shrinking demo}).
+The literature review had pointed out that the two factors causing Barren Plateaus are the \textit{ansatz depth, a large number of qubits} and the \textit{randomised starting parameters}, so we configure the ansatzes to have such characteristics in a quantum simulator.
+We keep track of the variance and the number of qubits to see if the variance is shrinking  \textit{exponentially} (see Figure \ref{Variance Shrinking demo}).
 The result will be a QNN ansatz with the depth and number of qubits enough to produce the Barren Plateaus.
 
 \textbf{In the second phase, we implement the three approaches}.
