@@ -1,0 +1,15 @@
+\subsection{Results}
+
+For the case of Local Cost Function and Shallow circuit, the variance of the ansates' gradient did not vanished when we attempt to increase the number of qubit.
+In contrast, the ansatzes which don't have any restraint on the layer depth and cost function have the variance vanishing exponentially with the number of qubits.
+In this case, the gradient of the cost function become flatter for each qubit in the ansatz.
+Figure \ref{Variance Local Cost} shows the result of the experiment.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{Artefact/Appendices/variancesLCF.png}
+    \caption{
+        Comparison of the variance values of the two ansatzes.
+        The ansatzes with Global Cost Function and increased depth have their gradient variances decay exponentially with the number of qubits. In other word, the initial parameters has landed into a Barren Plateau.
+    }
+    \label{Variance Local Cost}
+\end{figure}
