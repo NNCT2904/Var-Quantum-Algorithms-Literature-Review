@@ -1,4 +1,4 @@
-\section{VQA and QNN}
+\subsection{VQA and QNN}
 
 Hybrid techniques involving Quantum circuits and Classical optimisers have been proposed to overcome the restrictions of Noisy Intermediate-Scale Quantum (NISQ) \cite{brooksQuantumSupremacyHunt2019} devices. 
 Those constraints are the absence of fault-tolerant design, restricted number of qubits per processor, and limited depth of executable quantum circuit. 
@@ -34,7 +34,7 @@ In short, the cost function $C(\theta)$ is calculated using the Quantum computer
     \label{VQA diagram}
 \end{figure}
 
-\subsection{The Cost Function}
+\subsubsection{The Cost Function}
 Encoding the problem into a cost function is the first step to solving a problem using VQA \cite{cerezo2021variational}.
 The cost function is equivalent to that used in classical machine learning. 
 It maps the values of the trainable parameters $\theta$ into real values, which represent the measure of distance from an optimum solution.
@@ -53,7 +53,7 @@ There are some criteria in the construction of a cost function:
 (2) Cost function must be 'efficiently estimated' by measurement on a quantum computer and classical post-processing;
 (3) The cost must be 'trainable', such that the parameters $\theta$ should be efficiently optimised.
 
-\subsection{The Ansatzes}
+\subsubsection{The Ansatzes}
 \begin{figure} 
     \centerline{
         \Qcircuit @C=1em @R=0em {
@@ -96,7 +96,7 @@ with each layer:
 \end{equation}
 for unparamaterized unitary $W_m$, Hermitian Operator $H_m$, and $\theta_l$ is the $l$-th element of $\theta$.
 
-\subsection{The Gradients}
+\subsubsection{The Gradients}
 After defining the cost function and a suitable ansatz, we train the parameter $\theta = \{\theta_{l}\}$ to solve the problem in Eq. (\ref{optimize theta with ansatz}) \cite{cerezo2021variational}.
 The cost function gradient helps the optimiser to find the global minima. 
 Consider the cost function in Eq. (\ref{Cost function}), for a unitary that parameterizes rotation $e^{i \theta_l \sigma_{l}}$, where $\theta_l$ be the $l$-th element of $\theta$, $\sigma_l$ is a Pauli rotation operator. 
@@ -115,14 +115,14 @@ with $\theta_{\pm} = \theta \pm \alpha e_l$, $\alpha \in \mathbb{R}$ and $e_l$ i
 Essentially, we can shift the $l$-th parameter by some amount $\alpha$, and Eq. (\ref{Parameter-shift rules}) will evaluate the gradient. 
 
 
-\subsection{The Optimisers}
+\subsubsection{The Optimisers}
 The accuracy of VQA greatly depends on the optimisation method.
 Typically, we can achieve the solution by making successive moves along the gradient's direction.
 This optimisation approach is within the scope of Stochastic Gradient Descent (SGD).
 One example of SGD is the ADAM optimiser \cite{kingmaAdamMethodStochastic2014}, which can vary the size of the steps taken during optimisation to produce more efficient and precise results compared to the basic SGD.
 
 
-\subsection{About QNN}
+\subsubsection{About QNN}
 VQA is also the most widely used method for developing Quantum Neural Network (QNN) circuits. 
 As a result, QNN inevitably inherited some of VQA's features and their flaws.
 Many Quantum Machine Learning models suffer from the unsolvability due to \textit{Barren Plateaus} \cite{zhaoReviewQuantumNeural2021} that prevent the growth of circuit depth and lead training of parameters to a dead end.

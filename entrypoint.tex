@@ -183,6 +183,11 @@
 
 \newcommand{\oraz}{\qquad\text{and}\qquad}
 
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\newcommand\subsubsubsection{\@startsection{paragraph}{4}{\z@}{-2.5ex\@plus -1ex \@minus -.25ex}{1.25ex \@plus .25ex}{\normalfont\normalsize\bfseries}}
+\newcommand\subsubsubsubsection{\@startsection{subparagraph}{5}{\z@}{-2.5ex\@plus -1ex \@minus -.25ex}{1.25ex \@plus .25ex}{\normalfont\normalsize\bfseries}}
+
 %%%%%%%%%%%%%%%%%%%%
 % Some forcing commands. 
 %%%%%%%%%%%%%%%%%%%%
@@ -270,9 +275,10 @@
 
 \begin{document}
 \onehalfspacing
+\tableofcontents
 %   \input{ProjectDesc/main.tex}
-% 	\input{LiteratureReview/main.tex}
-% \input{ResearchDesign/main.tex}
-\input{Artefact/main.tex}
+	\input{LiteratureReview/main.tex}
+    \input{ResearchDesign/main.tex}
+    \input{Artefact/main.tex}
 \include{src/References/references.tex}
 \end{document}

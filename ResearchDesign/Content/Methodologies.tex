@@ -1,8 +1,8 @@
 \subsection{Methodologies and Experiments}
-Cerezo et al. has pointed out that Barren Plateaus are cost function dependent \cite{cerezoCostFunctionDependent2021}, implying that the only way to eliminate Barren Plateaus is to use a local cost function with a shallow circuit.
+Cerezo et al. have pointed out that Barren Plateaus are cost function dependent \cite{cerezoCostFunctionDependent2021}, implying that the only way to eliminate Barren Plateaus is to use a local cost function with a shallow circuit.
 However, other approaches can still mitigate the phenomenon without using the local cost function.
 Skolik et al. and Liu et al. \cite{skolikLayerwiseLearningQuantum2021, liuParameterInitializationMethod2021} suggest that we can initiate the starting parameters away from plateaus to guarantee the trainability from the first steps.
-In this section, we design the methodologies to conduct the experiment to answer the research question.
+In this section, we design the methodologies for the experiment to answer the research question.
 
 \subsubsection{Research Context}
 The VQA approach is the answer to many constraints of the NISQ device. It allows the construction of trainable circuits that receive the trainable parameters $\theta$.
@@ -65,7 +65,6 @@ The results of the research activities are discussed in the Subsection \ref{Data
 \label{Criteria section}
 We can compare the data with these criteria:
 \begin{itemize}
-    \item How good the solution is;
     \item The size of the circuit;
     \item The size of the qubit registry;
     \item The time required to execute the circuit.
@@ -77,8 +76,8 @@ The experiment activities are formalised into hypotheses:
     \item \textbf{Null}: The three methods have the same performance according to the criteria, or the difference is insignificant;
     \item \textbf{Alternative}: The three methods' performance differs when reflecting the result against the criteria. If so,
           \begin{itemize}
-              \item \textbf{H1}: We can identify which method is the best in certain criteria;
-              \item \textbf{H2}: We can recommend the best method given a context.
+              \item \textbf{H1}: We can identify which method is the best in specific criteria;
+              \item \textbf{H2}: We can recommend the best approach given a context.
           \end{itemize}
 \end{itemize}
 
@@ -110,7 +109,7 @@ Most of our required resources are open-sources:
     \item Qiskit circuit library: \url{https://qiskit.org/documentation/apidoc/circuit_library.html}
 \end{itemize}
 
-To prepare the quantum emulator on a local machine, we first install Python and Anaconda for programming language support, Jupyter Notebook as a code editing tool.
+To prepare the quantum emulator on a local machine, we first install Python and Anaconda for programming language support and Jupyter Notebook as a code editing tool.
 Then we follow the official instruction from Qiskit \cite{Qiskit} to install the necessary packages.
 We can start working with Qiskit in a Jupyter Notebook file.
 
