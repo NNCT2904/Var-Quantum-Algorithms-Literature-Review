@@ -1,4 +1,5 @@
 \subsection{Minimum Artefact and Future Works}
+\label{Minimum Artefacts}
 
 The success conditions of the experiment, as discussed, contains the QNN models, the three implementations, the data generated and a guideline to identify which methods to be used on different occasion.
 However, the time for the experiment of the unit is limited to one week. We can deliver a minimum viable artefact as a single python notebook that contains:
@@ -10,6 +11,17 @@ However, the time for the experiment of the unit is limited to one week. We can 
 
 This artefact outcome will not answer the research question completely.
 However, it covers the first half of the experiment and ensures that the outcome is ready to advance to the next steps.
-We leave the second half of the experiment for future works.
-In the second half of the experiment, we implement the rest of the methods and record the data produced.
-Then we perform comparisons and synthesise the data to verify or reject the hypotheses.
+
+In the later iterations for the experiment, we plan to complete these objectives:
+\begin{itemize}
+    \item Implement the rest of the three methods;
+    \item Verify the trainability of each methods by solving a problem;
+    \item Record and plot the \textit{loss value per iteration} and \textit{loss landscape} for each method.
+\end{itemize}
+
+To solve a problem with machine learning algorithm, we encode the solution as the \textit{global minimum}, and the gradients of the training model must converge to that minimum point.
+Local minimum or Barren Plateaus are the problem that prevent the machine learning model must avoid.
+We know the Barren Plateaus is avoided when the variance of the gradient can sustain for a large number of qubit.
+However, high variance values does not mean we are in the right direction, the training model can still stuck in a local minimum, which is not the optimal solution.
+To verify the trainability of the three methods, we also take this matter into the concern.
+Lastly, the final result of these objectives will give confirmation to the hypotheses, as well as answer the research question.
