@@ -10,7 +10,8 @@ Moreover, quantum circuits, which encode both quantum algorithms and their input
 Consequently, every new input data to a quantum algorithm necessitates construction of a new and different quantum circuit. 
 Thus, unlike classical algorithms, quantum algorithms (as encoded in quantum circuits) cannot be directly parameterised or reused. This implies that quantum machine learning models, which are learning models relying on quantum algorithms, must rely on unique approaches to their training.
 
-\almarginpar{Throughout this document change capitalisation of words such as "Quantum", "Classical", "Machine", "Variational", etc. They do not need to be capped. I gave up fixing these!}A common approach to addressing the above-mentioned constraints is to adopt a hybrid approach to developing quantum machine learning, i.e. by combining quantum circuits and their classical optimization. 
+\almarginpar{Throughout this document change capitalisation of words such as "Quantum", "Classical", "Machine", "Variational", etc. They do not need to be capped. I gave up fixing these!}
+A common approach to addressing the above-mentioned constraints is to adopt a hybrid approach to developing quantum machine learning, i.e. by combining quantum circuits and their classical optimization. 
 Variational Quantum Algorithms (VQAs) \cite{cerezo2021variational} can produce quantum circuit templates that can be instantiated with trainable parameters, which are then reusable for quantum computer execution. 
 At the same time, the classical optimizer sees the variational circuits as a black box that returns results from inputs and the trainable parameter. 
 The variational method has enabled many classical machine learning algorithms to implement their alternatives for quantum computers.
@@ -30,14 +31,15 @@ Quantum Recurrent Neural Network (QRNN) is constructed as a parameterized circui
 However, whether this quantum alternative is better than the classical Recurrent Neural Network is still an open question.
 The NISQ processors are also capable of delivering some other QNN models such as: 
 Quantum Boltzmann Machine \cite{shinguBoltzmannMachineLearning2021}\cite{zoufalVariationalQuantumBoltzmann2021}, 
-Quantum Perceptron \cite{kristensenArtificialSpikingQuantum2021}, 
-Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdversarial2018}\cite{lloydQuantumGenerativeAdversarial2018}. \almarginpar{Will you focus on all types of QNN or just one?}Studies have shown that QNN performance and trainability can be significantly higher compared to its classical counterpart on today's hardware \cite{abbasPowerQuantumNeural2021, colesSeekingQuantumAdvantage2021}, and has several applications, for example, breast cancer prediction \cite{liModelAlgorithmQuantuminspired2014}, or image processing \cite{matsuiQubitNeuralNetwork2009}.
+Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdversarial2018}\cite{lloydQuantumGenerativeAdversarial2018}. \almarginpar{Will you focus on all types of QNN or just one?}Studies have shown that QNN performance and trainability can be significantly higher compared to its classical counterpart on today's hardware \cite{abbasPowerQuantumNeural2021, colesSeekingQuantumAdvantage2021}, and has several applications, for example, breast cancer prediction \cite{liModelAlgorithmQuantuminspired2014}, or image processing \cite{matsuiQubitNeuralNetwork2009}. 
+In this project, we implement a multi-layered Quantum Perceptron \cite{kristensenArtificialSpikingQuantum2021} as the ansatz for our experiment activities.
 
 As VQA is the mainstream method for designing QNN circuits, QNN inevitably inherited some shortcomings from VQA.
 One of which is the training difficulties, known as Barren Plateaus (BP).
-This phenomenon happens when training a QNN framework with a comparatively large number of qubits; the objective function becomes flat and leads to \almarginpar{I think not "difficulties to estimate the gradient" but rather "difficulties in finding the loss function minimum using the gradient descent method"}difficulties to estimate the gradient, \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021} causing inefficiency in circuit training. 
+This phenomenon happens when training a QNN framework with a comparatively large number of qubits; the objective function becomes flat and leads to difficulties in finding the loss function minimum using the gradient descent method, \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021} causing inefficiency in circuit training. 
 Figure \ref{fig: Barren Plateau Example} provides an example illustration of BP.
-This problem was pointed out in \cite{abbasPowerQuantumNeural2021} by Abbas et al. However, the author left this problem for further study. 
+This problem was pointed out  by Abbas et al \cite{abbasPowerQuantumNeural2021}. 
+However, the author left this problem for further study. 
 Thus, the BP of QNN design under VQA is worth investigating.
 
 \begin{figure}[h]
@@ -52,8 +54,6 @@ Thus, the BP of QNN design under VQA is worth investigating.
     }
     \label{fig: Barren Plateau Example}
 \end{figure}
-
-
 
 This research project undertakes a study that aims to survey and compare some countermeasure approaches to mitigate or avoid the effect of BP in the QNN development under VQA methods. 
 The main work of this article is summarized: 
