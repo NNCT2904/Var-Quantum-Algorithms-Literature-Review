@@ -1,15 +1,15 @@
 \subsection{Results and Analysis}
 
 \begin{todolist}
-\item mention a table that includes the number of qubits/layer/random parameter for each ansatz
+\item mentions a table that includes the number of qubits/layer/random parameter for each ansatz
 \item describe more in figure \ref{Variance Local Cost}
-\item analysis instead of describe
+\item analysis instead of describing
 \item add the figures above (python notebook) for analysis
-\item describe how alternating data leads to different result(s).
+\item describes how alternating data lead to different result(s).
 \end{todolist}
 
-The section \ref{Development Process section} dicusses the configurations of the experiment. 
-We summarize the experiment results as the table:
+The section \ref{Development Process section} discusses the configurations of the experiment. 
+We summarise the experiment results as the table:
 \begin{center}
     \begin{tabular}{|| c c c ||}
         \hline
@@ -26,11 +26,11 @@ We summarize the experiment results as the table:
     \end{tabular}
 \end{center}
 
-For the default setting, the two ansatzes' gradient variances decay as expected.
-As the number of qubits scales up, the variances decay exponentially, this indecates that the cost function landscape becomes flatter and flatter. 
-We suspect that the result would be inefficientcy for any gradient-based optimization algorithm to train the model.
+The two ansatzes' gradient variances decay as expected for the default setting.
+As the number of qubits scales up, the decay of the variance exponentially. 
+This result indicates that the cost function landscape becomes flatter and flatter, which would be inefficient for any gradient-based optimization algorithm to train the model.
 We discussed this phenomenon in Section \ref{Barren Plateaus section}.
-Figure \ref{Plot ansatzes gradients default} shows the results of the two ansatzes in this configuration.
+The figure \ref{Plot ansatzes gradients default} shows the results of the two ansatzes in this configuration.
 
 \begin{figure}
     \includegraphics[width=\textwidth]{Artefact/Appendices/NLocalDefault.png}
@@ -39,7 +39,7 @@ Figure \ref{Plot ansatzes gradients default} shows the results of the two ansatz
     \centerline{b) TwoLocal Ansatz gradient variance values}
     \caption{
         The variances of gradient from differences ansatzes.
-        On both plots: the variances vanish exponentially to the number of qubits, ansatzes are in default configuration.
+        On both plots: the variances vanish exponentially to the number of qubits, the ansatzes are in the default configuration.
     }
     \label{Plot ansatzes gradients default}
 \end{figure}
