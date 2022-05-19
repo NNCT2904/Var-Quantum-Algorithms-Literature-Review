@@ -1,27 +1,27 @@
 \subsection{Background}\label{Background Section}
-Quantum computing is a relatively new and emerging field in Physics, Mathematics, and Computer Science. 
-Algorithms for Quantum computers have been developed to solve problems that belong to the non-deterministic polynomial time complexity class for Classical computers \cite{williamsSolvingNPCompleteProblems2011,jiangQuantumAnnealingPrime2018,farhiQuantumApproximateOptimization2014}. 
-A programming language such as Python is used to construct Quantum circuits that run in a simulator or actual Quantum hardware. 
+\emph{Quantum computing} is a relatively new field of Science, which adopts and merges elements of Physics, Mathematics, and Computer Science. 
+Algorithms for quantum computers have been developed to deal with problems that belong to the non-deterministic polynomial time complexity class, and thus are challenging to solve using classical computers \cite{williamsSolvingNPCompleteProblems2011,jiangQuantumAnnealingPrime2018,farhiQuantumApproximateOptimization2014}. 
+Such quantum algorithms are commonly represented in a form of \emph{quantum circuits} consisting of \emph{qubits} (or quantum bits) and \emph{quantum gates} (fundamental quantum operations). A programming language such as Python is often used to construct quantum circuits, which could subsequently be executed in a simulator or using the actual quantum hardware. 
 
-Unfortunately, Quantum computers we can produce are early and noisy at this stage. 
-They are all within the scope of the Noisy Intermediate-Scale Quantum (NISQ) \cite{brooksQuantumSupremacyHunt2019} era, comparable to the first programmable computers a century ago. 
-They all face the same gate control precision and data execution issue: the absence of fault-tolerant design to counter errors due to decoherence, limiting the number of qubits per processor, and executable circuit depth. 
-Moreover, quantum gates are static by design. 
-In more detail, every new data input to a quantum algorithm will produce a different quantum circuit. 
-Thus, these functions (or Quantum algorithms) are not reusable.
+Unfortunately, today's quantum computers are still in an early stage of technological development, they are severely resource constrained and are vulnerable to the environmental noise, and so at this stage their applications are rather limited. 
+They are all described as the Noisy Intermediate-Scale Quantum (NISQ) \cite{brooksQuantumSupremacyHunt2019} computers, which from the viewpoint of their technological maturity can be compared to the first programmable computers a century ago. 
+Virtually all NISQ computers face the same gate control precision and data execution issues: the absence of fault-tolerant design to counter errors due to qubit decoherence (breakdown of their quantum state), the limited number of qubits available to a quantum processor, and restrictions imposed on the depth (or size) of quantum circuits that can be reliably processed and executed in a quantum machine. 
+Moreover, quantum circuits, which encode both quantum algorithms and their input data, are static in their design. 
+Consequently, every new input data to a quantum algorithm necessitates construction of a new and different quantum circuit. 
+Thus, unlike classical algorithms, quantum algorithms (as encoded in quantum circuits) cannot be directly parameterised or reused. This implies that quantum machine learning models, which are learning models relying on quantum algorithms, must rely on unique approaches to their training.
 
-There are hybrid approaches involving Quantum circuits and Classical optimizers to address those constraints using Machine Learning theories. 
-Variational Quantum Algorithms (VQAs) \cite{cerezo2021variational} can produce Quantum circuits that receive trainable parameters, which are reusable for Quantum computers. 
+\almarginpar{Throughout this document change capitalisation of words such as "Quantum", "Classical", "Machine", "Variational", etc. They do not need to be capped. I gave up fixing these!}A common approach to addressing the above-mentioned constraints is to adopt a hybrid approach to developing quantum machine learning, i.e. by combining quantum circuits and their classical optimization. 
+Variational Quantum Algorithms (VQAs) \cite{cerezo2021variational} can produce quantum circuit templates that can be instantiated with trainable parameters, which are then reusable for quantum computer execution. 
 At the same time, the classical optimizer sees the variational circuits as a black box that returns results from inputs and the trainable parameter. 
 The Variational method has enabled many Classical Machine Learning algorithms to implement their alternatives for Quantum computers.
 
-Quantum Neural Networks (QNNs) \cite{altaisky2001quantum} is a promising paradigm involving Quantum computing and Machine learning. 
+\almarginpar{Please ask someone to improve English grammar and expresson}Quantum Neural Networks (QNNs) \cite{altaisky2001quantum} is a promising paradigm involving Quantum computing and Machine learning. 
 Different constructing methods lead to different definitions of QNNs \cite{paetznick2013} \cite{zhaoBuildingQuantumNeural2019} \cite{caoQuantumNeuronElementary2017}. 
 However, they share the same three conditions as pointed out by \cite{schuldQuestQuantumNeural2014} Schuld, Sinayskiy, and Petruccione: 
 (1) The initial state can encode any binary string;
 (2) The calculation process reflects Neural Networks principles;
 (3) The system's evolution is based on, and entirely consistent with Quantum theory.
-At the current stage, QNN is seen as a subclass of VQA, consisting of variational circuits and classical optimizers \cite{abbasPowerQuantumNeural2021}.
+\almarginpar{The entire description of QNN is very imprecise and confusing}At the current stage, QNN is seen as a subclass of VQA, consisting of variational circuits and classical optimizers \cite{abbasPowerQuantumNeural2021}.
 
 Some known types of QNN for the recent quantum processor are: 
 Quantum Tensor Neural Network (QTNN) \cite{hugginsQuantumMachineLearning2019} which achieved a balance of computational efficiency and expressive power. 
@@ -31,11 +31,11 @@ However, whether this quantum alternative is better than the classical Recurrent
 The NISQ processors are also capable of delivering some other QNN models such as: 
 Quantum Boltzmann Machine \cite{shinguBoltzmannMachineLearning2021}\cite{zoufalVariationalQuantumBoltzmann2021}, 
 Quantum Perceptron \cite{kristensenArtificialSpikingQuantum2021}, 
-Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdversarial2018}\cite{lloydQuantumGenerativeAdversarial2018}. Studies have shown that QNN performance and trainability can be significantly higher compared to its classical counterpart on today's hardware \cite{abbasPowerQuantumNeural2021, colesSeekingQuantumAdvantage2021}, and has several applications, for example, breast cancer prediction \cite{liModelAlgorithmQuantuminspired2014}, or image processing \cite{matsuiQubitNeuralNetwork2009}.
+Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdversarial2018}\cite{lloydQuantumGenerativeAdversarial2018}. \almarginpar{Will you focus on all types of QNN or just one?}Studies have shown that QNN performance and trainability can be significantly higher compared to its classical counterpart on today's hardware \cite{abbasPowerQuantumNeural2021, colesSeekingQuantumAdvantage2021}, and has several applications, for example, breast cancer prediction \cite{liModelAlgorithmQuantuminspired2014}, or image processing \cite{matsuiQubitNeuralNetwork2009}.
 
 As VQA is the mainstream method for designing QNN circuits, QNN inevitably inherited some shortcomings from VQA.
 One of which is the training difficulties, known as Barren Plateaus (BP).
-This phenomenon happens when training a QNN framework with a comparatively large number of qubits; the objective function becomes flat and leads to difficulties to estimate the gradient, \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021} causing inefficiency in circuit training. 
+This phenomenon happens when training a QNN framework with a comparatively large number of qubits; the objective function becomes flat and leads to \almarginpar{I think not "difficulties to estimate the gradient" but rather "difficulties in finding the loss function minimum using the gradient descent method"}difficulties to estimate the gradient, \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021} causing inefficiency in circuit training. 
 Figure \ref{fig: Barren Plateau Example} provides an example illustration of BP.
 This problem was pointed out in \cite{abbasPowerQuantumNeural2021} by Abbas et al. However, the author left this problem for further study. 
 Thus, the BP of QNN design under VQA is worth investigating.
