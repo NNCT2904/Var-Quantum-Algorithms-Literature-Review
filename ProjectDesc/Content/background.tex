@@ -13,14 +13,14 @@ Thus, unlike classical algorithms, quantum algorithms (as encoded in quantum cir
 \almarginpar{Throughout this document change capitalisation of words such as "Quantum", "Classical", "Machine", "Variational", etc. They do not need to be capped. I gave up fixing these!}A common approach to addressing the above-mentioned constraints is to adopt a hybrid approach to developing quantum machine learning, i.e. by combining quantum circuits and their classical optimization. 
 Variational Quantum Algorithms (VQAs) \cite{cerezo2021variational} can produce quantum circuit templates that can be instantiated with trainable parameters, which are then reusable for quantum computer execution. 
 At the same time, the classical optimizer sees the variational circuits as a black box that returns results from inputs and the trainable parameter. 
-The Variational method has enabled many Classical Machine Learning algorithms to implement their alternatives for Quantum computers.
+The variational method has enabled many classical machine learning algorithms to implement their alternatives for quantum computers.
 
-\almarginpar{Please ask someone to improve English grammar and expresson}Quantum Neural Networks (QNNs) \cite{altaisky2001quantum} is a promising paradigm involving Quantum computing and Machine learning. 
+\almarginpar{Please ask someone to improve English grammar and expresson}Quantum Neural Networks (QNNs) \cite{altaisky2001quantum} also share the similar structure compared to VQAs. 
 Different constructing methods lead to different definitions of QNNs \cite{paetznick2013} \cite{zhaoBuildingQuantumNeural2019} \cite{caoQuantumNeuronElementary2017}. 
 However, they share the same three conditions as pointed out by \cite{schuldQuestQuantumNeural2014} Schuld, Sinayskiy, and Petruccione: 
 (1) The initial state can encode any binary string;
 (2) The calculation process reflects Neural Networks principles;
-(3) The system's evolution is based on, and entirely consistent with Quantum theory.
+(3) The system's evolution is based on, and entirely consistent with quantum theory.
 \almarginpar{The entire description of QNN is very imprecise and confusing}At the current stage, QNN is seen as a subclass of VQA, consisting of variational circuits and classical optimizers \cite{abbasPowerQuantumNeural2021}.
 
 Some known types of QNN for the recent quantum processor are: 

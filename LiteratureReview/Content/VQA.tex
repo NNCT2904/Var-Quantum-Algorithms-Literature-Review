@@ -1,10 +1,10 @@
 \subsection{VQA and QNN}
 
-Hybrid techniques involving Quantum circuits and Classical optimisers have been proposed to overcome the restrictions of Noisy Intermediate-Scale Quantum (NISQ) \cite{brooksQuantumSupremacyHunt2019} devices. 
+Hybrid techniques involving quantum circuits and classical optimisers have been proposed to overcome the restrictions of Noisy Intermediate-Scale Quantum (NISQ) \cite{brooksQuantumSupremacyHunt2019} devices. 
 Those constraints are the absence of fault-tolerant design, restricted number of qubits per processor, and limited depth of executable quantum circuit. 
 Moreover, quantum gates are static by design, which means every new data input into a quantum algorithm will produce a different quantum circuit.
 
-Quantum circuits with trainable parameters can be utilised as reusable templates by Variational Quantum Algorithms (VQAs) \cite{cerezo2021variational}, which instantiate and refine their parameters for efficient execution on quantum computers.
+Quantum circuits with trainable parameters can be utilised as reusable templates by VQAs \cite{cerezo2021variational}, which instantiate and refine their parameters for efficient execution on quantum computers.
 It is also possible to rely on classical optimisers, which treat variational circuits as black boxes capable of yielding outputs from inputs and the circuit trainable parameters.
 
 Consider a simple problem that we want to solve using VQA, given access to the training data.
@@ -16,7 +16,7 @@ Development of variational circuits can be simplified by composing the circuit t
     \label{optimize theta with ansatz}
 \end{equation}
 
-In short, the cost function $C(\theta)$ is calculated using the Quantum computer, while the classical optimiser trains the parameters $\theta$. The Figure \ref{VQA diagram} elaborates on the VQA architecture and process in more detail.
+In short, the cost function $C(\theta)$ is calculated using the quantum computer, while the classical optimiser trains the parameters $\theta$. The Figure \ref{VQA diagram} elaborates on the VQA architecture and process in more detail.
 
 \begin{figure}
     \centering
@@ -125,19 +125,20 @@ One example of SGD is the ADAM optimiser \cite{kingmaAdamMethodStochastic2014}, 
 \subsubsection{About QNN}
 VQA is also the most widely used method for developing Quantum Neural Network (QNN) circuits. 
 As a result, QNN inevitably inherited some of VQA's features and their flaws.
-Many Quantum Machine Learning models suffer from the unsolvability due to \textit{Barren Plateaus} \cite{zhaoReviewQuantumNeural2021} that prevent the growth of circuit depth and lead training of parameters to a dead end.
+Many quantum machine learning models suffer from the unsolvability due to \textit{Barren Plateaus} \cite{zhaoReviewQuantumNeural2021} that prevent the growth of circuit depth and lead training of parameters to a dead end.
 When training a QNN framework with a large number of qubits, this phenomenon is likely to occur; the objective function becomes flat, making it nearly impossible to estimate the gradient, \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021} causing inefficiency in circuit training. 
 We will discuss this matter in later sections.
 
-Some architectures of QNN have been proposed to counter this problems, for example: 
-Quantum Tensor Neural Network (QTNN) \cite{hugginsQuantumMachineLearning2019} which achieved a balance of computational efficiency and expressive power. 
-The tensor network can reduce the required number of qubits to process high-dimensional data with powerful optimisation algorithms.
-An alternative solution is to rely on Quantum Recurrent Neural Network (QRNN) which is constructed as a parameterised circuit \cite{takakiLearningTemporalData2021}, with some qubits being initialised and measured at each step while others memorise the past data.
-The NISQ processors are also capable of delivering some other QNN models such as: 
-Quantum Boltzmann Machine \cite{shinguBoltzmannMachineLearning2021, zoufalVariationalQuantumBoltzmann2021}, 
-Quantum Perceptron \cite{kristensenArtificialSpikingQuantum2021}, 
-Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdversarial2018, lloydQuantumGenerativeAdversarial2018}. 
-Studies have shown that QNN performance and trainability can be significantly higher than today's hardware's classical counterpart \cite{abbasPowerQuantumNeural2021, colesSeekingQuantumAdvantage2021}, and consequently may find some promising applications, for example, in breast cancer prediction \cite{liModelAlgorithmQuantuminspired2014} or image processing \cite{matsuiQubitNeuralNetwork2009}.
+% Some architectures of QNN have been proposed to counter this problems, for example: 
+% Quantum Tensor Neural Network (QTNN) \cite{hugginsQuantumMachineLearning2019} which achieved a balance of computational efficiency and expressive power. 
+% The tensor network can reduce the required number of qubits to process high-dimensional data with powerful optimisation algorithms.
+% An alternative solution is to rely on Quantum Recurrent Neural Network (QRNN) which is constructed as a parameterised circuit \cite{takakiLearningTemporalData2021}, with some qubits being initialised and measured at each step while others memorise the past data.
 
-It is worth noting that Quantum Convolutional Neural Network (QCNN) does not exhibit Barren Plateaus \cite{pesahAbsenceBarrenPlateaus2021}.
-Thus, trainability is guaranteed for QCNN under random initialisation.
+% The NISQ processors are also capable of delivering some other QNN models such as: 
+% Quantum Boltzmann Machine \cite{shinguBoltzmannMachineLearning2021, zoufalVariationalQuantumBoltzmann2021}, 
+% Quantum Perceptron \cite{kristensenArtificialSpikingQuantum2021}, 
+% Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdversarial2018, lloydQuantumGenerativeAdversarial2018}. 
+% Studies have shown that QNN performance and trainability can be significantly higher than today's hardware's classical counterpart \cite{abbasPowerQuantumNeural2021, colesSeekingQuantumAdvantage2021}, and consequently may find some promising applications, for example, in breast cancer prediction \cite{liModelAlgorithmQuantuminspired2014} or image processing \cite{matsuiQubitNeuralNetwork2009}.
+
+% It is worth noting that Quantum Convolutional Neural Network (QCNN) does not exhibit Barren Plateaus \cite{pesahAbsenceBarrenPlateaus2021}.
+% Thus, trainability is guaranteed for QCNN under random initialisation.
