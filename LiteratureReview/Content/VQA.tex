@@ -5,18 +5,18 @@ Those constraints are the absence of fault-tolerant design, restricted number of
 Moreover, quantum gates are static by design, which means every new data input into a quantum algorithm will produce a different quantum circuit.
 
 Quantum circuits with trainable parameters can be utilised as reusable templates by VQAs \cite{cerezo2021variational}, which instantiate and refine their parameters for efficient execution on quantum computers.
-It is also possible to rely on classical optimisers, which treat variational circuits as black boxes capable of yielding outputs from inputs and the circuit trainable parameters.
+It is also possible to rely on classical optimisers, which treat variational circuits as black boxes capable of yielding outputs from inputs and the trainable parameters.
 
 Consider a simple problem that we want to solve using VQA, given access to the training data.
 The first step is to construct a \textit{cost function} $C$ used to search for an optimal set of circuit parameters, which is achieved by minimising the cost function during the training process.
-Development of variational circuits can be simplified by composing the circuit templates called \textit{ansatze}. 
-\textit{Ansatz} is the parameterized circuit that depends on a set of parameters $\theta$. We aim to train the ansatze by optimising the parameters $\theta$s so that the cost function $C$ reaches its minimum, thus satisfying:
+We can simplify the development of variational circuits by composing the circuit templates called \textit{ansatze}. 
+\textit{Ansatz} is the parameterised circuit that depends on a set of parameters $\theta$. We aim to train the ansatze by optimising the parameters $\theta$s so that the cost function $C$ reaches its minimum, thus satisfying:
 \begin{equation}
     \theta^* = \underset{\theta}{\arg \min} \;C(\theta)
     \label{optimize theta with ansatz}
 \end{equation}
 
-In short, the cost function $C(\theta)$ is calculated using the quantum computer, while the classical optimiser trains the parameters $\theta$. The Figure \ref{VQA diagram} elaborates on the VQA architecture and process in more detail.
+In short, the cost function $C(\theta)$ is calculated using the quantum computer, while the classical optimiser trains the parameters $\theta$. The figure \ref{VQA diagram} elaborates on the VQA architecture and process in more detail.
 
 \begin{figure}
     \centering
@@ -27,7 +27,7 @@ In short, the cost function $C(\theta)$ is calculated using the quantum computer
     A cost function $C(\theta)$ for $\theta$ is a set of parameters that encodes the solution; 
     An ansatz that receives trainable parameter $\theta$ to solve the task;
     A set of training data $\{\rho_k\}$.
-    We use the quantum computer to calculate the cost for each iteration, then use an optimization algorithm in a classical computer to find the global minima in the cost landscape $C(\theta)$ and thus satisfy the problem in Eq. (\ref{optimize theta with ansatz}).
+    We use the quantum computer to calculate the cost for each iteration, then use an optimisation algorithm in a classical computer to find the global minima in the cost landscape $C(\theta)$ and thus satisfy the problem in Eq. (\ref{optimize theta with ansatz}).
     VQA's result is an approximation of the problem's solution, which can take forms as in the red box.
     Figure from Cerezo et al. \cite{cerezo2021variational}.
     }
@@ -78,7 +78,7 @@ There are some criteria in the construction of a cost function:
     \caption{
         A diagram of a sample ansatz (above), the ansatz is a sequence of unitaries $U_l(\theta_l)$ (below).
         The unitary $U(\theta)$ receives parameters $\theta$ is expressed by $L$ layers of unitaries $U_l(\theta_l)$ for $l$ is the layer indices.
-        Each $U_l(\theta_l)$ is a circuit composed of a mix of parameterized and unpasteurised gates.
+        Each $U_l(\theta_l)$ is a circuit composed of a mix of parameterised and unpasteurised gates.
     }\label{Ansatz diagram}
 \end{figure}
 
@@ -124,8 +124,8 @@ One example of SGD is the ADAM optimiser \cite{kingmaAdamMethodStochastic2014}, 
 
 \subsubsection{About QNN}
 VQA is also the most widely used method for developing Quantum Neural Network (QNN) circuits. 
-As a result, QNN inevitably inherited some of VQA's features and their flaws.
-Many quantum machine learning models suffer from the unsolvability due to \textit{Barren Plateaus} \cite{zhaoReviewQuantumNeural2021} that prevent the growth of circuit depth and lead training of parameters to a dead end.
+As a result, QNN inevitably inherited some of VQA's features and flaws.
+Many quantum machine learning models suffer from the unsolvability due to \textit{Barren Plateaus} \cite{zhaoReviewQuantumNeural2021} that prevent the growth of circuit depth and lead the training of parameters to a dead end.
 When training a QNN framework with a large number of qubits, this phenomenon is likely to occur; the objective function becomes flat, making it nearly impossible to estimate the gradient, \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021} causing inefficiency in circuit training. 
 We will discuss this matter in later sections.
 

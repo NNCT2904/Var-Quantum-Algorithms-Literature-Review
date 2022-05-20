@@ -3,6 +3,7 @@
 Algorithms for quantum computers have been developed to deal with problems that belong to the non-deterministic polynomial time complexity class, and thus are challenging to solve using classical computers \cite{williamsSolvingNPCompleteProblems2011,jiangQuantumAnnealingPrime2018,farhiQuantumApproximateOptimization2014}. 
 Such quantum algorithms are commonly represented in a form of \emph{quantum circuits} consisting of \emph{qubits} (or quantum bits) and \emph{quantum gates} (fundamental quantum operations). A programming language such as Python is often used to construct quantum circuits, which could subsequently be executed in a simulator or using the actual quantum hardware. 
 
+
 Unfortunately, today's quantum computers are still in an early stage of technological development, they are severely resource constrained and are vulnerable to the environmental noise, and so at this stage their applications are rather limited. 
 They are all described as the Noisy Intermediate-Scale Quantum (NISQ) \cite{brooksQuantumSupremacyHunt2019} computers, which from the viewpoint of their technological maturity can be compared to the first programmable computers a century ago. 
 Virtually all NISQ computers face the same gate control precision and data execution issues: the absence of fault-tolerant design to counter errors due to qubit decoherence (breakdown of their quantum state), the limited number of qubits available to a quantum processor, and restrictions imposed on the depth (or size) of quantum circuits that can be reliably processed and executed in a quantum machine. 
@@ -10,31 +11,34 @@ Moreover, quantum circuits, which encode both quantum algorithms and their input
 Consequently, every new input data to a quantum algorithm necessitates construction of a new and different quantum circuit. 
 Thus, unlike classical algorithms, quantum algorithms (as encoded in quantum circuits) cannot be directly parameterised or reused. This implies that quantum machine learning models, which are learning models relying on quantum algorithms, must rely on unique approaches to their training.
 
+
 \almarginpar{Throughout this document change capitalisation of words such as "Quantum", "Classical", "Machine", "Variational", etc. They do not need to be capped. I gave up fixing these!}
 A common approach to addressing the above-mentioned constraints is to adopt a hybrid approach to developing quantum machine learning, i.e. by combining quantum circuits and their classical optimization. 
 Variational Quantum Algorithms (VQAs) \cite{cerezo2021variational} can produce quantum circuit templates that can be instantiated with trainable parameters, which are then reusable for quantum computer execution. 
 At the same time, the classical optimizer sees the variational circuits as a black box that returns results from inputs and the trainable parameter. 
-The variational method has enabled many classical machine learning algorithms to implement their alternatives for quantum computers.
 
 \almarginpar{Please ask someone to improve English grammar and expresson}
-Quantum Neural Networks (QNNs) \cite{altaisky2001quantum} also share the similar structure compared to VQAs. 
-Different constructing methods lead to different definitions of QNNs \cite{paetznick2013} \cite{zhaoBuildingQuantumNeural2019} \cite{caoQuantumNeuronElementary2017}. 
-However, they share the same three conditions as pointed out by \cite{schuldQuestQuantumNeural2014} Schuld, Sinayskiy, and Petruccione: 
+The hybrid quantum-classical method is also the idea behind Quantum Neural Networks (QNNs) \cite{altaisky2001quantum}. 
+Different constructing methods lead to different definitions of QNNs \cite{paetznick2013, zhaoBuildingQuantumNeural2019, caoQuantumNeuronElementary2017}. 
+However, they share the same criteria as pointed out by Schuld, Sinayskiy, and Petruccione \cite{schuldQuestQuantumNeural2014}: 
 (1) The initial state can encode any binary string;
 (2) The calculation process reflects Neural Networks principles;
-(3) The system's evolution is based on, and entirely consistent with quantum theory.
-\almarginpar{The entire description of QNN is very imprecise and confusing}
+(3) The system's evolution is based on and entirely consistent with quantum theory.
+\almarginpar{The entire description of QNN is very imprecise and confusing \ - I have changed this paragraph a bit, is it more clear?}
 At the current stage, QNN is seen as a subclass of VQA, consisting of variational circuits and classical optimizers \cite{abbasPowerQuantumNeural2021}.
+The variational method has enabled many classical machine learning algorithms to implement their alternatives for quantum computers \cite{hugginsQuantumMachineLearning2019, takakiLearningTemporalData2021, shinguBoltzmannMachineLearning2021, dallaire-demersQuantumGenerativeAdversarial2018}.
+In this project, we implement a multi-layered Quantum Perceptron \cite{kristensenArtificialSpikingQuantum2021} as the parameterized circuit for our experiment activities.
 
-Some known types of QNN for the recent quantum processor are: 
-Quantum Tensor Neural Network (QTNN) \cite{hugginsQuantumMachineLearning2019} which achieved a balance of computational efficiency and expressive power. 
-The tensor network can reduce the required qubits to process high-dimensional data with powerful optimization algorithms.
-Quantum Recurrent Neural Network (QRNN) is constructed as a parameterized circuit \cite{takakiLearningTemporalData2021}, with some qubits being initialized and measured at each step while others memorize the past data.
-However, whether this quantum alternative is better than the classical Recurrent Neural Network is still an open question.
-The NISQ processors are also capable of delivering some other QNN models such as: 
-Quantum Boltzmann Machine \cite{shinguBoltzmannMachineLearning2021}\cite{zoufalVariationalQuantumBoltzmann2021}, 
-Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdversarial2018}\cite{lloydQuantumGenerativeAdversarial2018}. \almarginpar{Will you focus on all types of QNN or just one?}Studies have shown that QNN performance and trainability can be significantly higher compared to its classical counterpart on today's hardware \cite{abbasPowerQuantumNeural2021, colesSeekingQuantumAdvantage2021}, and has several applications, for example, breast cancer prediction \cite{liModelAlgorithmQuantuminspired2014}, or image processing \cite{matsuiQubitNeuralNetwork2009}. 
-In this project, we implement a multi-layered Quantum Perceptron \cite{kristensenArtificialSpikingQuantum2021} as the ansatz for our experiment activities.
+% Some known types of QNN for the recent quantum processor are: 
+% Quantum Tensor Neural Network (QTNN) \cite{hugginsQuantumMachineLearning2019} which achieved a balance of computational efficiency and expressive power. 
+% The tensor network can reduce the required qubits to process high-dimensional data with powerful optimization algorithms.
+% Quantum Recurrent Neural Network (QRNN) is constructed as a parameterized circuit \cite{takakiLearningTemporalData2021}, with some qubits being initialized and measured at each step while others memorize the past data.
+% However, whether this quantum alternative is better than the classical Recurrent Neural Network is still an open question.
+% The NISQ processors are also capable of delivering some other QNN models such as: 
+% Quantum Boltzmann Machine \cite{shinguBoltzmannMachineLearning2021}\cite{zoufalVariationalQuantumBoltzmann2021}, 
+% Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdversarial2018}\cite{lloydQuantumGenerativeAdversarial2018}.
+\almarginpar{Will you focus on all types of QNN or just one? \ - we implement a multi-layered Quantum Perceptron as the ansatz}
+% Studies have shown that QNN performance and trainability can be significantly higher compared to its classical counterpart on today's hardware \cite{abbasPowerQuantumNeural2021, colesSeekingQuantumAdvantage2021}, and has several applications, for example, breast cancer prediction \cite{liModelAlgorithmQuantuminspired2014}, or image processing \cite{matsuiQubitNeuralNetwork2009}. 
 
 As VQA is the mainstream method for designing QNN circuits, QNN inevitably inherited some shortcomings from VQA.
 One of which is the training difficulties, known as Barren Plateaus (BP).
