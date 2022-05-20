@@ -38,8 +38,9 @@ The figure \ref{Plot ansatzes gradients default} shows the results of the two an
     \includegraphics[width=\textwidth]{Artefact/Appendices/TwoLocalDefault.png}
     \centerline{b) TwoLocal Ansatz gradient variance values}
     \caption{
-        The variances of gradient from differences ansatzes.
-        On both plots: the variances vanish exponentially to the number of qubits, the ansatzes are in the default configuration, the circuit is measured as a global cost function.
+        The variances of gradient from differences ansatzes in default configuration, the circuit is measured as a global cost function.
+        For each iteration, we increase the qubit and repetition count by 1, starting from 2 to 9.
+        The variances vanish exponentially to the number of qubits.
     }
     \label{Plot ansatzes gradients default}
 \end{figure}
@@ -47,6 +48,17 @@ The figure \ref{Plot ansatzes gradients default} shows the results of the two an
 In contrast, for the case of Local Cost Function and Shallow circuit, we observe that the variances of the ansatzes' gradient did not vanished when we attempt to increase the number of qubits.
 This implies that the cost function landscape can sustain the slope.
 Figure \ref{Variance Local Cost} shows the result of the experiment for Local Cost Function and Shallow circuit, in comparison with the default settings.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{Artefact/Appendices/NLocalFixedLocal.png}
+    \centerline{a) NLocal Ansatz gradient variance values}
+    \includegraphics[width=\textwidth]{Artefact/Appendices/TwoLocalFixedLocal.png}
+    \centerline{a) TwoLocal Ansatz gradient variance values}
+    \caption{
+        The variances of gradient from diferent ansatzes after applying a local cost function.
+        We plot 2 to 9 qubits while keep the repetition value fixed as 1. 
+    }
+\end{figure}
 
 \begin{figure}
     \includegraphics[width=\textwidth]{Artefact/Appendices/variancesLCF.png}
