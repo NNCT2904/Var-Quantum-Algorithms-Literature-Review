@@ -1,30 +1,31 @@
 \subsection{Minimum Artefact and Future Works}
 \label{Minimum Artefacts}
 
-The success conditions of the experiment, as discussed, contains the QNN models, the three implementations, the data generated and a guideline to identify which methods to be used on different occasion.
+\almarginpar{This section should explain the the aims and reason for constructing the \textbf{full} artefact from the research design viewpoint, the section 4 should explain what and how the \textbf{minimum} artefact was developed and any lessons learnt in this process}The success conditions of the experiment, as discussed, contains the QNN models, the three implementations, the data generated and a guideline to identify which methods to be used on different occasion.
 However, the time for the experiment of the unit is limited to one week. We can deliver a minimum viable artefact as a single Python notebook that:
 \begin{itemize}
-    \item Constructs a QNN using the selected ansatzes that are capable of generating Barren Plateaus;
-    \item Implements one out of three methods of dealing with Barren Plateaus as discussed in the literature review;
-    \item Verifies the existence of Barren Plateaus for each method above by calculating the variances of their gradients.
+    \item Constructs QNNs using the selected ansatzes that are capable of generating barren plateaus;
+    \item \almarginpar{I think you are doing two?}Implements one out of three methods of dealing with barren plateaus as discussed in the literature review;
+    \item Verifies the existence of barren plateaus for each method above by calculating the variances of their gradients.
 \end{itemize}
 
 This artefact outcome will not answer the research question completely.
 However, it covers the first half of the experiment and ensures that the outcome is ready to advance to the next steps.
 
-In the later iterations for the experiment, we plan to complete these objectives:
+\almarginpar{You do not suggest these in your research design (see the previous discussion)}In the later iterations for the experiment, we plan to complete these objectives:
 \begin{itemize}
     \item Implement the rest of the three methods;
     \item Verify the trainability of each methods by solving a problem;
     \item Record and plot the \textit{loss value per iteration} and \textit{loss landscape} for each method.
 \end{itemize}
 
+\almarginpar{Remember that this text is to explain the research design and what is to be done, not what was done!}
 To solve a problem with machine learning algorithm, we encode the solution as the \textit{global minimum}, and the gradients of the training model must converge to that minimum point.
-Local minimum or Barren Plateaus are the problem that prevent the machine learning model must avoid.
-We know the Barren Plateaus is avoided when the variance of the gradient can sustain for a large number of qubit.
-However, high variance values does not mean we are in the right direction, the training model can still stuck in a local minimum, which is not the optimal solution.
+Local minimum or barren plateaus are the problems that the machine learning model must avoid.
+We know the barren plateaus is avoided when the variance of the gradient can sustain for a large number of qubit.
+\almarginpar{It is also possible that your error landscape is completely random and the model is not converging}However, high variance values does not mean we are in the right direction, the training model can still stuck in a local minimum, which is not the optimal solution.
 To verify the trainability of the three methods, we also take this matter into the concern.
 Lastly, the final result of these objectives will give confirmation to the hypotheses, as well as answer the research question.
 
-We believe that the result of this project would help VQAs and QNNs can solve more practical problems. 
-This project also gives an introduction to quantum technologies for machine learning and computer scientists.
+\almarginpar{How "practicality" comes out of your work?}We believe that the result of this project would help VQAs and QNNs can solve more practical problems. 
+\almarginpar{"machine learning and computer scientists" are apples and oranges, also the statement is a motherhood statement - avoid it}This project also gives an introduction to quantum technologies for machine learning and computer scientists.

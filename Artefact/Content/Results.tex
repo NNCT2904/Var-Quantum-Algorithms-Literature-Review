@@ -1,8 +1,7 @@
 \subsection{Results and Analysis}
 
 \begin{todolist}
-\item mentions a table that includes the number of qubits/layer/random parameter for each ansatz
-\item describe more in figure \ref{Variance Local Cost}
+\item describe more in figure \ref{Plot variance default and Local Cost}
 \item analysis instead of describing
 \item add the figures above (python notebook) for analysis
 \item describes how alternating data lead to different result(s).
@@ -27,10 +26,12 @@ We summarise the experiment results as the table:
 \end{center}
 
 The two ansatzes' gradient variances decay as expected for the default setting.
-As the number of qubits scales up, the decay of the variance exponentially. 
-This result indicates that the cost function landscape becomes flatter and flatter, which would be inefficient for any gradient-based optimization algorithm to train the model.
+As the number of qubits scales up, the variance values decay exponentially. 
+The figure \ref{Plot ansatzes variance default} shows the results of the two ansatzes in this configuration.
+This result indicates that the cost function landscape becomes flatter and flatter. 
+Eventually, the gradient would reach a near-zero value across a large plateau, which would be inefficient for any gradient-based optimization algorithm to train the model.
 We discussed this phenomenon in Section \ref{Barren Plateaus section}.
-The figure \ref{Plot ansatzes gradients default} shows the results of the two ansatzes in this configuration.
+
 
 \begin{figure}
     \includegraphics[width=\textwidth]{Artefact/Appendices/NLocalDefault.png}
@@ -38,16 +39,18 @@ The figure \ref{Plot ansatzes gradients default} shows the results of the two an
     \includegraphics[width=\textwidth]{Artefact/Appendices/TwoLocalDefault.png}
     \centerline{b) TwoLocal Ansatz gradient variance values}
     \caption{
-        The variances of gradient from differences ansatzes in default configuration, the circuit is measured as a global cost function.
+        The variances of gradient from differences ansatzes in the default configuration, the circuit is measured as a global cost function.
         For each iteration, we increase the qubit and repetition count by 1, starting from 2 to 9.
         The variances vanish exponentially to the number of qubits.
     }
-    \label{Plot ansatzes gradients default}
+    \label{Plot ansatzes variance default}
 \end{figure}
 
-In contrast, for the case of Local Cost Function and Shallow circuit, we observe that the variances of the ansatzes' gradient did not vanished when we attempt to increase the number of qubits.
+In contrast, for the case of Local Cost Function and Shallow circuit, we observe that the variances of the ansatzes' gradient did not vanish when we attempt to increase the number of qubits.
 This implies that the cost function landscape can sustain the slope.
-Figure \ref{Variance Local Cost} shows the result of the experiment for Local Cost Function and Shallow circuit, in comparison with the default settings.
+Figure \ref{Plot ansatzes variance local cost} shows the result of the experiment for local cost function and shallow circuit.
+We can see that the NLocal ansatz case produced a more steady graph compared to the TwoLocal ansatz, which mean the trainability of gradient-based optimization algorithms would be consistent.
+For TwoLocal ansatz, we can see that the graph is more unstable, for example, the variance value for 7 qubits is higher compared to 4 or 9 qubits.
 
 \begin{figure}
     \includegraphics[width=\textwidth]{Artefact/Appendices/NLocalFixedLocal.png}
@@ -55,10 +58,17 @@ Figure \ref{Variance Local Cost} shows the result of the experiment for Local Co
     \includegraphics[width=\textwidth]{Artefact/Appendices/TwoLocalFixedLocal.png}
     \centerline{a) TwoLocal Ansatz gradient variance values}
     \caption{
-        The variances of gradient from diferent ansatzes after applying a local cost function.
-        We plot 2 to 9 qubits while keep the repetition value fixed as 1. 
+        The variances of gradient from different ansatzes after applying a local cost function.
+        We plot 2 to 9 qubits while keeping the repetition value fixed as 1. 
     }
+    \label{Plot ansatzes variance local cost}
 \end{figure}
+
+To compare the effectiveness of the local cost function treatment, we plot the variance graph of above mention cases in figure \ref{Plot variance default and Local Cost}.
+Overall, the ansatzes with the local cost function and restriction on circuit depth have their variance values remaining higher and being more consistent for higher qubit count, the ansatz with this treatment therefore would not possess a barren plateau.
+On the other hand, the values for the default cases shrink exponentially and eventually, the near-zero gradient around the initial point will expand to a large plateau. 
+
+
 
 \begin{figure}
     \includegraphics[width=\textwidth]{Artefact/Appendices/variancesLCF.png}
@@ -66,5 +76,5 @@ Figure \ref{Variance Local Cost} shows the result of the experiment for Local Co
         Comparison of the variance values of the two ansatzes with and without Local Cost Function and constant depth.
         The ansatzes with Global Cost Function and increased depth have their gradient variances decay exponentially with the number of qubits. 
     }
-    \label{Variance Local Cost}
+    \label{Plot variance default and Local Cost}
 \end{figure}

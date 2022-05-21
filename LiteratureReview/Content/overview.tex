@@ -1,15 +1,14 @@
 \subsection{Overview}
-This section reviews the QNNs and VQAs, their structures, and the mathematics underneath. 
-We aim to explore their gaps in studies, especially the factors that would lead to the problem of Barren Plateaus.
-Then, we review and compare some methods to counter or minimise the Barren Plateaus phenomenon by addressing those factors.
+This section reviews the QNNs and VQAs, their structures, and their underpinning mathematics. 
+We aim to explore the gaps in the previous studies, \almarginpar{Not sure if "the gaps" were addressed in this thesis version, perhaps to be completed in T2 \\ - Do I need to specify that? after all, we will handover the current document to T2 \\ - It may need to be stated somewhere, perhaps in the first section? \\ - done sir, section 1.3}specifically the factors that would lead to the problem of barren plateaus.
+Then, we review and compare some methods of countering or minimising the barren plateaus phenomenon by addressing those factors.
 
-In general, Barren Plateaus can be noise-induced \cite{wangNoiseinducedBarrenPlateaus2021}, which means that the noise from quantum hardware affects the trainability; 
-or circuit-induced \cite{mccleanBarrenPlateausQuantum2018}, as a result of the circuit design and initialisation parameters.
-This research focuses on mitigating circuit-induced Barren Plateaus by reviewing some of the available studies \cite{pesahAbsenceBarrenPlateaus2021, cerezoCostFunctionDependent2021, skolikLayerwiseLearningQuantum2021}.
-From this point onward, we will address the term 'Circuit-Induced Barren Plateaus', which will be referred to as 'Barren plateaus' for simplicity.
+In general, barren plateaus can either be noise-induced \cite{wangNoiseinducedBarrenPlateaus2021}, which means that the noise from quantum hardware affects the trainability; 
+or circuit-induced \cite{mccleanBarrenPlateausQuantum2018}, which is the result of a circuit design and its initialisation parameters.
+This research focuses on mitigating circuit-induced barren plateaus by reviewing some of the prior studies of this phenomenon \cite{pesahAbsenceBarrenPlateaus2021, cerezoCostFunctionDependent2021, skolikLayerwiseLearningQuantum2021}.
+From this point on, we will refer to the notion of 'Circuit-Induced Barren Plateaus' as 'barren plateaus' for simplicity.
 
-We strongly advise readers to have a background in quantum computing, linear algebra, and machine learning. 
-The 2020 Qiskit Global Summer School course \cite{2020QiskitGlobal} is a good start for beginners; the course provides some basic mathematics, theories and practices. 
-The book by Sutor \cite{sutorDancingQubitsHow2019} is also highly recommended. 
-Other than the basics of quantum Computing, the author presented an overview of the current quantum hardware and simulators.
+In our discussion we will assume that the readers have some background knowledge of quantum computing, linear algebra, and machine learning. 
+To gain such a background knowledge, we recommend the 2020 Qiskit Global Summer School course \cite{2020QiskitGlobal}, which provides some basic mathematics, theories and practices of quantum computing. 
+The book by Sutor \cite{sutorDancingQubitsHow2019} also provides the foundations of quantum Computing plus an overview of issues related to the design of current quantum hardware and simulators.
 Finally, the 2021 Qiskit Global Summer School course \cite{2021QiskitGlobal} was focused on the selected aspects of machine learning for quantum devices.

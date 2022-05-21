@@ -1,15 +1,15 @@
 \subsection{Addressing Random Initialisation Parameters}
 
 \subsubsection{Layerwise learning}
-The algorithm in \cite{skolikLayerwiseLearningQuantum2021} starts with training a shallow circuit to its best then extends the circuit and uses the best parameter achieved in the previous step for the newly extended circuit. 
-Note that only the new parameters are allowed to vary while the previous parameters are frozen.
-Thus, the randomness is contained to only shallow sub-circuits in phase one during the whole routine and minimises the probability of meeting a plateau.
+The algorithm developed by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} starts with training a shallow circuit to reach its best possible performance. Then repeatedly, the algorithm extends the circuit partially instantiating it with the optimum parameters from the previous step. 
+Note that in the subsequent optimisation only the parameters in the circuit extension are allowed to vary, while all the previous parameters become frozen.
+Thus, the number of parameters used in each optimisation step is small and the changes are contained within shallow sub-circuits only. Such a process ensures creation of large gradients, which minimises the chance of producing barren plateaus.
 
 
 \subsubsection{Identity blocks}
 
-Grant et al. \cite{grantInitializationStrategyAddressing2019} have addressed the random initialization parameter so that the early training steps do not start on a plateau region. 
-The idea is to divide the big parameterized circuit into blocks and initialise each block so that the result is a fixed unitary matrix, i.e., an identity operation. 
+Grant et al. \cite{grantInitializationStrategyAddressing2019} proposed random initialisation of variational circuit parameters so that the early training steps are unlikely to start on a plateau region. 
+The idea is to divide a large parameterised circuit into blocks and initialise each block separately, with the aim to produce a fixed unitary matrix, i.e., an identity operation. 
 The method is as follows: partition the circuit into $M$ blocks of depth $L$; for each block, initiate some parameters with random values, and fix the remaining parameters in a way that results in a fixed unitary matrix, i.e., invert the first part so that each block implements an identity operation.
 
 For any $m = 1, \cdots, M$, the parameters $\theta$, the block is presented as:
@@ -32,8 +32,8 @@ resulting identity blocks for the circuit (see Figure \ref{identity block}):
     = I.
 \end{equation}
 
-This initialization strategy does not guarantee that the optimization algorithm will not go into a BP afterwards. 
-It, however, ensures avoiding generation of zero gradients for the majority of parameters and allows the parameterized circuit to be trained more efficiently.
+This initialisation strategy does not guarantee the absence of barren plateaus at the end of the process. 
+However, it ensures generation of very few zero gradients, thus resulting in more efficient training of parameterised circuits.
 
 \begin{figure} 
     \centerline{

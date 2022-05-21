@@ -37,16 +37,15 @@ In this project, we implement a multi-layered Quantum Perceptron \cite{kristense
 % The NISQ processors are also capable of delivering some other QNN models such as: 
 % Quantum Boltzmann Machine \cite{shinguBoltzmannMachineLearning2021}\cite{zoufalVariationalQuantumBoltzmann2021}, 
 % Quantum Generative Adversarial Network \cite{dallaire-demersQuantumGenerativeAdversarial2018}\cite{lloydQuantumGenerativeAdversarial2018}.
-\almarginpar{Will you focus on all types of QNN or just one? \ - we implement a multi-layered Quantum Perceptron as the ansatz}
 % Studies have shown that QNN performance and trainability can be significantly higher compared to its classical counterpart on today's hardware \cite{abbasPowerQuantumNeural2021, colesSeekingQuantumAdvantage2021}, and has several applications, for example, breast cancer prediction \cite{liModelAlgorithmQuantuminspired2014}, or image processing \cite{matsuiQubitNeuralNetwork2009}. 
 
 As VQA is the mainstream method for designing QNN circuits, QNN inevitably inherited some shortcomings from VQA.
-One of which is the training difficulties, known as Barren Plateaus (BP).
-This phenomenon happens when training a QNN framework with a comparatively large number of qubits; the objective function becomes flat and leads to difficulties in finding the loss function minimum using the gradient descent method, \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021} causing inefficiency in circuit training. 
+One of which is the training difficulties, known as \emph{Barren Plateaus} (BP).
+This phenomenon happens when training a QNN framework with a comparatively large number of qubits; the objective function becomes flat and leads to difficulties in finding the loss function minimum using the gradient descent method \cite{mccleanBarrenPlateausQuantum2018, zhaoAnalyzingBarrenPlateau2021}, thus causing inefficiency in circuit training. 
 Figure \ref{fig: Barren Plateau Example} provides an example illustration of BP.
 This problem was pointed out  by Abbas et al \cite{abbasPowerQuantumNeural2021}. 
 However, the author left this problem for further study. 
-Thus, the BP of QNN design under VQA is worth investigating.
+The BP of QNN design under VQA is therefore worth investigating.
 
 \begin{figure}[h]
     \centering
