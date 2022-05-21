@@ -8,10 +8,11 @@ The following sections describe our experimental process.
 \subsubsection{The Quantum Emulator}
 For this experiment, we are using the quantum emulator provided by Qiskit.
 The QASM simulator is used to mimic an IBMQ device.
-\almarginpar{However, your runs were noise free}
+\almarginpar{Fault free runs are not exactly simulating the quantum device, any comment or justification? Perhaps future work?}
 Additionally, QASM simulator by default has no noise, so we can expect the result to be noise-free.
 
 \subsubsection{Creating Ansatzes}
+\almarginpar{W}
 We have chosen two ansatzes \textit{NLocal} and \textit{TwoLocal} from the Qiskit circuit library due to their wide usage in quantum machine learning.
 As discussed in the Research Design section \ref{Research Design section}, we configure the ansatz objects such that their gradient variances decrease exponentially with the number of qubits.
 These characteristics are:
