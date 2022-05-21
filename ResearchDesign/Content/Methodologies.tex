@@ -10,7 +10,10 @@ We have thus investigated three methods to mitigate this phenomenon, i.e. by usi
 
 \almarginpar{Provide a reference to the source material for "technology-oriented empirical research". You will need to explain what is such a research, e.g. conducting a series of experiments involving development and study of an IT artefact, I presume - as suggested in the reference you provide}
 In the following sections, we will answer the study research question (see Section \ref{Problem Section}) by conducting a series of experiments, with different methods are applied to the same objects, this process is known as \emph{technology-oriented empirical research} \cite{wohlinExperimentationSoftwareEngineering2012}.
-We summarise the adopted research process in Figure \ref{Research Activities} and further discuss the two phases in section \ref{Research Activities section}, we discuss the results of data collected from the experiment in section \ref{Data Collecting Section}
+
+We summarise the adopted research process in Figure \ref{Research Activities}.
+Our main objects and the different technical treatments for the experiment are discussed in section \ref{Objects section}.
+We discuss the two phases in section \ref{Research Activities section}, we discuss the results of data collected from the experiment in section \ref{Data Collecting Section}.
 \almarginpar{You cannot just dump the figure with the research process, you need to explain what is in it, i.e. Figure 9 and the details of its three phases as related to sections 3.1.2 (where is it in the figure?), 3.1.3 (first and second phase), and what happened to the third? You still need to describe it}.
 
 \begin{figure}
@@ -22,13 +25,14 @@ We summarise the adopted research process in Figure \ref{Research Activities} an
     \label{Research Activities}
 \end{figure}
 
-\subsubsection{Objects and Parameters}
+\subsubsection{Objects and Parameters}\label{Objects section}
 
 As per the context, we can identify the object of study of this research to compare different barren plateaus mitigation methods against different ansatz designs.
 One advantage of the empirical experiment is that we can have total control of the experiment environment.
-In the context of this research, the parameters that we can vary are:
+In the context of this research, the objects of experiment are the ansatz designs. 
+We have chosen the two ansatzes NLocal and TwoLocal from Qiskit circuit library. 
+The parameters that we can apply to the objects are:
 \begin{itemize}
-    \item \textbf{The ansatz designs.} We have chosen the ansatzes NLocal and TwoLocal from Qiskit.
     \item \textbf{The ansatz configuration.} The ansatz object from Qiskit is mutable, which means we can configure their properties to fit the experiment activities. For example, the number of qubits, repetition of layers, and initial parameters.
     \item \textbf{The method to mitigate barren plateaus.} We have reviewed three methods in the literature review, and each of them has configured or trained the ansatz differently.
 \end{itemize}
