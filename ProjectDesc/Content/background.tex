@@ -11,13 +11,10 @@ Moreover, quantum circuits, which encode both quantum algorithms and their input
 Consequently, every new input data to a quantum algorithm necessitates construction of a new and different quantum circuit. 
 Thus, unlike classical algorithms, quantum algorithms (as encoded in quantum circuits) cannot be directly parameterised or reused. This implies that quantum machine learning models, which are learning models relying on quantum algorithms, must rely on unique approaches to their training.
 
-
-\almarginpar{Throughout this document change capitalisation of words such as "Quantum", "Classical", "Machine", "Variational", etc. They do not need to be capped. I gave up fixing these!}
 A common approach to addressing the above-mentioned constraints is to adopt a hybrid approach to developing quantum machine learning, i.e. by combining quantum circuits and their classical optimization. 
 Variational Quantum Algorithms (VQAs) \cite{cerezo2021variational} can produce quantum circuit templates that can be instantiated with trainable parameters, which are then reusable for quantum computer execution. 
-At the same time, the classical optimizer sees the variational circuits as a black box that returns results from inputs and the trainable parameter. 
+At the same time, the classical optimiser sees the variational circuits as a black box that returns results from inputs and the trainable parameter. 
 
-\almarginpar{Please ask someone to improve English grammar and expresson}
 The hybrid quantum-classical method is also the idea behind Quantum Neural Networks (QNNs) \cite{altaisky2001quantum}. 
 Different constructing methods lead to different definitions of QNNs \cite{paetznick2013, zhaoBuildingQuantumNeural2019, caoQuantumNeuronElementary2017}. 
 However, they share the same criteria as pointed out by Schuld, Sinayskiy, and Petruccione \cite{schuldQuestQuantumNeural2014}: 
