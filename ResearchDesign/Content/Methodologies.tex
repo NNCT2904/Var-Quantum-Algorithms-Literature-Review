@@ -8,13 +8,11 @@ As explained in the previous section (Section \ref{Literature Review section}), 
 However, we have observed the existence of barren plateaus, causing the variance of the cost function gradient to vanish exponentially with the number of qubits.
 We have thus investigated three methods to mitigate this phenomenon, i.e. by using a local cost function with shallow circuits, by relying on the identity block and by utilising layerwise learning \cite{cerezoCostFunctionDependent2021, liuParameterInitializationMethod2021, skolikLayerwiseLearningQuantum2021}.
 
-\almarginpar{Provide a reference to the source material for "technology-oriented empirical research". You will need to explain what is such a research, e.g. conducting a series of experiments involving development and study of an IT artefact, I presume - as suggested in the reference you provide}
 In the following sections, we will answer the study research question (see Section \ref{Problem Section}) by conducting a series of experiments, with different methods are applied to the same objects, this process is known as \emph{technology-oriented empirical research} \cite{wohlinExperimentationSoftwareEngineering2012}.
 
 We summarise the adopted research process in Figure \ref{Research Activities}.
-Our main objects and the different technical treatments for the experiment are discussed in section \ref{Objects section}.
-We discuss the two phases in section \ref{Research Activities section}, we discuss the results of data collected from the experiment in section \ref{Data Collecting Section}.
-\almarginpar{You cannot just dump the figure with the research process, you need to explain what is in it, i.e. Figure 9 and the details of its three phases as related to sections 3.1.2 (where is it in the figure?), 3.1.3 (first and second phase), and what happened to the third? You still need to describe it}.
+Our main objects and the different technical treatments for the experiment are discussed in section \ref{Objects section}, the two phases of the experiment in section \ref{Research Activities section}, and finally the confirmation of results from the experiment in section \ref{Data Collecting Section}.
+\almarginpar{You cannot just dump the figure with the research process, you need to explain what is in it, i.e. Figure 9 and the details of its three phases as related to sections 3.1.2 (where is it in the figure?), 3.1.3 (first and second phase), and what happened to the third? You still need to describe it}
 
 \begin{figure}
     \centering
@@ -26,15 +24,13 @@ We discuss the two phases in section \ref{Research Activities section}, we discu
 \end{figure}
 
 \subsubsection{Objects and Parameters}\label{Objects section}
-
-As per the context, we can identify the object of study of this research to compare different barren plateaus mitigation methods against different ansatz designs.
 One advantage of the empirical experiment is that we can have total control of the experiment environment.
-In the context of this research, the objects of experiment are the ansatz designs. 
-We have chosen the two ansatzes NLocal and TwoLocal from Qiskit circuit library. 
+As per the literature review (see Section \ref{Literature Review section}), we have identified the  objects of experiment are the ansatzes.
+We have chosen the two ansatzes NLocal and TwoLocal from Qiskit circuit library.
 The parameters that we can apply to the objects are:
 \begin{itemize}
     \item \textbf{The ansatz configuration.} The ansatz object from Qiskit is mutable, which means we can configure their properties to fit the experiment activities. For example, the number of qubits, repetition of layers, and initial parameters.
-    \item \textbf{The method to mitigate barren plateaus.} We have reviewed three methods in the literature review, and each of them has configured or trained the ansatz differently.
+    \item \textbf{The method to mitigate barren plateaus.} We have reviewed three methods in the literature review, and each of them are configured or trained the ansatz differently (see Table \ref{quick comparison of methods}).
 \end{itemize}
 
 \subsubsection{Research Activities} \label{Research Activities section}
@@ -42,7 +38,9 @@ The parameters that we can apply to the objects are:
 We can use Qiskit \cite{Qiskit} to construct the ansatzes in a quantum simulator.
 The literature review had pointed out that the two factors causing barren plateaus are the \textit{ansatz depth, a large number of qubits} and the \textit{randomised starting parameters}, so we configure the ansatzes to have such characteristics in a quantum simulator.
 The optimisation algorithm will be the same in the ansatzes because the main concern is the three methods implemented in the second phase.
-\almarginpar{Does it have to shrink "exponentially", what if it shrinks polynomially of high order, is it still good?}We keep track of the variance and the number of qubits to see if the variance is shrinking  \textit{exponentially} (see Figure \ref{Variance Shrinking demo}).
+\almarginpar{Does it have to shrink "exponentially", what if it shrinks polynomially of high order, is it still good?}
+By definition of barren plateau as discussed in Section \ref{Literature Review section}, we would expect the shrinking rate of the variace values to be \textit{exponentially} (see Figure \ref{Variance Shrinking demo})
+We keep track of the variance and the number of qubits to see if the variance is shrinking at this rate.
 The result of the first phase is the ansatzes that possess barren plateaus.
 
 \almarginpar{So how many experiments will you be running as part of your research activities? From your discussion it is not clear that you will be running any experiments at all!}
@@ -51,13 +49,12 @@ With the QNN ansatzes from the first step, we can implement the three methods di
 Each of them configures or trains the ansatz differently.
 The Qiskit framework also supports the mutation for the ansatz object, such as the number of qubits to measure, the depth of ansatz (repetition) and the starting parameters.
 We will track the variances of the gradient for each method to identify if the model has mitigated the barren plateaus phenomenon.
-The output is recorded to compare against some criteria (the size of the circuit, execution time, etc.). 
+The output is recorded to compare against some criteria (the size of the circuit, execution time, etc.).
 \almarginpar{Where is 6 outcomes coming from? List those outcomes explicitly.}
 We expect to have six outcomes.
 
 The results of the research activities are discussed in the Subsection \ref{Data Collecting Section}.
 
-\label{Research Activities section}
 \begin{figure}
     \includegraphics[width=\textwidth]{./ResearchDesign/Appendices/VarianceShrinking.png}
     \caption{
@@ -79,27 +76,27 @@ The results of the research activities are discussed in the Subsection \ref{Data
     \item The time required to execute the circuit.
 \end{itemize}
 
-\subsubsection{Hypothesis}
-\almarginpar{I do not think you have done a proper hypothesis testing to claim you have followed the recommended method, you have conducted a qualitative assessment of the experimental work, is this still acceptable according to the adopted methodology - we are missing a reference and a description of this methodology anyway!}The experiment activities are formalised into hypotheses:
-\begin{itemize}
-    \item \textbf{Null}: The three methods have the same performance according to the criteria, or the difference is insignificant;
-    \item \textbf{Alternative}: The three methods' performance differs when reflecting the result against the criteria. If so,
-          \begin{itemize}
-              \item \textbf{H1}: We can identify which method is the best in specific criteria;
-              \item \textbf{H2}: We can recommend the best approach given a context.
-          \end{itemize}
-\end{itemize}
-\almarginpar{I do not think you are planning to do any inferential statistics, and if so what you provided are not really hypotheses, I fail to understand H0, H1 and H2}
+% \subsubsection{Hypothesis} \todo{section to be removed}
+% \almarginpar{I do not think you have done a proper hypothesis testing to claim you have followed the recommended method, you have conducted a qualitative assessment of the experimental work, is this still acceptable according to the adopted methodology - we are missing a reference and a description of this methodology anyway!}The experiment activities are formalised into hypotheses:
+% \begin{itemize}
+%     \item \textbf{Null}: The three methods have the same performance according to the criteria, or the difference is insignificant;
+%     \item \textbf{Alternative}: The three methods' performance differs when reflecting the result against the criteria. If so,
+%           \begin{itemize}
+%               \item \textbf{H1}: We can identify which method is the best in specific criteria;
+%               \item \textbf{H2}: We can recommend the best approach given a context.
+%           \end{itemize}
+% \end{itemize}
+% \almarginpar{I do not think you are planning to do any inferential statistics, and if so what you provided are not really hypotheses, I fail to understand H0, H1 and H2}
 
 \subsubsection{Data Collecting Method}
 \label{Data Collecting Section}
 \almarginpar{You mention the "expertiments" for the first time? BTW, clearly these are a series of experiments not one experiment!}
-Here we discuss our method to collect the data from the \emph{experiments}.
+Here we discuss our method to collect the data from the series of \emph{experiments}.
 
-The output of the first phase is Qiskit ansatz objects that contain the number of qubits, the depth of the circuit (rep), and the parameter initialised randomly (refer to the Qiskit document for further detail - *** provide a reference ***).
+The output of the first phase is Qiskit ansatz objects that contain the number of qubits, the depth of the circuit (rep), and the parameter initialised randomly (refer to the Qiskit document for further detail - Section \ref{Resources section}).
 Moreover, the ansatz object in Qiskit is mutable, which means we can modify the ansatzes properties in the second phase.
 
-For the second phase, we need to record three different outputs of the three methods accordingly, 
+For the second phase, we need to record three different outputs of the three methods accordingly,
 \almarginpar{Would this make 9 possible outcomes not 6? Why not 16 according to Table 1?}
 with the criteria defined in Subsection \ref{Criteria section}.
 The result is a table with the rows of criteria in the Subsection \ref{Criteria section} with each method as rows.
@@ -112,7 +109,7 @@ For example, the method $X$ is the best for the complexity.
 \almarginpar{Note that H1 and H2 are not the hypotheses at all! You have clearly listed some objectives to achieve and you are not testing any hypotheses - the research methodology is very poor!}
 Finally, we summarise the research results and present the findings.
 
-\subsubsection{Resources}
+\subsubsection{Resources} \label{Resources section}
 Most of our required resources are open-sources:
 \begin{itemize}
     \item Python 3.6+: \url{https://www.python.org/downloads/}

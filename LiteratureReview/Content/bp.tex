@@ -4,7 +4,7 @@ When training a quantum circuit, three important elements are needed to construc
 
 The next step is to evolve this variational circuit from the initially random state of circuit parameters to the circuit instantiated with the optimal parameter values.
 
-The process is iterative. At each cycle of the optimisation, the optimiser suggests the values for the variational circuit parameters, optionally increases the circuit depth, instantiates the circuit with the parameters values, and runs thus created executable circuit on a quantum machine. 
+The process is iterative. At each cycle of the optimisation, the optimiser suggests the values for the variational circuit parameters, optionally increases the circuit depth, instantiates the circuit with the parameters values, and runs thus created executable circuit on a quantum machine.
 The obtained outputs can subsequently be compared with the observables and the current value of the cost function calculated, so that the optimisation routine could then suggests the new set of parameters for the evolving circuit \cite{cerezo2021variational}.
 By changing the circuit parameters, we are exploring an optimisation landscape to find a global minimum for the cost function, and thus the optimum circuit parameters.
 The properties of this landscape heavily depend on the structure of the parameterised circuit (derived from input-output pairs and the selected ansatz) and the selected cost function.
@@ -26,15 +26,15 @@ The gradients are the derivatives of the cost function respectively to the param
     \partial_l C = \frac{\partial C(\vec{\theta})}{\partial\theta_l}
 \end{equation}
 McClean et al. \cite{mccleanBarrenPlateausQuantum2018} also pointed out that whenever the random parameterised circuits reach the depth $O(n^{1/L})$ on a $L$-dimensional array, the gradient of the cost function will vanish.
-The variance of the gradient shrinks exponentially with the number of qubits:
+The variance of the gradient shrinks exponentially with the number of qubits $n$:
 \begin{align}
-    \langle \partial_k C\rangle &= 0  \label{Vanish Gradient}\\
-    \mathrm{Var}[\partial_k C] &\approx 2^{-n}  \label{Variance expo smaller}
+    \langle \partial_k C\rangle & = 0  \label{Vanish Gradient}                  \\
+    \mathrm{Var}[\partial_k C]  & \approx 2^{-n}  \label{Variance expo smaller}
 \end{align}
 Barren plateaus is a serious issue for circuit optimisation because the flatter the landscape is, the more challenging it is to search for the location of the global cost minimum.
 Compared to the gradient in a deep classical network which vanishes exponentially in the number of layers, for the QNN case, the gradient grows exponentially small with the number of qubits \cite{mccleanBarrenPlateausQuantum2018}.
 
-Additionally, the choice of the initiate parameter $\theta$ is also an important factor. When an ansatz is randomly initialised, the algorithm may start far from the solution, at a local minimum, or even on the surface of a barren plateau. 
+Additionally, the choice of the initiate parameter $\theta$ is also an important factor. When an ansatz is randomly initialised, the algorithm may start far from the solution, at a local minimum, or even on the surface of a barren plateau.
 
 To summarise, the following factors can lead to barren plateaus in QNN and VQA:
 \begin{itemize}

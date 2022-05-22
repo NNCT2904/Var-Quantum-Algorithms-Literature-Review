@@ -5,9 +5,9 @@ Consequently, we will identify characteristics of each method based on how they 
 Table \ref{quick comparison of methods} provides the methods comparison in a concise form.
 
 There are two distinct approaches in dealing with the ansatz depth, either setting the bounds \cite{cerezoCostFunctionDependent2021} or allowing unlimited depth \cite{skolikLayerwiseLearningQuantum2021, grantInitializationStrategyAddressing2019}.
-The first approach is studied by Cerezo et al. \cite{cerezoCostFunctionDependent2021}. 
+The first approach is studied by Cerezo et al. \cite{cerezoCostFunctionDependent2021}.
 The authors discovered that the gradient vanishes at different rate depends on the circuit depth, so they define the bounds on the circuit depth such that the cost function landscape can maintain its slope.
-We have two implementations of the second approach, they both have the unlimited ansatz depth but different in the construction procedure. 
+We have two implementations of the second approach, they both have the unlimited ansatz depth but different in the construction procedure.
 Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} construct the ansatz by adding consecutive layers until there is no improvement in training efficiency.
 On the other hand, Grant et al. \cite{grantInitializationStrategyAddressing2019} train the circuit without altering any properties of the ansatz.
 
@@ -21,7 +21,7 @@ As the gradient is calculated with those parameters, randomised parameters can l
 However this is not the case in the study of Cerezo et al. which completely eliminate the near-zero gradient phenomenon.
 Since the plateau does not exist and the gradient can maintain its slope, the randomised initial parameter is a viable option.
 For the case of predefined initial parameters, we have two studies.
-Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} proposed an algorithm that starts with zeros parameters in a small ansatz. 
+Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} proposed an algorithm that starts with zeros parameters in a small ansatz.
 Their algorithm allows the parameters to be trained as the ansatz grow over time.
 Grant et al. \cite{grantInitializationStrategyAddressing2019} divide the ansatz into shallow blocks and configure the parameters such that each block implement an identity operation.
 The authors aimed to avoid non-zero gradients in the first training iteration, which guaranteed the initialisation away from a barren plateau and allowed the circuit to be trained efficiently.
@@ -34,15 +34,15 @@ Finally, it is worth mentioning that Quantum Convolutional Neural Networks (QCNN
     \centering
     \begin{tabular}{|p{3cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
         \hline
-        \textbf{Method /\newline Aspect} & \textbf{Local cost function, shallow circuits} & \textbf{Identity Blocks} & \textbf{Layerwise learning}    & \textbf{QCNN} \\
+        \textbf{Method /\newline Aspect}             & \textbf{Local cost function, shallow circuits} & \textbf{Identity Blocks} & \textbf{Layerwise learning} & \textbf{QCNN} \\
         \hline
-        \raggedright\emph{Ansatz depth} & Bounded                               & Any length        & Any length            & Any length \\
+        \raggedright\emph{Ansatz depth}              & Bounded                                        & Any length               & Any length                  & Any length    \\
         \hline
-        \raggedright\emph{Qubits to be measured}    & Limited                          & All qubits        & All qubits            & All qubits \\
+        \raggedright\emph{Qubits to be measured}     & Limited                                        & All qubits               & All qubits                  & All qubits    \\
         \hline
-        \raggedright\emph{Initial Parameters}  & Randomised                            & Restricted        & Restricted            & Randomised \\
-        \hline
-        \raggedright\emph{Barren Plateaus}     & Eliminated                            & Avoided           & Avoided               & Eliminated \\
+        \raggedright\emph{Initial Parameters}        & Randomised                                     & Restricted               & Restricted                  & Randomised    \\
+        \hline \hline
+        \raggedright\emph{Effect to Barren Plateaus} & Eliminated                                     & Avoided                  & Avoided                     & Eliminated    \\
         \hline
     \end{tabular}
     \caption{A compact comparison of the reviewed methods.}
