@@ -73,6 +73,15 @@ Figure \ref{Ansatz samples} further shows that for a fully entangled ansatz, the
     \label{Ansatz samples}
 \end{figure}
 
+\subsubsection{Default Configurations for Ansatzes}
+The ansatzes with default configuration will have unrestricted growth of circuit depth.
+We implement the default ansatz to have the number of qubits and repetition increased iteratively.
+
+\subsubsection{Local Cost Function and Shallow Depth Implementation}
+We implemented the \textit{Global Cost Function} as the measurement output for all qubits, while the \textit{Local Cost Function} is the measurement for the first two qubits.
+Section \ref{Shallow Circuits, Local Cost Function section} and figure \ref{cost functions} previously explained the differences between the two cost functions.
+The shallow ansatz is the same as compared with the default, however, the repetition number is kept as a constant number.
+
 \subsection{Visualise the Variance}
 To calculate the gradient variance, we use the parameter shift rule from Eq. (\ref{Parameter-shift rules}) as implemented in Qiskit Gradient Framework.
 The BP phenomena can be verified when the gradient variance decreases with an increased number of qubits and repetition layers.
@@ -83,13 +92,3 @@ We then plot the variance values of the gradients for different numbers of qubit
 Note that the neural network generated in this experiment is not designed to answer a problem, we will focus on the trainability of each method in later steps of the experiment.
 
 In short, we use 100 uniformly randomised parameters to scan the gradient, then we calculate the "slope" of the gradient.
-
-\subsubsection{Default Configurations for Ansatzes}
-The ansatzes with default configuration will have unrestricted growth of circuit depth.
-We implement the default ansatz to have the number of qubits and repetition increased iteratively.
-
-\subsubsection{Local Cost Function and Shallow Depth Implementation}
-\almarginpar{There is some repetition between the first and the second paragraph, improve!}
-We implemented the \textit{Global Cost Function} as the measurement output for all qubits, while the \textit{Local Cost Function} is the measurement for the first two qubits.
-Section \ref{Shallow Circuits, Local Cost Function section} and figure \ref{cost functions} previously explained the differences between the two cost functions.
-The shallow ansatz is the same as compared with the default, however, the repetition number is kept as a constant number.
