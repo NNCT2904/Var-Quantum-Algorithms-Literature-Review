@@ -1,17 +1,47 @@
 \subsection{Development Process} \label{Development Process section}
-\almarginpar{How is the development process related to the research design and its process defined in Fig 9}
-The minimum viable artefact is a Python notebook file containing Python scripts to run the experiment.
-We run the notebook with IBM Quantum Experience, as they provide online services for simulating quantum hardware.
-\almarginpar{You need to show that you have followed your research design}
-The following sections describe our experimental process.
 
-\subsubsection{The Quantum Emulator}
+In this section, we describe the progress on the artefact development, the detail for the experiments is given as Section \ref{Research Design section}.
+For T1 - 2022, we aim to partly solve the research question (see Section \ref{Problem Section}) by implement a minimum viable artefact that contains a series of exploration experiments.
+We summarise the experiment results from Section \ref{Result section} as the table \ref{Experiment summary table}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{|| c c c ||}
+        \hline
+        Ansatz   & Method                               & Variance of gradients \\[0.5ex]
+        \hline \hline
+        NLocal   & Default                              & Decay                 \\
+        \hline
+        TwoLocal & Default                              & Decay                 \\
+        \hline
+        NLocal   & Local Cost Function, Shallow circuit & Sustain               \\
+        \hline
+        TwoLocal & Local Cost Function, Shallow circuit & Sustain               \\
+        \hline
+    \end{tabular}
+    \caption{
+        The experiments that we implemented in the Python Notebook. We test the same ansatzes with different methods, we record the results as the vanishing rate of gradient when the number of qubits increased.
+    }
+    \label{Experiment summary table}
+\end{table}
+
+\almarginpar{How is the development process related to the research design and its process defined in Fig 9}
+In more detail, the minimum viable artefact is a Python notebook file containing Python scripts to run the experiment.
+We run the notebook with IBM Quantum Experience, as they provide online services for simulating quantum hardware.
+This artefact outcome will not answer the research question completely.
+However, it covers the first half of the experiment and ensures that the outcome is ready to advance to the next steps.
+\almarginpar{You need to show that you have followed your research design}
+
+\subsection{The Quantum Provider}
+\almarginpar{Fault free runs are not exactly simulating the quantum device, any comment or justification? Perhaps future work? \\ - addressed}
 For this experiment, we are using the quantum emulator provided by Qiskit.
 The QASM simulator is used to mimic an IBMQ device.
-\almarginpar{Fault free runs are not exactly simulating the quantum device, any comment or justification? Perhaps future work?}
 Additionally, QASM simulator by default has no noise, so we can expect the result to be noise-free.
+Note that the fault free emulators are not exactly reflecting the quantum devices as the actual devices may suffer from various types of noise.
+However, considering the allowed time span for these experiments, we will use the QASM simulator for T1-2022 and leave the actual quantum devices for future works.
 
-\subsubsection{Creating Ansatzes}
+
+\subsection{Creating Ansatzes}
 \almarginpar{Which of the ansatze would be most useful to support QNN? Wouldn't RealAmplitudes be useful for "real" QNN implementation?}
 We have chosen two ansatzes \textit{NLocal} and \textit{TwoLocal} from the Qiskit circuit library due to their wide usage in quantum machine learning.
 As discussed in the Research Design section \ref{Research Design section}, we configure the ansatz objects such that initially their gradient variances decrease exponentially with the number of qubits.
@@ -43,7 +73,7 @@ Figure \ref{Ansatz samples} further shows that for a fully entangled ansatz, the
     \label{Ansatz samples}
 \end{figure}
 
-\subsubsection{Visualise the Variance}
+\subsection{Visualise the Variance}
 To calculate the gradient variance, we use the parameter shift rule from Eq. (\ref{Parameter-shift rules}) as implemented in Qiskit Gradient Framework.
 The BP phenomena can be verified when the gradient variance decreases with an increased number of qubits and repetition layers.
 
@@ -54,10 +84,12 @@ Note that the neural network generated in this experiment is not designed to ans
 
 In short, we use 100 uniformly randomised parameters to scan the gradient, then we calculate the "slope" of the gradient.
 
-\subsubsection{Experiment with Local Cost Function and Shallow Depth}
+\subsubsection{Default Configurations for Ansatzes}
+The ansatzes with default configuration will have unrestricted growth of circuit depth.
+We implement the default ansatz to have the number of qubits and repetition increased iteratively.
+
+\subsubsection{Local Cost Function and Shallow Depth Implementation}
 \almarginpar{There is some repetition between the first and the second paragraph, improve!}
 We implemented the \textit{Global Cost Function} as the measurement output for all qubits, while the \textit{Local Cost Function} is the measurement for the first two qubits.
 Section \ref{Shallow Circuits, Local Cost Function section} and figure \ref{cost functions} previously explained the differences between the two cost functions.
-\almarginpar{I do not get the logic and the motivation - the number of repetions = number of qubits? Why? The whole paragraph may need to be clarified - I do not understand!}
-We define the deep circuit as the circuit that scales with the number of qubits and the number of repetition, we implement the default ansatz to have the number of qubits and repetition increased iteratively.
 The shallow ansatz is the same as compared with the default, however, the repetition number is kept as a constant number.

@@ -123,7 +123,7 @@ To prepare the quantum emulator on a local machine, we first install Python and 
 Then we follow the official instruction from Qiskit \cite{Qiskit} to install the necessary packages.
 We can start working with Qiskit in a Jupyter Notebook file.
 
-\almarginpar{Python "kernel"? do you mean "API"}The other option is to use the provided Python kernel with Qiskit pre-installed provided by IBM Quantum.
+\almarginpar{Python "kernel"? do you mean "API" \\ - How about "python environment"? A notebook kernel is a “computational engine” that executes the code contained in a Notebook document.}The other option is to use the provided Python notbook environment provided by IBM Quantum with Qiskit pre-installed.
 While this is a convenient choice for online presentation or remote working because of instant access, this server has shortcomings.
 The maximum ram for open access is only 8 Gigabytes, and the processing power is limited.
 
@@ -131,9 +131,11 @@ The quantum emulator from Qiskit is capable of simulating up to 32 qubits.
 On the other hand, the actual quantum hardware from IBM is limited to 5 qubits for open access.
 
 \almarginpar{It also offers custom ansatz design, would you explore this option, why not?}Qiskit offers various pre-defined ansatz designs, namely \textit{EfficientSU2, PauliTwoDesign, RealAmplitudes, NLocal}, and \textit{TwoLocal}.
-They are popular and frequently studied in quantum chemistry, quantum machine learning, and especially the investigation of barren plateaus.
-However, \almarginpar{Not true!}\emph{they are based on the two ansatzes, NLocal and TwoLocal}.
-To construct the ansatz as discussed in Section \ref{Research Activities section}, we can use the NLocal and TwoLocal circuits provided.
+The Qiskit also allows custom parameterized circuits to be used as ansatzes.
+However, we will use the ansatz \todo{insert ansatz name here} \textit{RealAmplitudes} to implement the QNN model in our experiment due to its popularity in quantum machine learning studies and implementation.
+% They are popular and frequently studied in quantum chemistry, quantum machine learning, and especially the investigation of barren plateaus.
+% However, \almarginpar{Not true!}\emph{they are based on the two ansatzes, NLocal and TwoLocal}.
+% To construct the ansatz as discussed in Section \ref{Research Activities section}, we can use the NLocal and TwoLocal circuits provided.
 
 
 \subsubsection{Success Condition}
