@@ -10,7 +10,7 @@ We have thus investigated three methods to mitigate this phenomenon, i.e. by usi
 
 In the following sections, we will answer the study research question (see Section \ref{Problem Section}) by conducting a series of experiments, with different methods are applied to the same objects, this process is known as \emph{technology-oriented empirical research} \cite{wohlinExperimentationSoftwareEngineering2012}.
 
-We summarise the adopted research process in Figure \ref{Research Activities}.
+We summarise the adopted research process in Figure \ref{Research Activities Figure}.
 Our main objects and the different technical treatments for the experiment are discussed in section \ref{Objects section}, the two phases of the experiment in section \ref{Research Activities section}, and finally the confirmation of results from the experiment in section \ref{Data Collecting Section}.
 \almarginpar{You cannot just dump the figure with the research process, you need to explain what is in it, i.e. Figure 9 and the details of its three phases as related to sections 3.1.2 (where is it in the figure?), 3.1.3 (first and second phase), and what happened to the third? You still need to describe it}
 
@@ -33,28 +33,44 @@ The parameters that we can apply to the object are:
     \item \textbf{The ansatz choice.} Qiskit framework offers a wide range of ansatz, refer to the circuit library in Section \ref{Resources section};
     \item \textbf{The ansatz configuration.} The ansatz object from Qiskit is mutable, which means we can configure their properties to fit the experiment activities. For example, the number of qubits, repetition of layers, and initial parameters.
     \item \textbf{The cost function operator.} We can implement a measurement operation at the end of the parameterised quantum circuit to act as the output of the cost function. We discussed two styles of cost functions in Section \ref{Shallow Circuits, Local Cost Function section};
-    \item \textbf{The method to mitigate barren plateaus.} We have reviewed three methods in the literature review, and each of them configure or traine the ansatz differently (see Table \ref{quick comparison of methods}). Note that QCNN is out of scope of our experiment.
+    \item \textbf{The method to mitigate barren plateaus.} We have reviewed three methods in Section \ref{Literature Review section}, and each of them configure or traine the ansatz differently (see Table \ref{quick comparison of methods}). Note that QCNN is out of scope of our experiment.
 \end{itemize}
 
 \subsubsection{Research Activities} \label{Research Activities section}
 \textbf{In the first phase, we reproduce the barren plateaus phenomenon.}
 We can use Qiskit \cite{Qiskit} to construct the ansatzes.
-For the same ansatz, we implement four different methods (see Figure \ref{Research Activities Figure}).
+For the same ansatz, we implement four different methods (see Figure \ref{Research Activities Figure} and Table \ref{implementation of methods table}).
 By definition of barren plateau as discussed in Section \ref{Literature Review section}, we would expect the shrinking rate of the variace values to be \textit{exponentially} (see Figure \ref{Variance Shrinking demo}) if the initial parameter has landed in a barren plateau.
 We keep track of the variance and the number of qubits to see if the variance is shrinking at this rate.
-The result of the first phase is the shringking rate of the same ansatz applied with different treatments.
+The result of the first phase is the shringking rates of the same ansatz applied with different treatments.
 
-\almarginpar{So how many experiments will you be running as part of your research activities? From your discussion it is not clear that you will be running any experiments at all!}
-\textbf{In the second phase, we implement the three approaches}.
-With the QNN ansatzes from the first step, we can implement the three methods discussed in the literature review.
-Each of them configures or trains the ansatz differently.
-The Qiskit framework also supports the mutation for the ansatz object, such as the number of qubits to measure, the depth of ansatz (repetition) and the starting parameters.
-We will track the variances of the gradient for each method to identify if the model has mitigated the barren plateaus phenomenon.
-The output is recorded to compare against some criteria (the size of the circuit, execution time, etc.).
-\almarginpar{Where is 6 outcomes coming from? List those outcomes explicitly.}
-We expect to have six outcomes.
+\textbf{In the second phase, we implement the QNNs and measure their performances}.
+With the ansatzes developed from the first step, we can implement the QNN models to test their performances.
+The QNN models will be trained with standard data sets provided by Qiskit (refer to Section \ref{Resources section}).
 
 The results of the research activities are discussed in the Subsection \ref{Data Collecting Section}.
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{|p{3cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+        \hline
+        \textbf{Method /\newline Aspect}      & \textbf{\#0:\newline No restrictions} & \textbf{\#1:\newline Local cost function, shallow circuits} & \textbf{\#2:\newline Identity Blocks} & \textbf{\#3:\newline Layerwise learning} \\
+        \hline \hline
+        \raggedright\emph{Ansatz depth}       & Any length                            & Bounded                                                     & Any length                            & Any length                               \\
+        \hline
+        \raggedright\emph{Cost Function}      & Global                                & Limited                                                     & All qubits                            & All qubits                               \\
+        \hline
+        \raggedright\emph{Initial Parameters} & Randomised                            & Randomised                                                  & Restricted                            & Restricted                               \\
+        \hline
+    \end{tabular}
+    \caption{
+        A comparison of different methods that applied to the ansatz in phase 1.
+        The method $\#$0 is widely applied in construction of QNN ansatzes.
+        The other three methods are discussed in Section \ref{Literature Review section}.
+    }
+    \label{implementation of methods table}
+\end{table}
+
 
 \begin{figure}
     \includegraphics[width=\textwidth]{./ResearchDesign/Appendices/VarianceShrinking.png}
@@ -72,22 +88,11 @@ The results of the research activities are discussed in the Subsection \ref{Data
 \almarginpar{I am not sure you provide all these details}We can compare the data with these criteria:
 \begin{itemize}
     \item The quality of the solution;
-    \item The size of the circuit;
-    \item The size of the qubit registry;
+    \item Loss values per iteration;
+    \item The size of the circuit (circuit depth);
+    \item The size of the qubit registry (circuit width);
     \item The time required to execute the circuit.
 \end{itemize}
-
-% \subsubsection{Hypothesis} \todo{section to be removed}
-% \almarginpar{I do not think you have done a proper hypothesis testing to claim you have followed the recommended method, you have conducted a qualitative assessment of the experimental work, is this still acceptable according to the adopted methodology - we are missing a reference and a description of this methodology anyway!}The experiment activities are formalised into hypotheses:
-% \begin{itemize}
-%     \item \textbf{Null}: The three methods have the same performance according to the criteria, or the difference is insignificant;
-%     \item \textbf{Alternative}: The three methods' performance differs when reflecting the result against the criteria. If so,
-%           \begin{itemize}
-%               \item \textbf{H1}: We can identify which method is the best in specific criteria;
-%               \item \textbf{H2}: We can recommend the best approach given a context.
-%           \end{itemize}
-% \end{itemize}
-% \almarginpar{I do not think you are planning to do any inferential statistics, and if so what you provided are not really hypotheses, I fail to understand H0, H1 and H2}
 
 \subsubsection{Data Collecting Method}
 \label{Data Collecting Section}
