@@ -16,32 +16,33 @@ Our main objects and the different technical treatments for the experiment are d
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{./ResearchDesign/Appendices/Method.png}
+    \includegraphics[width=\textwidth]{./ResearchDesign/Appendices/ExperimentDiagram.png}
     \caption{
         The adopted research process.
     }
-    \label{Research Activities}
+    \label{Research Activities Figure}
 \end{figure}
 
 \subsubsection{Objects and Parameters}\label{Objects section}
+According to the research design guidelines by Wohlin et al \cite{wohlinExperimentationSoftwareEngineering2012}, we will need to identify the experiment object and the parameters.
+While the object is the main entity that is studied in the experiment, the parameters are the treatments applied to the object.
 One advantage of the empirical experiment is that we can have total control of the experiment environment.
-As per the literature review (see Section \ref{Literature Review section}), we have identified the  objects of experiment are the ansatzes.
-We have chosen the two ansatzes NLocal and TwoLocal from Qiskit circuit library.
-The parameters that we can apply to the objects are:
+As per the literature review (see Section \ref{Literature Review section}), we have identified the object of study is the QNN model.
+The parameters that we can apply to the object are:
 \begin{itemize}
+    \item \textbf{The ansatz choice.} Qiskit framework offers a wide range of ansatz, refer to the circuit library in Section \ref{Resources section};
     \item \textbf{The ansatz configuration.} The ansatz object from Qiskit is mutable, which means we can configure their properties to fit the experiment activities. For example, the number of qubits, repetition of layers, and initial parameters.
-    \item \textbf{The method to mitigate barren plateaus.} We have reviewed three methods in the literature review, and each of them are configured or trained the ansatz differently (see Table \ref{quick comparison of methods}).
+    \item \textbf{The cost function operator.} We can implement a measurement operation at the end of the parameterised quantum circuit to act as the output of the cost function. We discussed two styles of cost functions in Section \ref{Shallow Circuits, Local Cost Function section};
+    \item \textbf{The method to mitigate barren plateaus.} We have reviewed three methods in the literature review, and each of them configure or traine the ansatz differently (see Table \ref{quick comparison of methods}). Note that QCNN is out of scope of our experiment.
 \end{itemize}
 
 \subsubsection{Research Activities} \label{Research Activities section}
-\textbf{In the first phase, we reproduce the barren plateaus phenomenon with the selected ansatzes.}
-We can use Qiskit \cite{Qiskit} to construct the ansatzes in a quantum simulator.
-The literature review had pointed out that the two factors causing barren plateaus are the \textit{ansatz depth, a large number of qubits} and the \textit{randomised starting parameters}, so we configure the ansatzes to have such characteristics in a quantum simulator.
-The optimisation algorithm will be the same in the ansatzes because the main concern is the three methods implemented in the second phase.
-\almarginpar{Does it have to shrink "exponentially", what if it shrinks polynomially of high order, is it still good?}
-By definition of barren plateau as discussed in Section \ref{Literature Review section}, we would expect the shrinking rate of the variace values to be \textit{exponentially} (see Figure \ref{Variance Shrinking demo}).
+\textbf{In the first phase, we reproduce the barren plateaus phenomenon.}
+We can use Qiskit \cite{Qiskit} to construct the ansatzes.
+For the same ansatz, we implement four different methods (see Figure \ref{Research Activities Figure}).
+By definition of barren plateau as discussed in Section \ref{Literature Review section}, we would expect the shrinking rate of the variace values to be \textit{exponentially} (see Figure \ref{Variance Shrinking demo}) if the initial parameter has landed in a barren plateau.
 We keep track of the variance and the number of qubits to see if the variance is shrinking at this rate.
-The result of the first phase is the ansatzes that possess barren plateaus.
+The result of the first phase is the shringking rate of the same ansatz applied with different treatments.
 
 \almarginpar{So how many experiments will you be running as part of your research activities? From your discussion it is not clear that you will be running any experiments at all!}
 \textbf{In the second phase, we implement the three approaches}.
