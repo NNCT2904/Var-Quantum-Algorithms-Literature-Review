@@ -1,16 +1,13 @@
 \begin{abstract}
-Quantum Computing is a new and exciting area of Science that intersects Physics, Mathematics and Computer Science.
-Quantum algorithms are known to solve problems, which until recently have been considered unsolvable classically due to their inherent complexity. 
-Variational Quantum Algorithm (VQA) is a hybrid classical-quantum technique that can produce variational (or parametrised) circuits, which act as templates for circuit generation. 
-VQA adopted the machine learning technique such that the quantum hardware is used to estimate the cost function gradient while using classical optimisation algorithms to train the quantum circuit.
-VQA also have some trainability issues, namely Barren Plateaus, occurs when we train a circuit with a large number of qubits.
-While Barren Plateaus remains an open question, there are attempts to mitigate the effect of this issue.
-
-This project aims to investigate a range of approaches to avoid or eliminate the effect of Barren Plateaus in QNN and VQA development.
-Our work in the project is summarised: 
-We provide some background on VQA, QNN and their trainability issue; 
-We implement several methods to address the Barren Plateaus with Python and Qiskit framework;
-We compare the trainability of the model by solving a problem with QNN.
+\emph{Quantum neural networks} (QNN) are machine learning models which aim to utilise quantum computing algorithms to improve training regimes for classical artificial neural networks.
+One of the approaches to implementing QNNs is to employ \emph{variational quantum algorithms} (VQA), which take advantage of optimisation algorithms executed on classical hardware to train parametrised quantum circuits, while using quantum machines to model the landscape of the loss function and efficiently estimate its gradient. 
+As compared with classical neural networks, using VQA allows training of a well-designed QNN to rapidly converge to a solution, while avoiding many problems commonly present in training classical neural networks. 
+QNNs however have their own trainability issues, which can manifest in large variational QNN circuits, either due to their depth, the large number of qubits, or poor initialisation of circuit parameters. One such problem is the emergence of large flat areas in the loss function landscape, called \emph{barren plateaus}, which impede effective circuit optimisation. 
+The methods of preventing the formation of barren plateaus or mitigating their presence in circuit optimisation have been proposed and their variants are vigorously pursued. However, efficacy of each method in the context of the QNN architecture and training data remains an open question. 
+This project therefore aims to investigate the effectiveness of different approaches to dealing with barren plateaus in various QNN developmental circumstances. 
+The project is undertaken in two phases. 
+In the first phase, three different approaches are selected to deal with barren plateaus and are then evaluated against different VQA quantum circuit structures (depth, qubits and initialisation) and a random gradient landscape.
+In the second phase, performance of the selected methods is analysed and compared when used with several QNNs built using standard data sets.
 \\\\
 {\bf Keywords:} Quantum Computing, Quantum Machine Learning, Quantum Machine Learning, Variational Quantum Algorithms, Barren Plateaus, Python Programming, Qiskit.
 
