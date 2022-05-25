@@ -1,22 +1,28 @@
-\subsection{Development Process} \label{Development Process section}
+\subsection{Minimum Artefact Introduction} \label{T1 artefact intro section}
 
-In this section, we describe the progress on the artefact development, the detail for the experiments is given as Section \ref{Research Design section}.
-For T1 - 2022, we aim to partly solve the research question (see Section \ref{Problem Section}) by implement a minimum viable artefact that contains a series of exploration experiments.
+In this section, we describe the progress on the artefact development, the detail and context for the experiments are given as Section \ref{Research Design section}.
+For T1 - 2022, we aim to partly address the phase 1 of the process (see Section \ref{Research Activities section}) by implement a minimum viable artefact that contains a series of exploration experiments.
+This artefact will cover the ansatz component of the QNN and VQA model.
+We have chosen two ansatzes \emph{NLocal} and \emph{TwoLocal} as the objects of study.
+The two treatments applied to these ansatzes are the \emph{method \#0} and \emph{method \#1} (see Table \ref{implementation of methods table}).
 We summarise the experiment results from Section \ref{Result section} as the table \ref{Experiment summary table}.
+
+VQA and QNN have a hybrid structure, the three ingridients to construct one are: the training data, the ansatz and the classical optimizer.
+This phase focuses
 
 \begin{table}
     \centering
     \begin{tabular}{|| c c c ||}
         \hline
-        Ansatz   & Method                               & Variance of gradients \\[0.5ex]
+        Ansatz   & Method     & Variance of gradients \\[0.5ex]
         \hline \hline
-        NLocal   & Default                              & Decay                 \\
+        NLocal   & Method \#0 & Decay                 \\
         \hline
-        TwoLocal & Default                              & Decay                 \\
+        TwoLocal & Method \#0 & Decay                 \\
         \hline
-        NLocal   & Local Cost Function, Shallow circuit & Sustain               \\
+        NLocal   & Method \#1 & Sustain               \\
         \hline
-        TwoLocal & Local Cost Function, Shallow circuit & Sustain               \\
+        TwoLocal & Method \#1 & Sustain               \\
         \hline
     \end{tabular}
     \caption{
