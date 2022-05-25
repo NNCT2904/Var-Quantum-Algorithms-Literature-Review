@@ -1,0 +1,19 @@
+\subsection{Treatments for ansatzes}
+Here we implement the two treatments for the ansatzes.
+We select the first two methods from Section \ref{Research Design section} and applied them to the two selected ansatz.
+
+\subsubsection{Method \#0: Unrestricted}
+As discussed in the Research Design section \ref{Research Design section}, we configure the ansatz objects such that initially their gradient variances decrease exponentially with the number of qubits.
+These characteristics are:
+\begin{itemize}
+    \item The circuit depth;
+    \item The number of qubits to be measured for the cost function;
+    \item The randomised parameters.
+\end{itemize}
+The ansatzes with default configuration will have unrestricted growth of circuit depth.
+We implement the default ansatz to have the number of qubits and repetition increased iteratively.
+
+\subsubsection{Method \#1: Local Cost Function and Shallow Depth Implementation}
+We implemented the \textit{Global Cost Function} as the measurement output for all qubits, while the \textit{Local Cost Function} is the measurement for the first two qubits.
+Section \ref{Shallow Circuits, Local Cost Function section} and figure \ref{cost functions} previously explained the differences between the two cost functions.
+The shallow ansatz is the same as compared with the default, however, the repetition number is kept as a constant number.

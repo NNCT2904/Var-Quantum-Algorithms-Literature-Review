@@ -17,6 +17,43 @@ Notes from Prof.
     \item Can you verify that the gradient descent results in a solution (for future works)?
 \end{todolist}
 
+In this section, we describe the progress on the artefact development, the detail and context for the experiments are given as Section \ref{Research Design section}.
+For T1 - 2022, we partly address the phase 1 of the process (see Section \ref{Research Activities section}) by implement a minimum viable artefact that contains a series of exploration experiments.
+The minimum viable artefact is a Python notebook file containing Python scripts to run the experiment.
+We run the notebook with IBM Quantum Experience, as they provide online services for simulating quantum hardware.
+
+This minimum artefact will cover the ansatz component of the QNN and VQA model.
+We have chosen two ansatzes \emph{NLocal} and \emph{TwoLocal} as the objects of study.
+The two treatments applied to these ansatzes are the unrestricted ansatz (method \#0) and local cost function - shallow circuit (method \#1) (see Table \ref{implementation of methods table} and Figure \ref{Research Activities Figure}).
+We summarise the experiment results from Section \ref{Result section} as the table \ref{Experiment summary table}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{|| c c c ||}
+        \hline
+        Ansatz   & Method                             & Variance of gradients \\[0.5ex]
+        \hline \hline
+        NLocal   & No restriction                     & Decay                 \\
+        \hline
+        TwoLocal & No restriction                     & Decay                 \\
+        \hline
+        NLocal   & Local cost function, shallow depth & Sustain               \\
+        \hline
+        TwoLocal & Local cost function, shallow depth & Sustain               \\
+        \hline
+    \end{tabular}
+    \caption{
+        The experiments that we implemented in the Python Notebook. We test the same ansatzes with different methods, we record the results as the vanishing rate of gradient when the number of qubits increased.
+    }
+    \label{Experiment summary table}
+\end{table}
+
+\input{Artefact/Content/QuantumProvider.tex}
+
+\input{Artefact/Content/Ansatzes.tex}
+
+\input{Artefact/Content/Treatments.tex}
+
 \input{Artefact/Content/Introduction.tex}
 
 \input{Artefact/Content/Results.tex}
