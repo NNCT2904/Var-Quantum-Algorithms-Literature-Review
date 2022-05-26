@@ -1,21 +1,6 @@
 \section{Artefact Development Report - T1 2022 (draft)}
 \almarginpar{We need some introduction to the section 4 explaining its purpose and its}
 \almarginpar{Be clear from above design discussion what the artefact development was to achieve and what part of it the minimum artefact satisfies}
-\begin{todolist}
-    \item[\done] Discussion on artefact developed (so far) and evaluation of the artefact (if any);
-    \item[\done] Details of data collected, experimental procedure;
-    \item Lessons learned in the sprint (?);
-    \item[\done] Results of the artefact analysis;
-\end{todolist}
-
-Notes from Prof.
-
-\begin{todolist}
-    \item[\done] How gradient variance is being calculated (formula)
-    \item[\done] How do we know that high variance does not simply mean that your gradient function is not just noise (for future works)?
-    \item Does it converge eventually (for future works)?
-    \item Can you verify that the gradient descent results in a solution (for future works)?
-\end{todolist}
 
 In this section, we describe the progress on the artefact development, the detail and context for the experiments are given as Section \ref{Research Design section}.
 For T1 - 2022, we partly address the phase 1 of the process (see Section \ref{Research Activities section}) by implement a minimum viable artefact that contains a series of exploration experiments.
@@ -24,26 +9,28 @@ We run the notebook with IBM Quantum Experience, as they provide online services
 
 This minimum artefact will cover the ansatz component of the QNN and VQA model.
 We have chosen two ansatzes \emph{NLocal} and \emph{TwoLocal} as the objects of study.
-The two treatments applied to these ansatzes are the unrestricted ansatz (method \#0) and local cost function - shallow circuit (method \#1) (see Table \ref{implementation of methods table} and Figure \ref{Research Activities Figure}).
+The two treatments applied to these ansatzes are the unrestricted ansatz (Method \#0) and local cost function - shallow circuit (Method \#1) (see Table \ref{implementation of methods table} and Figure \ref{Research Activities Figure}).
 We summarise the experiment results from Section \ref{Result section} as the table \ref{Experiment summary table}.
 
 \begin{table}
     \centering
     \begin{tabular}{|| c c c ||}
         \hline
-        Ansatz   & Method                             & Variance of gradients \\[0.5ex]
+        Ansatz   & Method                                  & Variance exponential fit \\[0.5ex]
         \hline \hline
-        NLocal   & No restriction                     & Decay                 \\
+        NLocal   & \#0: No restriction                     & -0.65                    \\
         \hline
-        TwoLocal & No restriction                     & Decay                 \\
+        TwoLocal & \#0: No restriction                     & -0.75                    \\
         \hline
-        NLocal   & Local cost function, shallow depth & Sustain               \\
+        NLocal   & \#1: Local cost function, shallow depth & -0.07                    \\
         \hline
-        TwoLocal & Local cost function, shallow depth & Sustain               \\
+        TwoLocal & \#1: Local cost function, shallow depth & -0.04                    \\
         \hline
     \end{tabular}
     \caption{
         The experiments that we implemented in the Python Notebook. We test the same ansatzes with different methods, we record the results as the vanishing rate of gradient when the number of qubits increased.
+        The differences between the \emph{fit} vaules are small.
+        However, consider the unit measure are \emph{exponential} (i.e. $10^{-1}, 10^{-2}$) the growth or decay rates can be significant.
     }
     \label{Experiment summary table}
 \end{table}

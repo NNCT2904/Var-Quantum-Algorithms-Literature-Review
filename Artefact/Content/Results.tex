@@ -1,18 +1,12 @@
 \subsection{Results and Analysis} \label{Result section}
 
-\begin{todolist}
-    \item describe more in figure \ref{Plot variance default and Local Cost}
-    \item analysis instead of describing
-    \item add the figures above (python notebook) for analysis
-    \item describes how alternating data lead to different result(s).
-\end{todolist}
-
-\almarginpar{First of all, the table above has no caption or number. Then I do not understand the method "None" clearly this is impossible - you mean global cost and long circuit perhaps? Then, which two ansatze w are talking about first?}
 Table \ref{Experiment summary table} states all the combinations of ansatzes and methods.
 
-The two ansatzes' gradient variances decay as expected for the default setting.
-As the number of qubits scales up, the variance values decay exponentially.
+The two ansatzes' \emph{NLocal} and \emph{TwoLocal} gradient variances decay as expected for the unrestricted setting.
+Their decay rate is exponentially fit with the rate of -0.65 and -0.72 respectively.
 The figure \ref{Plot ansatzes variance default} shows the results of the two ansatzes in this configuration.
+The semi-log plots portray the variances of gradient from differences ansatzes in the unrestricted configuration.
+Consider that the unit measure for variance is in \emph{exponential} form, so the linear graph is exponentially closer to zero for each qubit added to the circuit.
 This result indicates that the cost function landscape becomes flatter and flatter.
 Eventually, the gradient would reach a near-zero value across a large plateau, which would be inefficient for any gradient-based optimization algorithm to train the model.
 We discussed this phenomenon in Section \ref{Barren Plateaus section}.
@@ -32,6 +26,7 @@ We discussed this phenomenon in Section \ref{Barren Plateaus section}.
 \end{figure}
 
 In contrast, for the case of Local Cost Function and Shallow circuit, we observe that the variances of the ansatzes' gradient did not vanish when we attempt to increase the number of qubits.
+The slope of the ansatzes \emph{NLocal} and \emph{TwoLocal} in this case decay exponentially fir with -0.07 and -0.04 respectively.
 This implies that the cost function landscape can sustain the slope.
 Figure \ref{Plot ansatzes variance local cost} shows the result of the experiment for local cost function and shallow circuit.
 We can see that the NLocal ansatz case produced a more steady graph compared to the TwoLocal ansatz, which mean the trainability of gradient-based optimization algorithms would be consistent.
@@ -50,7 +45,8 @@ For TwoLocal ansatz, we can see that the graph is more unstable, for example, th
 \end{figure}
 
 \almarginpar{Very good presentation of results, however, perhaps individual descriptions could be close to the respective plots?}
-To compare the effectiveness of the local cost function treatment, we plot the variance graph of above mention cases in figure \ref{Plot variance default and Local Cost}.
+To compare the effectiveness of the local cost function treatment, we plot the variance graph of above mention cases in Figure \ref{Plot variance default and Local Cost} and the Table \ref{Experiment summary table}.
+The results have shown the differences of the decay rates of different ansatzes and methods.
 Overall, the ansatzes with the local cost function and restriction on circuit depth have their variance values remaining higher and being more consistent for higher qubit count, the ansatz with this treatment therefore would not possess a barren plateau.
 On the other hand, the values for the default cases shrink exponentially and eventually, the near-zero gradient around the initial point will expand to a large plateau.
 
@@ -68,5 +64,3 @@ On the other hand, the values for the default cases shrink exponentially and eve
 \almarginpar{We need some summary of the artefact section. What the minimum artefact shown? What aspects it did not address? What the full artefacts would still do?}
 \almarginpar{Then we need the conclusion for the entire report. Has the research question been answered? If not what part was? Which objectives have been met? What work is still outstanding? Future work? Reflections?}
 \almarginpar{Is 38 references sufficient for an hons thesis?}
-
-*** Looks like we still need some more ***

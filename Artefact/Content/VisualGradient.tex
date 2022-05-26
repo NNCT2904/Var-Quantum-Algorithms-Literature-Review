@@ -1,10 +1,10 @@
 \subsection{Visualise the Variance}
-To calculate the gradient variance, we use the parameter shift rule from Eq. (\ref{Parameter-shift rules}) as implemented in Qiskit Gradient Framework.
-The BP phenomena can be verified when the gradient variance decreases with an increased number of qubits and repetition layers.
+To calculate the gradient variance, we use the parameter shift rule from Eq. (\ref{Parameter-shift rules}) as implemented in Qiskit Gradient library.
+The BP phenomena can be verified when the gradient variance exponentially decreases with an increased number of qubits and repetition layers.
 
 To visualise the gradient variances, we have plotted a range of random parameters for each ansatz as the initial starting point.
 Such randomised parameters are generated 100 times uniformly to calculate the gradients.
 We then plot the variance values of the gradients for different numbers of qubits and repetition values for a range of 2 to 9 qubits and ansatz layer repetition.
-Note that the neural network generated in this experiment is not designed to answer a problem, we will focus on the trainability of each method in later steps of the experiment.
+Note that the neural network generated in this experiment is not designed to answer a problem, we will focus on the trainability of each method in later phase of the experiment.
 
 In short, we use 100 uniformly randomised parameters to scan the gradient, then we calculate the "slope" of the gradient.

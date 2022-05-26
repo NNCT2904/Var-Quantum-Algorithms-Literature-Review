@@ -1,8 +1,15 @@
 \subsection{Artefact Development Summary T1-2021}
 We have implemented one method of dealing with barren plateau by altering the depth and the cost function aspects of the ansatz.
-Due to the time constrain, this experiment is only a \textit{minimum viable artefact}.
-The experiments have produced the result as the slope of the gradients for a range of qubits.
-The results indicate that the variance of the gradient can be stable if we set a limit on the length of circuit, as well as the measurement for qubits.
-With this artefact, we have partly addressed the research question in Section \ref{Problem Section}, by comparing the the gradient decay rate of the ansatzes before and after applying the custom local cost function and restricting the depth.
+Due to the time constrain, these experiments are within the scope of a \textit{minimum viable artefact}.
+The experiments have produced the results as the slopes of the gradients for a range of qubits.
+The results indicate that the variances of the gradient can be stable if we set a limit on the length of circuit, as well as the measurement for qubits.
 
-Compared to the expected artefact, we are still missing the last two methods, a problem so that the QNN models can be compared with each others, and most importantly the results from the actual quantum devices.
+With this artefact, we have partly addressed the research design in Section \ref{Research Design section}, by exploring different types of ansatzes and comparing the ther gradient decay rate with two methods.
+This artefact contributes the ansatz component, and implementation of two methods to the final artefact.
+
+Compared to the final artefact described in Section \ref{Data Collecting Section}, we expect to implement the rest of the three methods, namely \textit{layerwise learning} and \textit{identity blocks}.
+Moreover, one shortcomming of the current artefact version is that we have not yet to implement a problem for the QNN model to optimise.
+We have known that the method in the notebook can produce high variance values, however, it does not mean the optimization is going in a right direction, it can still stuck in a local minimum, or the error landscape is random, thus the model cannot converge to the global minimum - the answer.
+Moreover, these experiments are conducted in an emulated environment without noise, or decoherence, or faulties.
+The actual quantum device will not have such characteristics.
+Thus, this experiment is not reflecting the real-life sittuation.
