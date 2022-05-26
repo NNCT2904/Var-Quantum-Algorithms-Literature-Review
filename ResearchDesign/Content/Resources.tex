@@ -13,13 +13,13 @@ Then we follow the official instruction from Qiskit \cite{Qiskit} to install the
 The quantum emulator from Qiskit is capable of simulating up to 32 qubits.
 We can start working with Qiskit in a Jupyter Notebook file.
 
-\almarginpar{Python "kernel"? do you mean "API" \\ - How about "python environment"? A notebook kernel is a “computational engine” that executes the code contained in a Notebook document.}The other option is to use the provided Python notbook environment provided by IBM Quantum with Qiskit pre-installed.
+\almarginpar{Python "kernel"? do you mean "API" \\ - How about "python environment"? A notebook kernel is a “computational engine” that executes the code contained in a Notebook document.}The other option is to use the provided Python notebook environment provided by IBM Quantum with Qiskit pre-installed.
 While this is a convenient choice for online presentation or remote working because of instant access, this server has shortcomings.
 The maximum ram for open access is only 8 Gigabytes, and the processing power is limited.
 The actual quantum hardware from IBM is limited to 5 qubits for open access.
 
 \almarginpar{It also offers custom ansatz design, would you explore this option, why not?}Qiskit offers various pre-defined ansatz designs, namely \textit{EfficientSU2, PauliTwoDesign, RealAmplitudes, NLocal}, and \textit{TwoLocal}.
 The Qiskit circuit library also allows custom parameterized circuits to be used as ansatzes.
-Each of the circuit template is used for different purpuses, such as quantum chemistry, quantum neural network, quantum eigensolver, etc.
-They also have their own advantages or disadvantages.
-For implementing multi-layer perceptron neural network, it is common to use the \textit{RealAmplitudes} ansatz.
+Each of the circuit templates is used for different purposes, such as quantum chemistry, quantum neural network, quantum eigensolver, etc.
+They also have their advantages or disadvantages.
+For example, it is common to use the \textit{RealAmplitudes} ansatz to implement a multi-layer perceptron neural network.

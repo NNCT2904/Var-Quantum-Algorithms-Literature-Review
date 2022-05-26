@@ -1,12 +1,12 @@
 \subsection{Objects and Parameters}\label{Objects section}
-According to the research design guidelines by Wohlin et al \cite{wohlinExperimentationSoftwareEngineering2012}, we will need to identify the experiment object and the parameters.
-While the object is the main entity that is studied in the experiment, the parameters are the treatments applied to the object.
+According to the research design guidelines by Wohlin et al. \cite{wohlinExperimentationSoftwareEngineering2012}, we will need to identify the experiment object and the parameters.
+While the object is the main entity studied in the experiment, the parameters are the treatments applied to the object.
 One advantage of the empirical experiment is that we can have total control of the experiment environment.
 As per the literature review (see Section \ref{Literature Review section}), we have identified the object of study is the QNN model.
 The parameters that we can apply to the object are:
 \begin{itemize}
-    \item \textbf{The ansatz choice.} Qiskit framework offers a wide range of ansatz, refer to the circuit library in Section \ref{Resources section};
+    \item \textbf{The ansatz choice.} Qiskit framework offers a wide range of ansatz. Refer to the circuit library in Section \ref{Resources section};
     \item \textbf{The ansatz configuration.} The ansatz object from Qiskit is mutable, which means we can configure their properties to fit the experiment activities. For example, the number of qubits, repetition of layers, and initial parameters.
     \item \textbf{The cost function operator.} We can implement a measurement operation at the end of the parameterised quantum circuit to act as the output of the cost function. We discussed two styles of cost functions in Section \ref{Shallow Circuits, Local Cost Function section};
-    \item \textbf{The method to mitigate barren plateaus.} We have reviewed three methods in Section \ref{Literature Review section}, each of them configure or traine the ansatz differently (see Table \ref{quick comparison of methods}). Note that QCNN is out of scope of our experiment. We further describe a \emph{Method 0} such that there is no restrictions in ansatz depth, qubits, cost function, or initial parameters (see Figure \ref{Research Activities Figure} and Table \ref{implementation of methods table}).
+    \item \textbf{The method to mitigate barren plateaus.} We have reviewed three methods in Section \ref{Literature Review section}, and each of them configuresd or trains the ansatz differently (see Table \ref{quick comparison of methods}). Note that QCNN is out of the scope of our experiment. We further describe a \emph{Method 0} such that there are no restrictions in ansatz depth, qubits, cost function, or initial parameters (see Figure \ref{Research Activities Figure} and Table \ref{implementation of methods table}).
 \end{itemize}

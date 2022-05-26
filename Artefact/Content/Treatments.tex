@@ -1,13 +1,15 @@
 \subsection{Treatments for ansatzes}
 Here we implement the two treatments for the ansatzes.
-We select the first two methods from Section \ref{Research Design section} and applied them to the two selected ansatz.
+We selected the first two methods from Section \ref{Research Design section} and applied them to the two selected ansatz.
 
 \subsubsection{Method \#0: Unrestricted}
 As discussed in the Section \ref{Research Design section}, the goal of this configuration is to produce a general multilayer perceptron network without any restriction.
-The ansatzes will have unrestricted growth of circuit depth with a global cost function, the initial parameters of this ansatz is randomised.
+The ansatzes will have unrestricted growth of circuit depth with a global cost function. 
+The initial parameters of this ansatz are randomised.
 We implement the default ansatz to have the number of qubits and repetition increased iteratively.
 
 \subsubsection{Method \#1: Local Cost Function and Shallow Depth Implementation}
 We implemented the \textit{Global Cost Function} as the measurement output for all qubits, while the \textit{Local Cost Function} is the measurement for the first two qubits.
 Section \ref{Shallow Circuits, Local Cost Function section} and figure \ref{cost functions} previously explained the differences between the two cost functions.
-The shallow ansatz is the same as compared with the default, however, the repetition number is kept as a constant number.
+The shallow ansatz is the same as the default. 
+However, the repetition number is kept as a constant number.
