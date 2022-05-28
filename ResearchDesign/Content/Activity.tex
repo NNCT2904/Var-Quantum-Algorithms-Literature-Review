@@ -1,13 +1,13 @@
 \subsection{Research Activities} \label{Research Activities section}
-According to the exploratory experiment guidelines \cite{wohlinExperimentationSoftwareEngineering2012}, we apply different treatments to the same object.
+According to the \almarginpar{Where exactly exploratory research is described in this book? Provide ref to section or page numbers. If you cannot find perhaps use their term "quasi-experiments", or try this paper: Software Engineering Research Strategy: Combining Experimental and Explorative Research}\emph{exploratory experiment guidelines} \cite{wohlinExperimentationSoftwareEngineering2012}, we apply different treatments to the same object.
 We implement the process with an experiment of two phases:
 
 \textbf{In the first phase, we reproduce the barren plateaus phenomenon.}
-We can use Qiskit \cite{Qiskit} to construct the ansatzes.
-For the same ansatz, we implement four different methods (see Figure \ref{Research Activities Figure} and Table \ref{implementation of methods table}).
-By definition of barren plateau as discussed in Section \ref{Literature Review section}, we would expect the shrinking rate of the variace values to be \textit{exponentially} (see Figure \ref{Variance Shrinking demo}) if the initial parameter has landed in a barren plateau.
+We use Qiskit \cite{Qiskit} to construct the ansatzes.
+For each ansatz, we implement and apply four different methods (see Figure \ref{Research Activities Figure} and Table \ref{implementation of methods table}).
+By definition of barren plateau as discussed in Section \ref{Literature Review section}, we would expect the shrinking rate of the variace values to be \textit{exponential} (see Figure \ref{Variance Shrinking demo}) if the initial parameter has landed in a barren plateau.
 We keep track of the variance and the number of qubits to see if the variance is shrinking at this rate.
-The result of the first phase is the shringking rates of the same ansatz applied with different treatments.
+The result of the first phase is to determine which combinations of the ansatz and the BP treatment result in the shrinking rate of the loss function gradients.
 
 \textbf{In the second phase, we implement the QNNs and measure their performances}.
 With the ansatzes developed from the first step, we can implement the QNN models to test their performances.

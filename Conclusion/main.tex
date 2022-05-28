@@ -3,12 +3,18 @@ We have seen the effect of gradient concentrates to zero, namely \emph{barren pl
 The causes of this phenomenon are related to the depth of the circuit, the width of the qubit registry to measure, the and randomly initialised parameters.
 This vanishing gradients phenomenon makes it difficult for the gradient-based optimisation algorithms to find the optimal solution (i.e. the global minimum).
 
+\almarginpar{So which method so far was better? What happened to QNNs and its experiments?}
 There are multiple techniques to mitigate the issue \cite{cerezoCostFunctionDependent2021,skolikLayerwiseLearningQuantum2021,grantInitializationStrategyAddressing2019}.
 One approach is to address the structure of the parameterised circuit by utilising a local cost function and limitation in circuit depth.
 Another possibility is to pre-train the initial parameters such that the starting point would not land on a plateau.
 We design a series of exploratory experiments with QNN models to answer the research question.
 
 In the allowed time span of T1-2021, we have delivered a \emph{minimum viable artefact} to construct the ansatz component of the QNN model.
-We also implement two methods as reviewed and compare their effectiveness by analysing their gradient decay rates.
+We also implement two methods and compare their effectiveness by analysing their gradient decay rates.
+The results indicates that unrestricted configuration leads to exponential decay in the gradient variance for each qubit added to the ansatzes.
+On the other hand, the local cost function in combination with restricted depth can sustain ansatzes gradient variance for higher qubit count.
+Therefore the trainability of gradient-based algorithm on the two ansatzes would be better compared to the ones without any restriction.
+
+
 Compared to the expected artefact, we are still missing the last two methods, a problem so that the QNN models can be compared with each other, and most importantly, the results from the actual quantum devices  for further detail.
 We will cover these issues in further studies.

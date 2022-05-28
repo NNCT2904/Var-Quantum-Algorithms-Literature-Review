@@ -4,17 +4,17 @@ As has been established above, the main causes of the barren plateaus phenomenon
 Consequently, we will identify characteristics of each method based on how they address these factors.
 Table \ref{quick comparison of methods} provides the methods comparison in a concise form.
 
-There are two distinct approaches in dealing with the ansatz depth, either setting the bounds \cite{cerezoCostFunctionDependent2021} or allowing unlimited depth \cite{skolikLayerwiseLearningQuantum2021, grantInitializationStrategyAddressing2019}.
+There are two distinct approaches to dealing with the ansatz depth, either setting the bounds \cite{cerezoCostFunctionDependent2021} or allowing unlimited depth \cite{skolikLayerwiseLearningQuantum2021, grantInitializationStrategyAddressing2019}.
 The first approach is studied by Cerezo et al. \cite{cerezoCostFunctionDependent2021}.
 The authors discovered that the gradient vanishes at different rate depends on the circuit depth, so they define the bounds on the circuit depth such that the cost function landscape can maintain its slope.
 We have two implementations of the second approach, they both have the unlimited ansatz depth but different in the construction procedure.
 Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} construct the ansatz by adding consecutive layers until there is no improvement in training efficiency.
 On the other hand, Grant et al. \cite{grantInitializationStrategyAddressing2019} train the circuit without altering any properties of the ansatz.
 
-There are two techniques to dealing with cost function.
-The global cost function compares the states of all qubits used in the ansatz, this cost function is widely used in QNN development.
+There are two main techniques developed to deal with the cost function.
+The first \emph{global cost function} compares the states of all qubits used in the ansatz, this cost function is widely used in QNN development.
 Skolik et al. and Grant et al. also adopted this cost function in their studies.
-The local cost function compares the states of some qubits used in the ansatz, this cost function is studied by Cerezo et al. \cite{cerezoCostFunctionDependent2021} in combination with the depth-bounded ansatz.
+The second technique \emph{local cost function} compares the states of some qubits used in the ansatz, this cost function is studied by Cerezo et al. \cite{cerezoCostFunctionDependent2021} in combination with the depth-bounded ansatz.
 
 The initial parameters can be either randomised, or predefined.
 As the gradient is calculated with those parameters, randomised parameters can land into a barren plateaus.
@@ -45,6 +45,6 @@ Finally, it is worth mentioning that Quantum Convolutional Neural Networks (QCNN
         \raggedright\emph{Effect to Barren Plateaus} & Eliminated                                     & Avoided                  & Avoided                     & Eliminated    \\
         \hline
     \end{tabular}
-    \caption{A compact comparison of the reviewed methods.}
+    \caption{A concise comparison of the reviewed methods.}
     \label{quick comparison of methods}
 \end{table}
