@@ -5,7 +5,7 @@ We implement the process with an experiment of two phases:
 \textbf{In the first phase, we reproduce the barren plateaus phenomenon.}
 We use Qiskit \cite{Qiskit} to construct the ansatzes.
 For each ansatz, we implement and apply four different methods (see Figure \ref{Research Activities Figure} and Table \ref{implementation of methods table}).
-By definition of barren plateau as discussed in Section \ref{Literature Review section}, we would expect the shrinking rate of the variace values to be \textit{exponential} (see Figure \ref{Variance Shrinking demo}) if the initial parameter has landed in a barren plateau.
+By definition of barren plateau as discussed in Section \ref{Literature Review section}, we would expect the shrinking rate of the variance values to be \textit{exponential} (see Figure \ref{Variance Shrinking demo}) if the initial parameter has landed in a barren plateau.
 We keep track of the variance and the number of qubits to see if the variance is shrinking at this rate.
 The result of the first phase is to determine which combinations of the ansatz and the BP treatment result in the shrinking rate of the loss function gradients.
 
