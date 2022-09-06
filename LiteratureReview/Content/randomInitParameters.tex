@@ -1,15 +1,15 @@
 \subsection{Addressing Random Initialisation Parameters}
 
-\subsubsection{Layerwise learning}
-The algorithm developed by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} starts with training a shallow circuit to reach its best possible performance. Then repeatedly, the algorithm extends the circuit partially instantiating it with the optimum parameters from the previous step. 
+\subsubsection{Layerwise Learning}
+The algorithm developed by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} starts with training a shallow circuit to reach its best possible performance. Then repeatedly, the algorithm extends the circuit partially instantiating it with the optimum parameters from the previous step.
 Note that in the subsequent optimisation only the parameters in the circuit extension are allowed to vary, while all the previous parameters become frozen.
 Thus, the number of parameters used in each optimisation step is small and the changes are contained within shallow sub-circuits only. Such a process ensures creation of large gradients, which minimises the chance of producing barren plateaus.
 
 
-\subsubsection{Identity blocks}
+\subsubsection{Identity Blocks} \label{Sec: Identity blocks}
 
-Grant et al. \cite{grantInitializationStrategyAddressing2019} proposed random initialisation of variational circuit parameters so that the early training steps are unlikely to start on a plateau region. 
-The idea is to divide a large parameterised circuit into blocks and initialise each block separately, with the aim to produce a fixed unitary matrix, i.e., an identity operation. 
+Grant et al. \cite{grantInitializationStrategyAddressing2019} proposed random initialisation of variational circuit parameters so that the early training steps are unlikely to start on a plateau region.
+The idea is to divide a large parameterised circuit into blocks and initialise each block separately, with the aim to produce a fixed unitary matrix, i.e., an identity operation.
 The method is as follows: partition the circuit into $M$ blocks of depth $L$; for each block, initiate some parameters with random values, and fix the remaining parameters in a way that results in a fixed unitary matrix, i.e., invert the first part so that each block implements an identity operation.
 
 For any $m = 1, \cdots, M$, the parameters $\theta$, the block is presented as:
@@ -32,24 +32,24 @@ resulting identity blocks for the circuit (see Figure \ref{identity block}):
     = I.
 \end{equation}
 
-This initialisation strategy does not guarantee the absence of barren plateaus at the end of the process. 
+This initialisation strategy does not guarantee the absence of barren plateaus at the end of the process.
 However, it ensures generation of very few zero gradients, thus resulting in more efficient training of parameterised circuits.
 
-\begin{figure} 
+\begin{figure}
     \centerline{
-        \Qcircuit @C=1em @R=0em {
-        & \multigate{4}{U_l(\theta_{l,1}^m)}    & \multigate{4}{U_l(\theta_{l,2}^m)}    & \qw \\
-        & \ghost{U_l(\theta_{l,1}^m)}           & \ghost{U_l(\theta_{l,2}^m)}           & \qw \\
-        & \ghost{U_l(\theta_{l,1}^m)}           & \ghost{U_l(\theta_{l,2}^m)}           & \qw \\
-        & \ghost{U_l(\theta_{l,1}^m)}           & \ghost{U_l(\theta_{l,2}^m)}           & \qw \\
-        & \ghost{U_l(\theta_{l,1}^m)}           & \ghost{U_l(\theta_{l,2}^m)}           & \qw \\
-        {\gategroup{1}{2}{5}{3}{.4em}{--}}\\
-        }
+    \Qcircuit @C=1em @R=0em {
+    & \multigate{4}{U_l(\theta_{l,1}^m)}    & \multigate{4}{U_l(\theta_{l,2}^m)}    & \qw \\
+    & \ghost{U_l(\theta_{l,1}^m)}           & \ghost{U_l(\theta_{l,2}^m)}           & \qw \\
+    & \ghost{U_l(\theta_{l,1}^m)}           & \ghost{U_l(\theta_{l,2}^m)}           & \qw \\
+    & \ghost{U_l(\theta_{l,1}^m)}           & \ghost{U_l(\theta_{l,2}^m)}           & \qw \\
+    & \ghost{U_l(\theta_{l,1}^m)}           & \ghost{U_l(\theta_{l,2}^m)}           & \qw \\
+    {\gategroup{1}{2}{5}{3}{.4em}{--}}\\
+    }
     }
     \centerline{Identity block}
     \caption{
         An example of an Identity block.
-        The initial parameters $\theta_{l,1}$ for the $U_l(\theta_{l,1})$ can be chosen at random, 
+        The initial parameters $\theta_{l,1}$ for the $U_l(\theta_{l,1})$ can be chosen at random,
         while the values $\theta_{l,2}$ for $U_l(U_l(\theta_{l,1}))$ are fixed such that  $U_l(\theta_{l,1}) U_l(\theta_{l,1}) = I$.
     }\label{identity block}
 \end{figure}
