@@ -17,9 +17,9 @@ The classifier would produce the predicted labels for each testing datapoint.
 Then, we compare these predicted labels to the actual provided labels.
 
 We collect the optimizer history (loss function per iteration) by implement a callback function for Gradient Descent algorithm.
-The score $s$ of the classifier is calculate as the likeliness of the predicted labels array to the actual labels array:
+The score $s$ of the classifier is calculate as the percentage likeliness of the predicted labels array compared to the actual labels array:
 \begin{equation}
-    s = 1 - \text{MSE}
+    s = 100\% (1 - \text{MSE})
 \end{equation}
 for $\text{MSE}$ is the mean square error of the actual labels array $Z$ and predicted labels array $\hat{Z}$ of length $n$:
 \begin{equation}
