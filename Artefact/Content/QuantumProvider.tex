@@ -1,6 +1,6 @@
 \subsection{The Quantum Provider}
 For this experiment, we are using the quantum emulator provided by Qiskit.
 The QASM simulator is used to mimic an IBMQ device.
-Additionally, the QASM simulator, by default, has no noise, so we can expect the result to be noise-free.
-Note that the fault-free emulators do not reflect quantum devices precisely as the actual devices may suffer from various types of noise.
-However, considering the allowed time span for these experiments, we will use the QASM simulator for T1-2022 and leave the actual quantum devices for future works.
+Additionally, the QASM simulator, by default, has no noise, so we configure the emulator to receive  noise profile from the backend \emph{ibm\_perth}.
+Note that the emulators do not reflect quantum devices precisely as the actual devices, for example, execution time, decoherence time and queue time.
+However, considering the allowed time span for these experiments, we will use the QASM simulator for the experiment and leave the actual quantum devices for future works.
