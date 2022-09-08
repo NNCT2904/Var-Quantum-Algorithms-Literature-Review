@@ -21,11 +21,11 @@ While the construction process is similar to that of the method \#0, we follow t
 \subsubsection{Method \#3: Identity Blocks} \label{Sec: Method3}
 For this method, we create a custom ansatz as an identity block.
 As discussed in Section \ref{Sec: Identity blocks}, one identity block has two part, the first part can have its parameter randomised, while the second part invert the first part.
-Figure \ref{Fig: Identity Ansatz Sample} demonstrate an identity block with two qubits.
 For the first part of the identity block, we use the Real amplitudes with one repetition layer plus one rotation layer.
 The gates of this part has their parameters randomised.
 The second part of the identity block simply reverse the sequence of rotation layers and entanglement layers.
 The gates of this part has their parameters chosen as invert of the first layer.
+Figure \ref{Fig: Identity Ansatz Sample} demonstrate an identity block with two qubits.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{Artefact/Appendices/ansatz-identity.png}
