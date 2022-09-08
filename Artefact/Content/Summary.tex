@@ -1,4 +1,5 @@
 \subsection{Artefact Development Summary T1-2021}
+\almarginpar{Update this one}
 We have implemented one method of dealing with barren plateau by altering the ansatz's depth and cost function aspects.
 Due to the time constrain, these experiments are within the scope of a \textit{minimum viable artefact}.
 The experiments have produced the results as the slopes of the gradients for a number of qubits.
@@ -9,8 +10,8 @@ This artefact contributes the ansatz component and implementation of two methods
 
 Compared to the final artefact described in Section \ref{Data Collecting Section}, we expect to implement the rest of the three methods, namely \textit{layerwise learning} and \textit{identity blocks}.
 Moreover, one shortcoming of the current artefact version is that we have not yet implemented a problem for the QNN model to optimise.
-We have known that the method in the notebook can produce high variance values. 
-However, it does not mean the optimisation is going in the right direction, the model can still stick it in a local minimum, or the error landscape is random. 
+We have known that the method in the notebook can produce high variance values.
+However, it does not mean the optimisation is going in the right direction, the model can still stick it in a local minimum, or the error landscape is random.
 Thus, the experiments cannot verify if the model cannot converge to the global minimum - the answer.
 Moreover, these experiments are conducted in an emulated environment without noise, decoherence, or faulty gates.
 The actual quantum device will not have such characteristics.

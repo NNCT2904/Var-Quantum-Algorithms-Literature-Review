@@ -39,7 +39,7 @@ We discussed this phenomenon in Section \ref{Barren Plateaus section}.
         The variances of gradient from differences ansatzes in the four configurations.
         For each iteration, we increase the qubit and repetition count by 1, starting from 2 to 7.
         The variances vanish exponentially to the number of qubits.
-        For method\#1, we keep the repetition value fixed as 1.
+        For method \#1, we keep the repetition value fixed as 1.
     }
     \label{Plot ansatzes variance}
 \end{figure}
@@ -51,12 +51,11 @@ Figure \ref{Plot ansatzes variance}b shows the result of the experiment for loca
 We can see that the ansatz produced an unstable graph which mean the trainability of gradient-based optimization algorithms would not be consistent.
 For example, the variance value for 6 qubits is higher compared to 3, 4 or 5 qubits.
 
-To compare the effectiveness of the local cost function treatment, we plot the variance graph of above mention cases in Figure \ref{Plot variance default and Local Cost} and the Table \ref{Experiment summary table}.
+To compare the effectiveness of the different treatments, we plot the variance graph of above mention cases in Figure \ref{Fig: Plot Variances} and the Table \ref{Experiment summary table}.
 The results have shown the differences in the decay rates of different ansatzes and methods.
 Overall, the ansatzes with the local cost function and restriction on circuit depth have their variance values remaining higher and being more consistent for higher qubit count.
 The ansatz with this treatment, therefore would not possess a barren plateau.
-On the other hand, the values for the default cases shrink exponentially and eventually, the near-zero gradient around the initial point will expand to a large plateau.
-
+On the other hand, the values for the the other cases shrink exponentially and eventually, the near-zero gradient around the initial point will expand to a large plateau.
 
 
 \begin{figure}
@@ -65,8 +64,28 @@ On the other hand, the values for the default cases shrink exponentially and eve
         Comparison of the variance values of the ansatzes with four treatments applies.
         The ansatz with local cost function and fixed depth has its variance decay at a significantly smaller rate (-0.06) compared to the rest.
     }
-    \label{Plot variance default and Local Cost}
+    \label{Fig: Plot Variances}
 \end{figure}
 
 
 \subsubsection{Classification Results}
+We summarise the training result as the Figure \ref{Fig: Plot Loss} and Table \ref{Experiment summary table}.
+
+We can see two distinct values where the training of four
+
+\begin{figure}
+    \begin{subfigure}{\textwidth}
+        \includegraphics[width=\textwidth]{Artefact/Appendices/loss.png}
+        \centerline{a) Loss funtion values of four classifiers in 300 steps}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \includegraphics[width=\textwidth]{Artefact/Appendices/accuracy.png}
+        \centerline{b) Accuracy score of four classifiers}
+    \end{subfigure}
+
+    \caption{
+        Comparison of the loss values per iteration of gradient descent for the ansatzes with four treatments applies.
+        We measure the accuracy of prediction with a set of 20 testing datapoint
+    }
+    \label{Fig: Plot Loss}
+\end{figure}
