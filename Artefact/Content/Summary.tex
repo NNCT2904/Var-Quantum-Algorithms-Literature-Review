@@ -1,18 +1,25 @@
-\subsection{Artefact Development Summary T1-2021}
+\subsection{Artefact Development Summary}
 \almarginpar{Update this one}
-We have implemented one method of dealing with barren plateau by altering the ansatz's depth and cost function aspects.
-Due to the time constrain, these experiments are within the scope of a \textit{minimum viable artefact}.
-The experiments have produced the results as the slopes of the gradients for a number of qubits.
-The results indicate that the variances of the gradient can be stable if we set a limit on the length of the circuit and the cost function.
+We have implemented three methods of dealing with barren plateau by altering the ansatz's depth, cost function, and initial parameters aspects.
+Due to the time constrain, these experiments are executed with a quantum emulator.
+The experiments have produced the results as the slopes of the gradients for a number of qubits, as well as the performance of ansatzes in neural network training.
+The results indicate that the variances of the gradient can be stable if we set a limit on the length of the circuit and the cost function, and the training performance can increase if we carefuly select the initial parameters.
 
-With this artefact, we have partly addressed the research design in Section \ref{Research Design section}, by exploring different types of ansatzes and comparing their gradient decay rate with two methods.
-This artefact contributes the ansatz component and implementation of two methods to the final artefact.
-
-Compared to the final artefact described in Section \ref{Data Collecting Section}, we expect to implement the rest of the three methods, namely \textit{layerwise learning} and \textit{identity blocks}.
-Moreover, one shortcoming of the current artefact version is that we have not yet implemented a problem for the QNN model to optimise.
-We have known that the method in the notebook can produce high variance values.
+With this artefact, we have addressed the research design in Section \ref{Research Design section}.
+We have implemented the three methods, namely \textit{local cost function, shallow ansatz depth}, \textit{layerwise learning} and \textit{identity blocks}.
+We have known that the method in the notebook can produce high variance values in the first phase of the experiment.
 However, it does not mean the optimisation is going in the right direction, the model can still stick it in a local minimum, or the error landscape is random.
-Thus, the experiments cannot verify if the model cannot converge to the global minimum - the answer.
-Moreover, these experiments are conducted in an emulated environment without noise, decoherence, or faulty gates.
-The actual quantum device will not have such characteristics.
-Thus, this experiment is not reflecting the real-life situation.
+To verify the performance of these methods, in the second phase, we have implemented a variational quantum neural network to solve a classification problem with a standard dataset.
+
+The experiments have verified that the four models can converge to their minimums - the answers.
+Moreover, these experiments are conducted in an emulated environment with noise model from a quantum hardware.
+Thus, this experiment can reflect the real-life situation to some extent.
+
+We use the method 0 as the base-line for comparison.
+The method 1 has proven not to possess barren plateau and thus guarantee the trainability.
+However, by restricting the ansatz depth, we may have limited the model capacity and learnability of the network, this also applies to classical machine learning \cite{ianDeepLearningAdaptive2016}.
+The method 1 is suitable if the dataset represents a simple function, as more complex function would require higher model capacity, thus higher layer count and qubit count.
+The method 2 can achieve the highest result without limitation on layer count.
+However, it require pre-training for each layer epoch of the ansatz, as a result, it would take time to obtain the optimal parameters.
+Thus method 2 is suitable for designing ansatz of higher layer count to learn more complex functions.
+

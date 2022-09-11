@@ -3,37 +3,16 @@
 \todo{Change this section to include T2 works}
 In this section, we describe the progress on the artefact development, the detail and context for the experiments are given as Section \ref{Research Design section}.
 We address the process (see Section \ref{Research Activities section}) by implementing a series of exploratory experiments.
-The minimum viable artefact is a Python notebook file containing Python scripts to run the experiment.
+The artefact is a Python notebook file containing Python scripts to run the experiment.
 We run the notebook with IBM Quantum Experience, as it provides online services for running and simulating quantum hardware.
 We use the hardware noise sample from the device \emph{ibm\_perth} to configure our simulator to achieve a most accurate to that of a real quantum neural network training scenario.
 
 We have chosen the ansatz \emph{Real Amplitude} and a custom ansatz (see Section \ref{Sec: Creating Ansatzes}) as the objects of study.
 The four treatments applied to these ansatzes are further discussed in Section \ref{Sec: Treatments for ansatzes} (see Table \ref{implementation of methods table} and Figure \ref{Research Activities Figure}).
 \almarginpar{Need to update this table, or make another one to include the classification problem}
-We summarise the experiment results of the first phase from Section \ref{Result section} in Table \ref{Experiment summary table}.
+We summarise the experiment results from Section \ref{Result section} in Table \ref{Tab: Experiment Phase 1 Res} and \ref{Tab: Experiment Phase 2 Res}.
 
-\begin{table}
-    \centering
-    \begin{tabular}{|| l l p{2.2cm} p{1.7cm} ||}
-        \hline
-        \textbf{Ansatz} & \textbf{Method}                         & \textbf{Variance exponential fit} & \textbf{Accuracy score} \\[0.5ex]
-        \hline \hline
-        Real Amplitude  & \#0: No restriction                     & -0.63                             & 72.5\%                  \\
-        \hline
-        Real Amplitude  & \#1: Local Cost function, shallow depth & -0.06                             & 80.0\%                  \\
-        \hline
-        Real Amplitude  & \#2: Layerwise Learning                 & -0.57                             & 92.5\%                  \\
-        \hline
-        Customised      & \#3: Identity Blocks                    & -0.60                             & 90.0\%                  \\
-        \hline
-    \end{tabular}
-    \caption{
-        The experiments that we implemented in the Python Notebook. We test the same ansatzes with different methods, we record the results as the vanishing rate of gradient when the number of qubits increased.
-        The differences between the \emph{fit} values are small.
-        However, consider the unit measure is \emph{exponential} (i.e. $10^{-1}, 10^{-2}$) the growth or decay rates can be significant.
-    }
-    \label{Experiment summary table}
-\end{table}
+
 
 \input{Artefact/Content/QuantumProvider.tex}
 

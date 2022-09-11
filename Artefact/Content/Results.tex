@@ -1,7 +1,31 @@
 \subsection{Results and Analysis} \label{Result section}
 \todo{This section needs update.}
 \subsubsection{Sampling Gradients results}
-Table \ref{Experiment summary table} states all the combinations of ansatzes and methods.
+\begin{table}
+    \centering
+    \begin{tabular}{|| l l l ||}
+        \hline
+        \textbf{Ansatz} & \textbf{Method}                         & \textbf{Variance exponential fit} \\[0.5ex]
+        \hline \hline
+        Real Amplitude  & \#0: No restriction                     & -0.63                             \\
+        \hline
+        Real Amplitude  & \#1: Local Cost function, shallow depth & -0.06                             \\
+        \hline
+        Real Amplitude  & \#2: Layerwise Learning                 & -0.57                             \\
+        \hline
+        Customised      & \#3: Identity Blocks                    & -0.60                             \\
+        \hline
+    \end{tabular}
+    \caption{
+        The phase one of the experiments that we implemented in the Python Notebook.
+        We test the same ansatzes with different methods, we record the results as the vanishing rate of gradient when the number of qubits increased.
+        The differences between the \emph{fit} values are small.
+        However, consider the unit measure is \emph{exponential} (i.e. $10^{-1}, 10^{-2}$) the growth or decay rates can be significant.
+    }
+    \label{Tab: Experiment Phase 1 Res}
+\end{table}
+
+Table \ref{Tab: Experiment Phase 1 Res} states all the combinations of ansatzes and methods.
 
 The ansatz gradient variances decay as expected for the unrestricted setting.
 The decay rate is exponentially fitted with the rate of -0.63.
@@ -51,7 +75,7 @@ Figure \ref{Plot ansatzes variance}b shows the result of the experiment for loca
 We can see that the ansatz produced an unstable graph which mean the trainability of gradient-based optimization algorithms would not be consistent.
 For example, the variance value for 6 qubits is higher compared to 3, 4 or 5 qubits.
 
-To compare the effectiveness of the different treatments, we plot the variance graph of above mention cases in Figure \ref{Fig: Plot Variances} and the Table \ref{Experiment summary table}.
+To compare the effectiveness of the different treatments, we plot the variance graph of above mention cases in Figure \ref{Fig: Plot Variances} and the Table \ref{Tab: Experiment Phase 1 Res}.
 The results have shown the differences in the decay rates of different ansatzes and methods.
 Overall, the ansatzes with the local cost function and restriction on circuit depth have their variance values remaining higher and being more consistent for higher qubit count.
 The ansatz with this treatment, therefore would not possess a barren plateau.
@@ -69,18 +93,38 @@ On the other hand, the values for the the other cases shrink exponentially and e
 
 
 \subsubsection{Classification Results}
-We summarise the training result as the Figure \ref{Fig: Plot Loss and Accuracy} and Table \ref{Experiment summary table}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{|| l l l l l ||}
+        \hline
+        \textbf{Method} & \textbf{Circuit depth} & \textbf{Parameters count} & \textbf{Minimum loss} & \textbf{Score} \\
+        \hline \hline
+        \#0             & 15                     & 16                        & 0.57                  & 72.50\%        \\
+        \#1             & 5                      & 6                         & 0.57                  & 80\%           \\
+        \#2             & 15                     & 16                        & 0.39                  & 92.5\%         \\
+        \#3             & 18                     & 24                        & 0.39                  & 90\%           \\
+        \hline
+    \end{tabular}
+    \caption{
+        The result as recorded from the phase two of the experiment.
+        We use the ansatzes from four methods as the neural network to solve a classification problem.
+    }
+    \label{Tab: Experiment Phase 2 Res}
+\end{table}
+
+
+% We summarise the training result as the Figure \ref{Fig: Plot Loss and Accuracy} and Table \ref{Tab: Experiment Phase 1 Res}.
 
 The method 0 and 1 loss functions both converged at value 0.57.
 However, we can see that the method 1 achieved a higher accuracy in the classification test, which is 80\% compared to method 1 with 72.5\%.
 
-The method 2 and 3 can converge to lower loss values at 0.39.
+The method 2 and 3 can converge to a lower loss value at 0.39.
 We can see that with the optimised initial parameters, the loss function can converge faster compared to identity blocks initialisation.
-However, it would take more time to obtain the optimal initial parameter.
-It is because of training quantum circuits to obtain parameters would take more time than just generate an array of parameters (see Section \ref{Sec: Method2} and \ref{Sec: Method3}).
+However, it would take more time to obtain the optimal initial parameter due to the training process(see Section \ref{Sec: Method2}), while it is much faster to generate an parameters array for ansatz in Section \ref{Sec: Method3}.
 The two methods also have their accuracy close to each other, score at 92\% for method 2 and 90\% for method 3.
 
-To compare the effectiveness of different approaches, we plot the loss per iteration graph of above mention cases in Figure \ref{Fig: Plot Loss and Accuracy} and Table \ref{Experiment summary table}
+To compare the effectiveness of different approaches, we plot the loss per iteration graph of above mention cases in Figure \ref{Fig: Plot Loss and Accuracy} and Table \ref{Tab: Experiment Phase 2 Res}
 Overall, the methods that involve configurations on the initial parameters can achieve lower loss in training and higher score in the classification test.
 
 \begin{figure}
