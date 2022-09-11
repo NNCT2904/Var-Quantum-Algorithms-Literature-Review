@@ -113,16 +113,17 @@ On the other hand, the values for the the other cases shrink exponentially and e
     \label{Tab: Experiment Phase 2 Res}
 \end{table}
 
-
-% We summarise the training result as the Figure \ref{Fig: Plot Loss and Accuracy} and Table \ref{Tab: Experiment Phase 1 Res}.
-
 The method 0 and 1 loss functions both converged at value 0.57.
 However, we can see that the method 1 achieved a higher accuracy in the classification test, which is 80\% compared to method 1 with 72.5\%.
+However, by restricting the ansatz depth, we may have limited the model capacity and learnability of the network, this also applies to classical machine learning \cite{ianDeepLearningAdaptive2016}.
+The method 1 is thus suitable if the dataset represents a simple function, as more complex function would require higher model capacity, thus higher layer count and qubit count.
 
-The method 2 and 3 can converge to a lower loss value at 0.39.
+The method 3 can also achieve similar loss value as method 2 (0.39) with a bit lower in accuracy.
 We can see that with the optimised initial parameters, the loss function can converge faster compared to identity blocks initialisation.
-However, it would take more time to obtain the optimal initial parameter due to the training process(see Section \ref{Sec: Method2}), while it is much faster to generate an parameters array for ansatz in Section \ref{Sec: Method3}.
+However, it would take more time to obtain the optimal initial parameter due to the training process (see Section \ref{Sec: Method2}), while it is much faster to generate an parameters array for ansatz in Section \ref{Sec: Method3}.
 The two methods also have their accuracy close to each other, score at 92\% for method 2 and 90\% for method 3.
+Thus method 2 and 3 is thus suitable for designing ansatz of higher layer count to learn more complex functions.
+
 
 To compare the effectiveness of different approaches, we plot the loss per iteration graph of above mention cases in Figure \ref{Fig: Plot Loss and Accuracy} and Table \ref{Tab: Experiment Phase 2 Res}
 Overall, the methods that involve configurations on the initial parameters can achieve lower loss in training and higher score in the classification test.

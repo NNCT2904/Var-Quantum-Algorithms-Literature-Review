@@ -15,11 +15,3 @@ The experiments have verified that the four models can converge to their minimum
 Moreover, these experiments are conducted in an emulated environment with noise model from a quantum hardware.
 Thus, this experiment can reflect the real-life situation to some extent.
 
-We use the method 0 as the base-line for comparison.
-The method 1 has proven not to possess barren plateau and thus guarantee the trainability.
-However, by restricting the ansatz depth, we may have limited the model capacity and learnability of the network, this also applies to classical machine learning \cite{ianDeepLearningAdaptive2016}.
-The method 1 is suitable if the dataset represents a simple function, as more complex function would require higher model capacity, thus higher layer count and qubit count.
-The method 2 can achieve the highest result without limitation on layer count.
-However, it require pre-training for each layer epoch of the ansatz, as a result, it would take time to obtain the optimal parameters.
-Thus method 2 is suitable for designing ansatz of higher layer count to learn more complex functions.
-
