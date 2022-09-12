@@ -63,13 +63,13 @@ We discussed this phenomenon in Section \ref{Barren Plateaus section}.
         The variances of gradient from differences ansatzes in the four configurations.
         For each iteration, we increase the qubit and repetition count by 1, starting from 2 to 7.
         The variances vanish exponentially to the number of qubits.
-        For method \#1, we keep the repetition value fixed as 1.
+        For the shallow depth - cost function, we keep the repetition value fixed as 1 and only measure two qubits.
     }
     \label{Plot ansatzes variance}
 \end{figure}
 
 In contrast, for the case of Local Cost Function and Shallow circuit, we observe that the variances of the ansatz' gradient did not vanish when we attempted to increase the number of qubits.
-The slope of the ansat in this case decay exponentially fit with -0.06.
+The slope of the ansatz in this case decay exponentially fit with -0.06.
 This implies that the cost function landscape can sustain the slope.
 Figure \ref{Plot ansatzes variance}b shows the result of the experiment for local cost function and shallow circuit.
 We can see that the ansatz produced an unstable graph which mean the trainability of gradient-based optimization algorithms would not be consistent.
@@ -79,7 +79,7 @@ To compare the effectiveness of the different treatments, we plot the variance g
 The results have shown the differences in the decay rates of different ansatzes and methods.
 Overall, the ansatzes with the local cost function and restriction on circuit depth have their variance values remaining higher and being more consistent for higher qubit count.
 The ansatz with this treatment, therefore would not possess a barren plateau.
-On the other hand, the values for the the other cases shrink exponentially and eventually, the near-zero gradient around the initial point will expand to a large plateau.
+On the other hand, the values for the other cases shrink exponentially and eventually, the near-zero gradient around the initial point will expand to a large plateau.
 
 
 \begin{figure}
@@ -96,14 +96,14 @@ On the other hand, the values for the the other cases shrink exponentially and e
 
 \begin{table}
     \centering
-    \begin{tabular}{|| l l l l l ||}
+    \begin{tabular}{|| p{4cm} p{2cm} p{2cm} p{2cm} p{2cm} ||}
         \hline
         \textbf{Method} & \textbf{Circuit depth} & \textbf{Parameters count} & \textbf{Minimum loss} & \textbf{Score} \\
         \hline \hline
-        \#0             & 15                     & 16                        & 0.57                  & 72.50\%        \\
-        \#1             & 5                      & 6                         & 0.57                  & 80\%           \\
-        \#2             & 15                     & 16                        & 0.39                  & 92.5\%         \\
-        \#3             & 18                     & 24                        & 0.39                  & 90\%           \\
+        0: No Restriction             & 15                     & 16                        & 0.57                  & 72.50\%        \\
+        1: Local Cost Function - Shallow circuit             & 5                      & 6                         & 0.57                  & 80\%           \\
+        2: Layerwise Learning             & 15                     & 16                        & 0.39                  & 92.5\%         \\
+        3: Identity Blocks             & 18                     & 24                        & 0.39                  & 90\%           \\
         \hline
     \end{tabular}
     \caption{
@@ -113,25 +113,25 @@ On the other hand, the values for the the other cases shrink exponentially and e
     \label{Tab: Experiment Phase 2 Res}
 \end{table}
 
-The method 0 and 1 loss functions both converged at value 0.57.
-However, we can see that the method 1 achieved a higher accuracy in the classification test, which is 80\% compared to method 1 with 72.5\%.
-However, by restricting the ansatz depth, we may have limited the model capacity and learnability of the network, this also applies to classical machine learning \cite{ianDeepLearningAdaptive2016}.
-The method 1 is thus suitable if the dataset represents a simple function, as more complex function would require higher model capacity, thus higher layer count and qubit count.
+The unrestricted and local cost function - shallow depth ansatzes loss functions both converged at a value of 0.57.
+However, we can see that the local cost function and shallow circuit ansatz achieved higher accuracy in the classification test (at 80\% accuracy) than the unrestricted ansatz (at 72.5\% accuracy).
+However, by restricting the ansatz depth, we may have limited the model capacity, this also applies to classical machine learning \cite{ianDeepLearningAdaptive2016}.
+As more complex functions would require higher model capacity, thus higher layer count and qubit count, the local cost function - shallow depth method is suitable if the dataset represents a simple function.
 
-The method 3 can also achieve similar loss value as method 2 (0.39) with a bit lower in accuracy.
+The identity blocks can achieve a similar loss value as the layerwise learning method (0.39) with a bit lower accuracy.
 We can see that with the optimised initial parameters, the loss function can converge faster compared to identity blocks initialisation.
-However, it would take more time to obtain the optimal initial parameter due to the training process (see Section \ref{Sec: Method2}), while it is much faster to generate an parameters array for ansatz in Section \ref{Sec: Method3}.
-The two methods also have their accuracy close to each other, score at 92\% for method 2 and 90\% for method 3.
-Thus method 2 and 3 is thus suitable for designing ansatz of higher layer count to learn more complex functions.
+However, it would take more time to obtain the optimal initial parameter due to the training process (see Section \ref{Sec: Method2}), while it is much faster to generate parameters for identity blocks in Section \ref{Sec: Method3}.
+The two methods also have their accuracy close to each other, scoring at 92\% for layerwise learning and 90\% for identity blocks.
+Thus they are suitable for designing ansatzes of higher layer count to learn more complex functions.
 
 
 To compare the effectiveness of different approaches, we plot the loss per iteration graph of above mention cases in Figure \ref{Fig: Plot Loss and Accuracy} and Table \ref{Tab: Experiment Phase 2 Res}
-Overall, the methods that involve configurations on the initial parameters can achieve lower loss in training and higher score in the classification test.
+Overall, the methods that involve configurations on the initial parameters can achieve lower loss in training and higher score on the classification test.
 
 \begin{figure}
     \begin{subfigure}{\textwidth}
         \includegraphics[width=\textwidth]{Artefact/Appendices/loss.png}
-        \centerline{a) Loss funtion values of four classifiers in 300 steps}
+        \centerline{a) Loss function values of four classifiers in 300 steps}
     \end{subfigure}
     \begin{subfigure}{\textwidth}
         \includegraphics[width=\textwidth]{Artefact/Appendices/accuracy.png}
@@ -140,7 +140,7 @@ Overall, the methods that involve configurations on the initial parameters can a
 
     \caption{
         Comparison of the loss values per iteration of gradient descent for the ansatzes with four treatments applies.
-        We measure the accuracy of prediction with a set of 20 testing datapoint.
+        We measure the accuracy of prediction with a set of 20 testing datapoints.
     }
     \label{Fig: Plot Loss and Accuracy}
 \end{figure}

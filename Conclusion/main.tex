@@ -1,6 +1,6 @@
 \section{Conclusion}
 We have seen the effect of gradient concentrates to zero, namely \emph{barren plateaus}.
-The causes of this phenomenon are related to the depth of the circuit, the width of the qubit registry to measure, the and randomly initialised parameters.
+The causes of this phenomenon are related to the depth of the circuit, the width of the qubit registry to measure, and the randomly initialised parameters.
 This vanishing gradients phenomenon makes it difficult for the gradient-based optimisation algorithms to find the optimal solution (i.e. the global minimum).
 
 There are multiple techniques to mitigate the issue \cite{cerezoCostFunctionDependent2021, skolikLayerwiseLearningQuantum2021, grantInitializationStrategyAddressing2019}.
@@ -10,9 +10,9 @@ We designed a series of exploratory experiments with QNN models to answer the re
 
 We have delivered a comparison of methods to construct the ansatz component of the QNN model.
 We compared their effectiveness by analysing their gradient decay rates, and their performances by solving a classification problem.
-The results indicates that unrestricted configuration leads to exponential decay in the gradient variance for each qubit added to the ansatzes.
-On the other hand, the local cost function in combination with restricted depth can sustain ansatzes gradient variance for higher qubit count, result in better accuracy in the classification test.
-Furthermore, in the classification problem, the initial parameter factor had greatly improved the models accuracy, with some tradeoff between time and quality.
+The results indicate that unrestricted configuration leads to exponential decay in the gradient variance for each qubit added to the ansatzes.
+On the other hand, the local cost function in combination with restricted depth can sustain ansatzes gradient variance for higher qubit count, resulting in better accuracy in the classification test.
+Furthermore, in the classification problem, the initial parameter factor greatly improved the models' accuracy, with some tradeoff between time and quality.
 
 
 

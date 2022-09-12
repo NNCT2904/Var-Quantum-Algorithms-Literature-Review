@@ -15,27 +15,27 @@ The shallow ansatz is the same as the default.
 However, the repetition number is kept as a constant number.
 
 \subsubsection{Method \#2: Layerwise Learning} \label{Sec: Method2}
-The ansatses will have unrestricted growth of circuit depth, and a measurement gate for each qubit at the end as the global cost function.
-While the construction process is similar to that of the method \#0, we follow the \emph{Layerwise learning} algorithm as described in Section \ref{Sec: Layerwise Learning}.
+The ansatzes will have unrestricted growth of circuit depth, and a measurement gate for each qubit at the end as the global cost function.
+While the construction process is similar to that of the unrestricted ansatz (see Section \ref{Sec: Method0}), we follow the \emph{Layerwise learning} algorithm as described in Section \ref{Sec: Layerwise Learning}.
 We implement the algorithm as following steps to obtain the ansatz and obtain the optimal initial parameters:
 \begin{enumerate}
     \item Make an ansatz with one repetition, all parameters are initially zeroes,
     \item Train the new ansatz layer with 50 steps,
-    \item Add another repetition to the ansatz and initialize the parameter as zeroes,
+    \item Add another repetition to the ansatz and initialise the parameter as zeroes,
     \item Repeat from step 2, until we obtain the desired ansatz length.
 \end{enumerate}
 
 \subsubsection{Method \#3: Identity Blocks} \label{Sec: Method3}
-For this method, we create a custom ansatz as an identity block.
+For this method, we create a custom ansatz that behaves as an identity block.
 As discussed in Section \ref{Sec: Identity blocks}, one identity block has two part, the first part can have its parameter randomised, while the second part invert the first part.
-For the first part of the identity block, we use the Real amplitudes with one repetition layer plus one rotation layer.
+For the first part of the identity block, we use the Real amplitudes ansatz with one repetition layer plus one rotation layer.
 The gates of this part has their parameters randomised.
-The second part of the identity block simply reverse the sequence of rotation layers and entanglement layers.
+The second part of the identity block simply reverse the sequence of the first part rotation layers and entanglement layers.
 The gates of this part has their parameters chosen as invert of the first layer.
 Figure \ref{Fig: Identity Ansatz Sample} demonstrate an identity block with two qubits.
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{Artefact/Appendices/ansatz-identity.png}
+    \includegraphics[width=\linewidth]{Artefact/Appendices/ansatz-identity.png}
     \caption{An Identity Block of two qubits, the first part has four random parameters, the second part is an invert of the first part.}
     \label{Fig: Identity Ansatz Sample}
 \end{figure}
