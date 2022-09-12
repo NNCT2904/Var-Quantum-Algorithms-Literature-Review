@@ -1,12 +1,12 @@
-\section{Conclusion T1-2021}
+\section{Conclusion}
 We have seen the effect of gradient concentrates to zero, namely \emph{barren plateaus}.
 The causes of this phenomenon are related to the depth of the circuit, the width of the qubit registry to measure, the and randomly initialised parameters.
 This vanishing gradients phenomenon makes it difficult for the gradient-based optimisation algorithms to find the optimal solution (i.e. the global minimum).
 
 There are multiple techniques to mitigate the issue \cite{cerezoCostFunctionDependent2021, skolikLayerwiseLearningQuantum2021, grantInitializationStrategyAddressing2019}.
 One approach is to address the structure of the parameterised circuit by utilising a local cost function and limitation in circuit depth.
-Another possibility is to pre-train the initial parameters such that the starting point would not land on a plateau.
-We design a series of exploratory experiments with QNN models to answer the research question.
+Another possibility is to pre-train or generate the initial parameters such that the starting point would not land on a plateau.
+We designed a series of exploratory experiments with QNN models to answer the research question.
 
 We have delivered a comparison of methods to construct the ansatz component of the QNN model.
 We compared their effectiveness by analysing their gradient decay rates, and their performances by solving a classification problem.
