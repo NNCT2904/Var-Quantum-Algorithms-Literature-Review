@@ -36,7 +36,7 @@ This result indicates that the cost function landscape becomes flatter and flatt
 Eventually, the gradient would reach a near-zero value across a large plateau, which would be inefficient for any gradient-based optimization algorithm to train the model.
 We discussed this phenomenon in Section \ref{Barren Plateaus section}.
 
-
+\todo{changing the number to actual name}
 \begin{figure}
     \centering
     \begin{subfigure}[b]{.49\textwidth}
@@ -117,6 +117,8 @@ The unrestricted and local cost function - shallow depth ansatzes loss functions
 However, we can see that the local cost function and shallow circuit ansatz achieved higher accuracy in the classification test (at 80\% accuracy) than the unrestricted ansatz (at 72.5\% accuracy).
 However, by restricting the ansatz depth, we may have limited the model capacity, this also applies to classical machine learning \cite{ianDeepLearningAdaptive2016}.
 As more complex functions would require higher model capacity, thus higher layer count and qubit count, the local cost function - shallow depth method is suitable if the dataset represents a simple function.
+
+\todo{) may have BP, but 1 does not have cap enough to learn, so it converged but still very high}
 
 The identity blocks can achieve a similar loss value as the layerwise learning method (0.39) with a bit lower accuracy.
 We can see that with the optimised initial parameters, the loss function can converge faster compared to identity blocks initialisation.

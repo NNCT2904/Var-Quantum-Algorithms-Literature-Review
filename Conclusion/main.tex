@@ -9,10 +9,10 @@ Another possibility is to pre-train or generate the initial parameters such that
 We designed a series of exploratory experiments with QNN models to answer the research question.
 
 We have delivered a comparison of methods to construct the ansatz component of the QNN model.
-We compared their effectiveness by analysing their gradient decay rates, and their performances by solving a classification problem.
+We compared their effectiveness and performances by analysing their gradient decay rates and solving a classification problem.
 The results indicate that unrestricted configuration leads to exponential decay in the gradient variance for each qubit added to the ansatzes.
-On the other hand, the local cost function in combination with restricted depth can sustain ansatzes gradient variance for higher qubit count, resulting in better accuracy in the classification test.
-Furthermore, in the classification problem, the initial parameter factor greatly improved the models' accuracy, with some tradeoff between time and quality.
+On the other hand, the local cost function, combined with restricted depth, can sustain ansatzes gradient variance for higher qubit count, resulting in better accuracy in the classification test.
+Furthermore, the initial parameter factor significantly improved the models' accuracy in the classification problem, with some tradeoffs between time and quality.
 
 
 
