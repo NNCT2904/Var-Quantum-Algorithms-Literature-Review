@@ -1,7 +1,7 @@
 \subsection{Results and Analysis} \label{Result section}
 
 \subsubsection{Sampling Gradients results}
-\begin{table}
+\begin{table*}
     \centering
     \begin{tabular}{|| l l l ||}
         \hline
@@ -23,7 +23,7 @@
         However, consider the unit measure is \emph{exponential} (i.e. $10^{-1}, 10^{-2}$) the growth or decay rates can be significant.
     }
     \label{Tab: Experiment Phase 1 Res}
-\end{table}
+\end{table*}
 
 Table \ref{Tab: Experiment Phase 1 Res} states all the combinations of ansatzes and methods.
 
@@ -39,23 +39,23 @@ We discussed this phenomenon in Section \ref{Barren Plateaus section}.
 \todo{changing the number to actual name}
 \begin{figure}
     \centering
-    \begin{subfigure}[b]{.49\textwidth}
-        \includegraphics[width=\textwidth]{Artefact/Appendices/var0.png}
+    \begin{subfigure}[b]{.49\linewidth}
+        \includegraphics[width=\linewidth]{Artefact/Appendices/var0.png}
         \centerline{a) Method \#0 variances}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{.49\textwidth}
-        \includegraphics[width=\textwidth]{Artefact/Appendices/var1.png}
+    \begin{subfigure}[b]{.49\linewidth}
+        \includegraphics[width=\linewidth]{Artefact/Appendices/var1.png}
         \centerline{b) Method \#1 variances}
     \end{subfigure}
 
-    \begin{subfigure}[b]{.49\textwidth}
-        \includegraphics[width=\textwidth]{Artefact/Appendices/var2.png}
+    \begin{subfigure}[b]{.49\linewidth}
+        \includegraphics[width=\linewidth]{Artefact/Appendices/var2.png}
         \centerline{c) Method \#2 variances}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{.49\textwidth}
-        \includegraphics[width=\textwidth]{Artefact/Appendices/var3.png}
+    \begin{subfigure}[b]{.49\linewidth}
+        \includegraphics[width=\linewidth]{Artefact/Appendices/var3.png}
         \centerline{d) Method \#3 variances}
     \end{subfigure}
 
@@ -83,7 +83,7 @@ On the other hand, the values for the other cases shrink exponentially and event
 
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{Artefact/Appendices/variances.png}
+    \includegraphics[width=\linewidth]{Artefact/Appendices/variances.png}
     \caption{
         Comparison of the variance values of the ansatzes with four treatments applies.
         The ansatz with local cost function and fixed depth has its variance decay at a significantly smaller rate (-0.06) compared to the rest.
@@ -94,16 +94,16 @@ On the other hand, the values for the other cases shrink exponentially and event
 
 \subsubsection{Classification Results}
 
-\begin{table}
+\begin{table*}
     \centering
     \begin{tabular}{|| p{4cm} p{2cm} p{2cm} p{2cm} p{2cm} ||}
         \hline
-        \textbf{Method} & \textbf{Circuit depth} & \textbf{Parameters count} & \textbf{Minimum loss} & \textbf{Score} \\
+        \textbf{Method}                          & \textbf{Circuit depth} & \textbf{Parameters count} & \textbf{Minimum loss} & \textbf{Score} \\
         \hline \hline
-        0: No Restriction             & 15                     & 16                        & 0.57                  & 72.50\%        \\
-        1: Local Cost Function - Shallow circuit             & 5                      & 6                         & 0.57                  & 80\%           \\
-        2: Layerwise Learning             & 15                     & 16                        & 0.39                  & 92.5\%         \\
-        3: Identity Blocks             & 18                     & 24                        & 0.39                  & 90\%           \\
+        0: No Restriction                        & 15                     & 16                        & 0.57                  & 72.50\%        \\
+        1: Local Cost Function - Shallow circuit & 5                      & 6                         & 0.57                  & 80\%           \\
+        2: Layerwise Learning                    & 15                     & 16                        & 0.39                  & 92.5\%         \\
+        3: Identity Blocks                       & 18                     & 24                        & 0.39                  & 90\%           \\
         \hline
     \end{tabular}
     \caption{
@@ -111,7 +111,7 @@ On the other hand, the values for the other cases shrink exponentially and event
         We use the ansatzes from four methods as the neural network to solve a classification problem.
     }
     \label{Tab: Experiment Phase 2 Res}
-\end{table}
+\end{table*}
 
 The unrestricted and local cost function - shallow depth ansatzes loss functions both converged at a value of 0.57.
 However, we can see that the local cost function and shallow circuit ansatz achieved higher accuracy in the classification test (at 80\% accuracy) than the unrestricted ansatz (at 72.5\% accuracy).
@@ -131,12 +131,12 @@ To compare the effectiveness of different approaches, we plot the loss per itera
 Overall, the methods that involve configurations on the initial parameters can achieve lower loss in training and higher score on the classification test.
 
 \begin{figure}
-    \begin{subfigure}{\textwidth}
-        \includegraphics[width=\textwidth]{Artefact/Appendices/loss.png}
+    \begin{subfigure}{\linewidth}
+        \includegraphics[width=\linewidth]{Artefact/Appendices/loss.png}
         \centerline{a) Loss function values of four classifiers in 300 steps}
     \end{subfigure}
-    \begin{subfigure}{\textwidth}
-        \includegraphics[width=\textwidth]{Artefact/Appendices/accuracy.png}
+    \begin{subfigure}{\linewidth}
+        \includegraphics[width=\linewidth]{Artefact/Appendices/accuracy.png}
         \centerline{b) Accuracy score of four classifiers}
     \end{subfigure}
 
