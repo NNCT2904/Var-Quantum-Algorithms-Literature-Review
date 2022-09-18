@@ -41,29 +41,29 @@ We discussed this phenomenon in Section \ref{Barren Plateaus section}.
     \centering
     \begin{subfigure}[b]{.49\linewidth}
         \includegraphics[width=\linewidth]{Artefact/Appendices/var0.png}
-        \centerline{a) Method \#0 variances}
+        \centerline{0) Default method}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{.49\linewidth}
         \includegraphics[width=\linewidth]{Artefact/Appendices/var1.png}
-        \centerline{b) Method \#1 variances}
+        \centerline{1) Shallow circuit and local cost function}
     \end{subfigure}
 
     \begin{subfigure}[b]{.49\linewidth}
         \includegraphics[width=\linewidth]{Artefact/Appendices/var2.png}
-        \centerline{c) Method \#2 variances}
+        \centerline{2) Layerwise learning}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{.49\linewidth}
         \includegraphics[width=\linewidth]{Artefact/Appendices/var3.png}
-        \centerline{d) Method \#3 variances}
+        \centerline{3) Identity blocks}
     \end{subfigure}
 
     \caption{
         The variances of gradient from differences ansatzes in the four configurations.
         For each iteration, we increase the qubit and repetition count by 1, starting from 2 to 7.
         The variances vanish exponentially to the number of qubits.
-        For the shallow depth - cost function, we keep the repetition value fixed as 1 and only measure two qubits.
+        For the shallow circuit - local cost function, we keep the repetition value fixed as 1 and only measure two qubits.
     }
     \label{Plot ansatzes variance}
 \end{figure}
