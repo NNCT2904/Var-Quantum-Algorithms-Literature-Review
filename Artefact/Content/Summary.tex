@@ -1,18 +1,19 @@
 \subsection{Artefact Development Summary}
 
 We have implemented three methods of dealing with barren plateau by altering the ansatz's depth, cost function, and initial parameters aspects.
-Due to the time constraint, these experiments are executed with a quantum emulator.
 The experiments have produced the results as the slopes of the gradients for a number of qubits, as well as the performance of ansatzes in neural network training.
 The results indicate that the variances of the gradient can be stable if we set a limit on the length of the circuit and the cost function, and the training performance can increase if we carefully select the initial parameters.
 
 With this artefact, we have addressed the research design in Section \ref{Research Design section}.
 We have implemented the three methods, namely \textit{local cost function, shallow ansatz depth}, \textit{layerwise learning} and \textit{identity blocks}.
 We have compared the variances in the first phase of the experiment.
-However, a higher variance value does not mean the optimisation is going in the right direction, the model can still stick it in a local minimum, or the error landscape is random.
+We anticipate that a higher variance value does not mean the optimisation is going in the right direction, the model can still stick it in a local minimum, or the error landscape is random.
 To verify the performance of these methods, in the second phase, we implemented a variational quantum neural network to solve a classification problem with a standard dataset.
 
-The experiments have verified that the four models can converge to their minimums - the answers.
+The experiments have verified that the unrestricted configuration may have run into a barren plateau, while the others can converge to their minimums - the answers.
 Moreover, these experiments are conducted in an emulated environment with a noise model from \emph{ibm\_perth} backend.
 Thus, this experiment can reflect the real-life situation to some extent.
 
-\todo{add some future works}
+According to Figure \ref{Fig: Plot Variances}, the variance values of limited depth - cost function method at seven qubits configuration is significantly higher than the rest.
+At higher qubit configuration, the barren plateaus are also more likely to appear, and the performance of these methods under this phenomenon is worth investigating.
+Due to time constrain, we leave these experiments for future works, including ansatzes of higher qubit count, and a dataset of higher dimension for classification.
