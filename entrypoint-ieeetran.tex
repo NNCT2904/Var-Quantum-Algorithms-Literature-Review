@@ -1,5 +1,5 @@
-
-\documentclass[oneside,notitlepage,12pt]{article}
+% !TeX root = entrypoint-ieeetran.tex
+\documentclass[10pt,journal,compsoc]{IEEEtran}
 \pagestyle{plain}
 
 %\usepackage{polish}
@@ -52,24 +52,23 @@
 \usepackage{setspace}
 
 %PAGE SETUP
-\textheight=22cm
-\textwidth=15cm
+% \textheight=22cm
+% \textwidth=15cm
 %\hoffset=-1cm
-\hoffset=1cm
-\voffset=-2cm
+% \hoffset=1cms
 %\parindent=16pt
-\setlength{\marginparwidth}{4cm}
-\reversemarginpar
+% \setlength{\marginparwidth}{4cm}
+% \reversemarginpar
 
 % Notes in margins and switching them on and off (if needed)
-\newcommand{\almarginpar}[1]{\leavevmode\marginpar[\raggedleft\small\em{#1}]{}}
+% \newcommand{\almarginpar}[1]{\leavevmode\marginpar[\raggedleft\small\em{#1}]{}}
 %\newcommand{\almarginpar}[1]{}
 
 \providecommand{\ar}{\arrow}
 \newcommand{\Em}{\mathbb M}
 
 
-\frenchspacing
+% \frenchspacing
 
 \providecommand{\cal}{\mathcal}
 \renewcommand{\Bbb}{\mathbb}
@@ -275,12 +274,20 @@
 
 
 \begin{document}
+
+\title{Investigation of Barren Plateaus in\\ Quantum Neural Network Development}
+\author{Thanh~Nguyen, Supervised by: Prof, Jacob Cybulski}
+
 % \onehalfspacing
-\input{src/CoverPage/cover}
+% \input{src/CoverPage/cover}
+\IEEEtitleabstractindextext{
+    \input{Abstract/abstract}
+}
 
-\input{Abstract/abstract}
+\maketitle
 
-\tableofcontents
+
+% \tableofcontents
 \pagebreak
 
 \input{ProjectDesc/main.tex}
