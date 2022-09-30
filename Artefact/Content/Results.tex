@@ -1,16 +1,16 @@
 \subsection{Results and Analysis} \label{Result section}
 
-\subsubsection{Sampling Gradients results}
+\subsubsection{Sampling Gradients results} \label{Sec: Sampling Gradients results}
 \begin{table*}
     \centering
     \begin{tabular}{|| l l l ||}
         \hline
         \textbf{Ansatz} & \textbf{Method}                         & \textbf{Variance exponential fit} \\[0.5ex]
         \hline \hline
-        Real Amplitude  & \#0: No restriction                     & -0.63                             \\
-        Real Amplitude  & \#1: Local Cost function, shallow depth & -0.06                             \\
-        Real Amplitude  & \#2: Layerwise Learning                 & -0.57                             \\
-        Customised      & \#3: Identity Blocks                    & -0.60                             \\
+        Real Amplitude  & \#0: No restriction                     & -0.62                             \\
+        Real Amplitude  & \#1: Local Cost function, shallow depth & -0.03                             \\
+        Real Amplitude  & \#2: Layerwise Learning                 & -0.53                             \\
+        Customised      & \#3: Identity Blocks                    & -0.56                             \\
         \hline
     \end{tabular}
     \caption{
@@ -22,10 +22,11 @@
     \label{Tab: Experiment Phase 1 Res}
 \end{table*}
 
+We examine the internal performance of the ansatzes by sampling the variance of gradients as described in Section \ref{Sec: Visualise the Variance}.
 Table \ref{Tab: Experiment Phase 1 Res} states all the combinations of ansatzes and methods.
 
 The ansatz gradient variances decay as expected for the unrestricted setting.
-The decay rate is exponentially fitted with the rate of -0.63.
+The decay rate is exponentially fitted with the rate of -0.62.
 The figure \ref{Plot ansatzes variance}a shows the results of the ansatz in this configuration.
 The semi-log plots portray the variances of gradient from the ansatz in the unrestricted configuration.
 Consider that the unit measure for variance is in \emph{exponential} form, so the linear graph is exponentially closer to zero for each qubit added to the circuit.
@@ -65,14 +66,13 @@ We discussed this phenomenon in Section \ref{Barren Plateaus section}.
     \label{Plot ansatzes variance}
 \end{figure}
 
-\todo{fix this overlap}
 
 In contrast, for the case of Local Cost Function and Shallow circuit, we observe that the variances of the ansatz' gradient did not vanish when we attempted to increase the number of qubits.
-The slope of the ansatz in this case decay exponentially fit with -0.06.
+The slope of the ansatz in this case decay exponentially fit with -0.03.
 This implies that the cost function landscape can sustain the slope.
 Figure \ref{Plot ansatzes variance}b shows the result of the experiment for local cost function and shallow circuit.
 We can see that the ansatz produced an unstable graph which means the trainability of gradient-based optimization algorithms would not be consistent.
-For example, the variance value for 6 qubits is higher than 3, 4 or 5 qubits.
+For example, the variance value for 6 and 7 qubits are higher than 3, 4 or 5 qubits.
 
 To compare the effectiveness of the different treatments, we plot the variance graph of above mention cases in Figure \ref{Fig: Plot Variances} and the Table \ref{Tab: Experiment Phase 1 Res}.
 The results have shown the differences in the decay rates of different ansatzes and methods.
@@ -97,15 +97,15 @@ On the other hand, the values for the other cases shrink exponentially and event
     \centering
     \begin{tabular}{|| p{4cm} p{2cm} p{2cm} p{2cm} p{2cm} ||}
         \hline
-        \textbf{Method}                          & \textbf{Circuit depth} & \textbf{Parameters count} & \textbf{Minimum loss} & \textbf{Score} \\
+        \textbf{Method}                          & \textbf{Circuit depth} & \textbf{Parameters count} & \textbf{Reached loss} & \textbf{Accuracy Score} \\
         \hline \hline
-        0: No Restriction                        & 15                     & 16                        & 0.57                  & 72.50\%        \\
+        0: No Restriction                        & 161                    & 105                       & 0.82                  & 60\%                    \\
         \raggedright
         \hangindent=1em
         \hangafter=1
-        1: Local Cost Function - Shallow circuit & 5                      & 6                         & 0.57                  & 80\%           \\
-        2: Layerwise Learning                    & 15                     & 16                        & 0.39                  & 92.5\%         \\
-        3: Identity Blocks                       & 18                     & 24                        & 0.39                  & 90\%           \\
+        1: Local Cost Function - Shallow circuit & 25                     & 20                        & 0.81                  & 75\%                    \\
+        2: Layerwise Learning                    & 161                    & 105                       & 0.75                  & 82.5\%                  \\
+        3: Identity Blocks                       & 200                    & 200                       & 0.94                  & 77.5\%                  \\
         \hline
     \end{tabular}
     \caption{
@@ -115,19 +115,24 @@ On the other hand, the values for the other cases shrink exponentially and event
     \label{Tab: Experiment Phase 2 Res}
 \end{table*}
 
-The unrestricted and local cost function - shallow depth ansatzes loss functions both converged at a value of 0.57.
-The unrestricted ansatz, while converging to a value, the accuracy score of the classification test is the lowest (72.5\%).
-Thus, the model is likely to stuck on a barren plateau, instead of converging into the global minima.
-On the other hand, we can see that the local cost function and shallow circuit ansatz achieved higher accuracy in the classification test (at 80\% accuracy).
+We examine the practical performance of four models after 150 iterations of COBYLA optimisation, the results are shown in Table \ref{Tab: Experiment Phase 2 Res}.
+
+The unrestricted ansatz, as expected, perfomed the worst compared to the others.
+The local cost function - shallow depth ansatz seems to be the best in overcomming barren plateau as discussed in Section \ref{Sec: Sampling Gradients results}, and its accuracy score is indeed better than the unrestricted ansatz.
 However, by restricting the ansatz depth, we may have limited the model capacity, therefore high error rate.
-This also applies to classical machine learning \cite{ianDeepLearningAdaptive2016}, more complex functions would require higher model capacity. 
+On the other hand, the unrestricted ansatz has more layers and therefore more capacity to learn, but it is more likely to run into barren plateaus.
+This also applies to classical machine learning \cite{ianDeepLearningAdaptive2016}, more complex functions would require higher model capacity.
 Thus, the local cost function - shallow depth method is suitable if the dataset represents a simple function.
 
+% The unrestricted and local cost function - shallow depth ansatzes loss functions both converged at a value of 0.57.
+% The unrestricted ansatz, while converging to a value, the accuracy score of the classification test is the lowest (72.5\%).
+% Thus, the model is likely to stuck on a barren plateau, instead of converging into the global minima.
+% On the other hand, we can see that the local cost function and shallow circuit ansatz achieved higher accuracy in the classification test (at 80\% accuracy).
 
-The identity blocks can achieve a similar loss value as the layerwise learning method (0.39) with a bit lower accuracy.
-We can see that with the optimised initial parameters, the loss function can converge faster compared to identity blocks initialisation.
+The last two method focused on the initial parameters while allowing longer circuit, resulting in better capacity to learn.
+We can see that with the optimised initial parameters, the ansatz has better accuracy compared to identity blocks initialisation.
 However, it would take more time to obtain the optimal initial parameter due to the training process (see Section \ref{Sec: Method2}), while it is much faster to generate parameters for identity blocks in Section \ref{Sec: Method3}.
-The two methods also have their accuracy close to each other, scoring at 92\% for layerwise learning and 90\% for identity blocks.
+The two methods also have their accuracy close to each other, scoring at 82.5\% for layerwise learning and 77.5\% for identity blocks.
 Thus they are suitable for designing ansatzes of higher layer count to learn more complex functions.
 
 
@@ -136,8 +141,8 @@ Overall, the methods that involve configurations on the initial parameters can a
 
 \begin{figure}
     \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Artefact/Appendices/loss.png}
-        \centerline{a) Loss function values of four classifiers in 300 steps}
+        \includegraphics[width=\linewidth]{Artefact/Appendices/loss_cobyla.png}
+        \centerline{a) Loss function values of four classifiers in 150 steps}
     \end{subfigure}
     \begin{subfigure}{\linewidth}
         \includegraphics[width=\linewidth]{Artefact/Appendices/accuracy.png}
