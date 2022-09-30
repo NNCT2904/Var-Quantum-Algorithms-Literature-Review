@@ -129,7 +129,7 @@ Thus, the local cost function - shallow depth method is suitable if the dataset 
 % Thus, the model is likely to stuck on a barren plateau, instead of converging into the global minima.
 % On the other hand, we can see that the local cost function and shallow circuit ansatz achieved higher accuracy in the classification test (at 80\% accuracy).
 
-The last two method focused on the initial parameters while allowing longer circuit, resulting in better capacity to learn.
+The last two methods focused on the initial parameters while allowing longer circuits, resulting in better capacity to learn.
 We can see that with the optimised initial parameters, the ansatz has better accuracy compared to identity blocks initialisation.
 However, it would take more time to obtain the optimal initial parameter due to the training process (see Section \ref{Sec: Method2}), while it is much faster to generate parameters for identity blocks in Section \ref{Sec: Method3}.
 The two methods also have their accuracy close to each other, scoring at 82.5\% for layerwise learning and 77.5\% for identity blocks.
