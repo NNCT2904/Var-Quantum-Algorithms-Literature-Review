@@ -7,6 +7,8 @@ The results indicate that the variances of the gradient can be stable if we set 
 With this artefact, we have addressed the research design in Section \ref{Research Design section}.
 We have implemented the three methods, namely \textit{local cost function, shallow ansatz depth}, \textit{layerwise learning} and \textit{identity blocks}.
 We have compared the variances in the first phase of the experiment.
+According to Figure \ref{Fig: Plot Variances}, the variance values of the limited depth - cost function method at seven qubits configuration is significantly higher than the rest.
+% At higher qubit configuration, the barren plateaus are also more likely to appear, and the performance of these methods under this phenomenon is worth investigating.
 We anticipate that a higher variance value does not mean the optimisation is going in the right direction, the model can still stick it in a local minimum, or the error landscape is random.
 To verify the performance of these methods, in the second phase, we implemented a variational quantum neural network to solve a classification problem with a standard dataset.
 
@@ -15,4 +17,4 @@ Moreover, these experiments are conducted in an emulated environment with a nois
 Thus, this experiment can reflect the real-life situation to some extent.
 
 According to Figure \ref{Fig: Plot Variances}, the variance values of the limited depth - cost function method at seven qubits configuration is significantly higher than the rest.
-At higher qubit configuration, the barren plateaus are also more likely to appear, and the performance of these methods under this phenomenon is worth investigating.
+% At higher qubit configuration, the barren plateaus are also more likely to appear, and the performance of these methods under this phenomenon is worth investigating.
