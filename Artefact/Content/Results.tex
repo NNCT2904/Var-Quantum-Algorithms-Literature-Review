@@ -1,4 +1,4 @@
-\section{Findings} \label{Result section}
+% \section{Findings} \label{Result section}
 
 \subsubsection{Sampling Gradients results} \label{Sec: Sampling Gradients results}
 \begin{table*}
@@ -97,15 +97,15 @@ On the other hand, the values for the other cases shrink exponentially and event
     \centering
     \begin{tabular}{|| p{4cm} p{2cm} p{2cm} p{2cm} p{2cm} ||}
         \hline
-        \textbf{Method}                          & \textbf{Circuit depth} & \textbf{Parameters count} & \textbf{Reached loss} & \textbf{Accuracy Score} \\
+        \textbf{Method}                          & \textbf{Circuit depth} & \textbf{Parameters count} & \textbf{Accuracy at 150 iteration} & \textbf{Accuracy at 1000 iterations} \\
         \hline \hline
-        0: No Restriction                        & 161                    & 105                       & 0.82                  & 60\%                    \\
+        0: No Restriction                        & 123                    & 105                       & 60\%                               & 82.50\%                              \\
         \raggedright
         \hangindent=1em
         \hangafter=1
-        1: Local Cost Function - Shallow circuit & 25                     & 20                        & 0.81                  & 75\%                    \\
-        2: Layerwise Learning                    & 161                    & 105                       & 0.75                  & 82.5\%                  \\
-        3: Identity Blocks                       & 200                    & 200                       & 0.94                  & 77.5\%                  \\
+        1: Local Cost Function - Shallow circuit & 21                     & 20                        & 75\%                               & 75\%                                 \\
+        2: Layerwise Learning                    & 123                    & 105                       & 82.5\%                             & 82.5\%                               \\
+        3: Identity Blocks                       & 100                    & 100                       & 77.5\%                             & 77.5\%                               \\
         \hline
     \end{tabular}
     \caption{
@@ -115,19 +115,19 @@ On the other hand, the values for the other cases shrink exponentially and event
     \label{Tab: Experiment Phase 2 Res}
 \end{table*}
 
-We examine the practical performance of four models after 150 iterations of COBYLA optimisation, the results are shown in Table \ref{Tab: Experiment Phase 2 Res}.
+We examine the practical performance of four models at 150 and 1000 iterations of COBYLA optimisation, the results are shown in Table \ref{Tab: Experiment Phase 2 Res} and Figure \ref{Fig: Plot Loss and Accuracy}.
+Overall, the methods that involve configurations on the initial parameters can achieve lower loss in training and higher score on the classification test.
 
+We can see that while the unrestricted method has produced better result at 1000 iterations, the other methods accuracy remain unchanged after 150 seconds.
+The unrestricted method is likely to run into barren plateaus, therefore require more optimisation steps to find the global minimum.
 The unrestricted ansatz, as expected, performed the worst compared to the others.
-The local cost function - shallow depth ansatz seems to be the best in overcoming barren plateau as discussed in Section \ref{Sec: Sampling Gradients results}, and its accuracy score is indeed better than the unrestricted ansatz.
+
+The local cost function - shallow depth ansatz seems to be the best in overcoming barren plateau as discussed in Section \ref{Sec: Sampling Gradients results}, and the optimisation process indeed ended earlier compared to the other ansatzes (see Figure \ref{Fig: Plot Loss and Accuracy}a).
+We can see that at 150 iterations, the ansatz has more accuracy compared to the unrestricted method (see Figure \ref{Fig: Plot Loss and Accuracy}b).
 However, by restricting the ansatz depth, we may have limited the model capacity, therefore high error rate.
 On the other hand, the unrestricted ansatz has more layers and therefore more capacity to learn, but it is more likely to run into barren plateaus.
 This also applies to classical machine learning \cite{ianDeepLearningAdaptive2016}, more complex functions would require higher model capacity.
 Thus, the local cost function - shallow depth method is suitable if the dataset represents a simple function.
-
-% The unrestricted and local cost function - shallow depth ansatzes loss functions both converged at a value of 0.57.
-% The unrestricted ansatz, while converging to a value, the accuracy score of the classification test is the lowest (72.5\%).
-% Thus, the model is likely to stuck on a barren plateau, instead of converging into the global minima.
-% On the other hand, we can see that the local cost function and shallow circuit ansatz achieved higher accuracy in the classification test (at 80\% accuracy).
 
 The last two methods focused on the initial parameters while allowing longer circuits, resulting in better capacity to learn.
 We can see that with the optimised initial parameters, the ansatz has better accuracy compared to identity blocks initialisation.
@@ -136,8 +136,8 @@ The two methods also have their accuracy close to each other, scoring at 82.5\% 
 Thus they are suitable for designing ansatzes of higher layer count to learn more complex functions.
 
 
-To compare the effectiveness of different approaches, we plot the loss per iteration graph of above mention cases in Figure \ref{Fig: Plot Loss and Accuracy} and Table \ref{Tab: Experiment Phase 2 Res}
-Overall, the methods that involve configurations on the initial parameters can achieve lower loss in training and higher score on the classification test.
+% To compare the effectiveness of different approaches, we plot the loss per iteration graph of above mention cases in Figure \ref{Fig: Plot Loss and Accuracy} and Table \ref{Tab: Experiment Phase 2 Res}.
+% 
 
 \begin{figure}
     \begin{subfigure}{\linewidth}
@@ -146,7 +146,7 @@ Overall, the methods that involve configurations on the initial parameters can a
     \end{subfigure}
     \begin{subfigure}{\linewidth}
         \includegraphics[width=\linewidth]{Artefact/Appendices/accuracy.png}
-        \centerline{b) Accuracy score of four classifiers}
+        \centerline{b) Accuracy score of four classifiers after 150 optimisation steps}
     \end{subfigure}
 
     \caption{

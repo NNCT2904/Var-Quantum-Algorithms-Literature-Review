@@ -1,4 +1,4 @@
-\subsection{Classification Problem} \label{Sec: Classification Problem}
+\subsubsection{Classification Problem} \label{Sec: Classification Problem}
 We implement a variational quantum classifier as previously discussed in the section \ref{VQA}.
 The algorithm includes two stages: a training stage and a classification stage.
 We use a dataset which contain thirty features to identify the presence of breast cancer.
@@ -6,17 +6,23 @@ We apply Principal Component Analysis to the dataset obtain five training featur
 
 The quantum circuit for is constructed from three parts: the feature map to encode data, the ansatz to perform optimisation and finally, a final rotation layer for measurement (see Figure \ref{Fig: Quantum circuit for classifier}).
 The number of features will dictate the number of qubits, in our case, we will be using two qubits for the quantum circuit.
-For the methods unrestricted and layerwise learning, there is no restriction on ansatz depth, so we build the ansatz to have 20 repetitions (165 depth units).
-For the method local cost function - shallow depth, we only use three repetitions (25 depth units).
+For the methods unrestricted and layerwise learning, there is no restriction on ansatz depth, so we build the ansatz to have 20 repetitions (123 depth units).
+For the method local cost function - shallow depth, we only use five repetitions (100 depth units).
 For the identity blocks method, we will be using ten identity blocks as the ansatz, which results in 200 depth units.
 
-\todo{describe more about COBYLA and its characteristic}
 The dataset consisted of 80 labelled datapoints with five features used for the training process.
-The COBYLA algorithm provided by Qiskit will estimate the quantum circuit to optimise the ansatz parameters in maximum of 150 iterations.
+The COBYLA algorithm provided by Qiskit will estimate the quantum circuit to optimise the ansatz parameters in maximum of 1000 iterations.
 The cost function value for COBYLA algorithm is calculated as squared error.
+Compared to Gradient Descent, COBYLA algorithm perform random search to avoid local minima in the cost function landscape.
+The algorithm was also reported to have better runtime performance compared to traditional gradient descent \cite{huangEmpiricalStudyOptimizers2020, bonet-monroigPerformanceComparisonOptimization2021}.
+For the traditional gradient descent algorithm, it may require tuning on its hyperparameters to achieve better speed and quality, due to time constraints we leave this matter for future experiment.
+
 For the classification benchmark, we use another set of 20 datapoints, and run the classifier with the optimised parameters obtained from the training stage.
 The classifier would produce the predicted labels for each testing datapoint.
 Then, we compare these predicted labels to the actual provided labels.
+We record the classification results at 150 iterations and 1000 iterations.
+
+
 
 We collect the optimiser' history (loss function per iteration) by implementing a callback function for the variational quantum classifier.
 The accuracy score $s$ of the classifier is calculated as the percentage likeliness of the predicted labels array compared to the actual labels array:
