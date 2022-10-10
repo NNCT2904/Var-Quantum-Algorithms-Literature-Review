@@ -27,7 +27,7 @@ Table \ref{Tab: Experiment Phase 1 Res} states all the combinations of ansatzes 
 
 The ansatz gradient variances decay as expected for the unrestricted setting.
 The decay rate is exponentially fitted with the rate of -0.62.
-The figure \ref{Plot ansatzes variance}a shows the results of the ansatz in this configuration.
+Figure \ref{Plot ansatzes variance}a shows the results of the ansatz in this configuration.
 The semi-log plots portray the variances of gradient from the ansatz in the unrestricted configuration.
 Consider that the unit measure for variance is in \emph{exponential} form, so the linear graph is exponentially closer to zero for each qubit added to the circuit.
 This result indicates that the cost function landscape becomes flatter and flatter.
@@ -119,10 +119,10 @@ We examine the practical performance of four models at 150 and 1000 iterations o
 Overall, the methods that involve configurations on the initial parameters can achieve lower loss in training and higher score on the classification test.
 
 We can see that while the unrestricted method has produced better result at 1000 iterations, the other methods accuracy remain unchanged after 150 seconds.
-The unrestricted method is likely to run into barren plateaus, therefore require more optimisation steps to find the global minimum.
+The unrestricted method is likely to run into barren plateaus, therefore requires more optimisation steps to find the global minimum.
 The unrestricted ansatz, as expected, performed the worst compared to the others.
 
-The local cost function - shallow depth ansatz seems to be the best in overcoming barren plateau as discussed in Section \ref{Sec: Sampling Gradients results}, and the optimisation process indeed ended earlier compared to the other ansatzes (see Figure \ref{Fig: Plot Loss and Accuracy}a).
+The local cost function - shallow depth ansatz seems to be the best in overcoming barren plateaus as discussed in Section \ref{Sec: Sampling Gradients results}, and the optimisation process indeed ended earlier compared to the other ansatzes (see Figure \ref{Fig: Plot Loss and Accuracy}a).
 We can see that at 150 iterations, the ansatz has more accuracy compared to the unrestricted method (see Figure \ref{Fig: Plot Loss and Accuracy}b).
 However, by restricting the ansatz depth, we may have limited the model capacity, therefore high error rate.
 On the other hand, the unrestricted ansatz has more layers and therefore more capacity to learn, but it is more likely to run into barren plateaus.

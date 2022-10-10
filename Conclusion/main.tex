@@ -8,16 +8,16 @@ One approach is to address the structure of the parameterised circuit by utilisi
 Another possibility is to pre-train or generate the initial parameters such that the starting point would not land on a plateau.
 We designed a series of exploratory experiments with QNN models to answer the research question.
 
-In machine learning, the loss function which guide the optimisation process, would reflects the internal performance in dealing with barren plateaus, while the accuracy of the model describes the practical performance.
-The loss function, in combination with the structure of neural network would translate to the trainability of the model.
-This experiment has demonstrated the internal performance of quantum variational classifier ansatzes in the phase one and the practical performance as accuracy score in phase two.
+In machine learning, the loss function which guides the optimisation process would reflect the internal performance in dealing with barren plateaus, while the accuracy of the model describes the practical performance.
+The loss function, in combination with the structure of the neural network, would translate to the trainability of the model.
+This experiment has demonstrated the internal performance of quantum variational classifier ansatzes in phase one and the practical performance as accuracy score in phase two.
 
 % We have delivered a comparison of methods to construct the ansatz component of the QNN model.
 We compared their effectiveness and performances by analysing their gradient decay rates and their accuracy by solving a classification problem.
 The results indicate that unrestricted configuration leads to exponential decay in the gradient variance for each qubit added to the ansatzes.
 On the other hand, the local cost function, combined with restricted depth, can sustain ansatzes gradient variance for higher qubit count, resulting in better accuracy in the classification test.
 For the ansatzes with lower depth, we can expect more learning capacity.
-The initial parameter factor in theses ansatzes would significantly contribute to the accuracy in the classification problem, with some trade-offs between time and quality.
+The initial parameter factor in these ansatzes would significantly contribute to the accuracy in the classification problem, with some trade-offs between time and quality.
 
-Our study thus provide guidedance for further implementations of ansatzes for hybrid quantum algorithms in experiment.
-We leave the relationship between training data, capacity and barren plateaus for future works, as well as further experiments with more qubits, and gradient descent with hyperparameter tuning.
+Our study thus provides guidance for further implementations of ansatzes for hybrid quantum algorithms in experiments.
+We leave the relationship between training data, capacity and barren plateaus for future works, as well as further experiments with more qubits and gradient descent with hyperparameter tuning.
