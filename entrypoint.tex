@@ -1,4 +1,4 @@
-
+% !TeX root = entrypoint.tex
 \documentclass[oneside,notitlepage,12pt]{article}
 \pagestyle{plain}
 
@@ -41,6 +41,8 @@
 \usepackage{physics}
 \usepackage{qcircuit}
 \usepackage{subcaption} 
+\usepackage{framed} 
+\usepackage{authblk}
 
 % Resolve rho and varrho symbols
 \usepackage{mathptmx}
@@ -276,8 +278,22 @@
 \usepackage{ragged2e}
 
 \begin{document}
-% \onehalfspacing
-\input{src/CoverPage/cover}
+% \title[Article Title]{Article Title}
+% \author*[1,2]{\fnm{First} \sur{Author}}\email{iauthor@gmail.com}
+
+% \author[2,3]{\fnm{Second} \sur{Author}}\email{iiauthor@gmail.com}
+% \affil*[1]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{100190}, \state{State}, \country{Country}}}
+% \affil[2]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
+
+\title{Investigation of Barren Plateaus Mitigation Methods in Quantum Neural Network Development}
+\author[1]{Jacob L. Cybulski}
+\author[1,2]{Thanh Nguyen}
+\affil[1]{School of IT, Deakin University, Australia}
+\affil[2]{School of Technology, Van Lang University, Vietnam}
+\date{March 2023}
+
+
+\maketitle
 
 \input{Abstract/abstract}
 
@@ -286,9 +302,9 @@
 
 \input{ProjectDesc/main.tex}
 \input{LiteratureReview/main.tex}
-\input{ResearchDesign/main.tex}
-\input{Artefact/main.tex}
-\input{Conclusion/main.tex}
+% \input{ResearchDesign/main.tex}
+% \input{Artefact/main.tex}
+% \input{Conclusion/main.tex}
 
 \include{src/References/references}
 \end{document}

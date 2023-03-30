@@ -1,12 +1,12 @@
-\subsection{Addressing Random Initialisation Parameters}
+\section{Addressing Random Initialisation Parameters}
 
-\subsubsection{Layerwise Learning}
+\subsection{Layerwise Learning}
 The algorithm developed by Skolik et al. \cite{skolikLayerwiseLearningQuantum2021} starts with training a shallow circuit to reach its best possible performance. Then repeatedly, the algorithm extends the circuit partially instantiating it with the optimum parameters from the previous step.
 Note that in the subsequent optimisation only the parameters in the circuit extension are allowed to vary, while all the previous parameters become frozen.
 Thus, the number of parameters used in each optimisation step is small and the changes are contained within shallow sub-circuits only. Such a process ensures creation of large gradients, which minimises the chance of producing barren plateaus.
 
 
-\subsubsection{Identity Blocks} \label{Sec: Identity blocks}
+\subsection{Identity Blocks} \label{Sec: Identity blocks}
 
 Grant et al. \cite{grantInitializationStrategyAddressing2019} proposed random initialisation of variational circuit parameters so that the early training steps are unlikely to start on a plateau region.
 The idea is to divide a large parameterised circuit into blocks and initialise each block separately, with the aim to produce a fixed unitary matrix, i.e., an identity operation.
