@@ -2,7 +2,6 @@
 We will now discuss the main characteristics, the pros and cons of each of the previously discussed methods of dealing with barren plateaus while training VQAs and QNNs in particular.
 As has been established above, the main causes of the barren plateaus phenomenon include: the excessive circuit depth, the large number of qubits in use and poorly initialised circuit parameters.
 Consequently, we will identify characteristics of each method based on how they address these factors.
-Table \ref{quick comparison of methods} provides the methods comparison in a concise form.
 
 There are two distinct approaches to dealing with the ansatz depth, either setting the bounds \cite{cerezoCostFunctionDependent2021} or allowing unlimited depth \cite{skolikLayerwiseLearningQuantum2021, grantInitializationStrategyAddressing2019}.
 The first approach is studied by Cerezo et al. \cite{cerezoCostFunctionDependent2021}.
@@ -30,19 +29,19 @@ Overall, the authors manipulated the starting parameters to achieve trainability
 
 Finally, it is worth mentioning that Quantum Convolutional Neural Networks (QCNNs) and QNNs with tensor network architectures do not have Barren Plateaus \cite{congQuantumConvolutionalNeural2019}.
 
-\begin{table*}
-    \centering
-    \begin{tabular}{||p{3cm} p{2cm} p{2cm} p{2cm} p{2cm}||}
-        \hline
-        \textbf{Method /\newline Aspect}             & \textbf{Local cost function, shallow circuits} & \textbf{Identity Blocks} & \textbf{Layerwise learning} & \textbf{QCNN} \\
-        \hline \hline
-        \raggedright\emph{Ansatz depth}              & Bounded                                        & Any length               & Any length                  & Any length    \\
-        \raggedright\emph{Qubits to be measured}     & Limited                                        & All qubits               & All qubits                  & All qubits    \\
-        \raggedright\emph{Initial Parameters}        & Randomised                                     & Restricted               & Restricted                  & Randomised    \\
-        \hline \hline
-        \raggedright\emph{Effect to Barren Plateaus} & Eliminated                                     & Avoided                  & Avoided                     & Eliminated    \\
-        \hline
-    \end{tabular}
-    \caption{A concise comparison of the reviewed methods.}
-    \label{quick comparison of methods}
-\end{table*}
+% \begin{table*}
+%     \centering
+%     \begin{tabular}{||p{3cm} p{2cm} p{2cm} p{2cm} p{2cm}||}
+%         \hline
+%         \textbf{Method /\newline Aspect}             & \textbf{Local cost function, shallow circuits} & \textbf{Identity Blocks} & \textbf{Layerwise learning} & \textbf{QCNN} \\
+%         \hline \hline
+%         \raggedright\emph{Ansatz depth}              & Bounded                                        & Any length               & Any length                  & Any length    \\
+%         \raggedright\emph{Qubits to be measured}     & Limited                                        & All qubits               & All qubits                  & All qubits    \\
+%         \raggedright\emph{Initial Parameters}        & Randomised                                     & Restricted               & Restricted                  & Randomised    \\
+%         \hline \hline
+%         \raggedright\emph{Effect to Barren Plateaus} & Eliminated                                     & Avoided                  & Avoided                     & Eliminated    \\
+%         \hline
+%     \end{tabular}
+%     \caption{A concise comparison of the reviewed methods.}
+%     \label{quick comparison of methods}
+% \end{table*}
